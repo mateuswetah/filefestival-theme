@@ -1,0 +1,26 @@
+/*
+Theme Name:     FILE Festival
+Theme URI:      https://file.org.br/
+Description:    New theme for the FILE Festival
+Author:         Mateus Machado Luna
+Author URI:     mateuswetah
+Template:       twentytwentyone
+Version:        0.0.2
+*/
+
+/* Styles related to the Tainacan plugin */
+@import url('./css/tainacan.css');
+
+/* Style from Twentig plugin classes to help with our customizations */
+@import url('./css/twentig-twentyone.css');
+
+/* Style from Twentig plugin customizations */
+@import url('./css/twentig-twentyone-inline.css');
+
+/* Style related to the customizing Twenty Twenty One parent theme */
+@import url('./css/header.css');
+
+/* Sets some variables not available on Twentig neither on Tainacan */
+:root {
+    --global--color-border: #cccccc;
+}

@@ -1,0 +1,26 @@
+/* Smaller header padding */
+.site-header {
+	padding-bottom: var(--header--padding);
+}
+
+/* Puts site title and tagline aside each other */
+.site-branding {
+	display: flex;
+}
+
+/* Tagline, aka Site description */
+.site-description {
+	font-size: 13px;
+	font-stretch: normal;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 18px;
+	float: left;
+	color: black;
+	margin-left: 10px;
+}
+
+/* Menu border */
+.primary-menu-container {
+	border-bottom: 1px solid var(--global--color-border, #cccccc);
+}

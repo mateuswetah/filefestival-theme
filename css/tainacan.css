@@ -1,0 +1,23 @@
+.theme-items-list {
+	--tainacan-input-color: #1d1d1d;
+	--tainacan-input-background-color: var(--tainacan-white);
+	--tainacan-input-border-color: var(--tainacan-gray2);
+	--tainacan-label-color: var(--tainacan-gray5);
+	--tainacan-info-color: var(--tainacan-gray4);
+	--tainacan-heading-color: var(--tainacan-black);
+	--tainacan-skeleton-color: #eeeeee;
+	--tainacan-item-background-color: var(--tainacan-background-color);
+	--tainacan-item-hover-background-color: var(--tainacan-gray1);
+	--tainacan-item-heading-hover-background-color: var(--tainacan-gray2);
+	--tainacan-primary: var(--tainacan-turquoise2);
+	--tainacan-secondary: var(--tainacan-turquoise5);
+	--tainacan-success: var(--tainacan-green2);
+	--tainacan-danger: var(--tainacan-red2);
+	--tainacan-warning: var(--tainacan-yellow2);
+	--tainacan-background-color: var(--tainacan-white);
+	--tainacan-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--tainacan-base-font-size: 1em;
+	--tainacan-filter-menu-width-theme: 20%;
+	--tainacan-one-column: 4.16667%;
+	--tainacan-container-padding: 25px;
+}
