@@ -20,6 +20,10 @@ Version:        0.0.2
 /* Style related to the customizing Twenty Twenty One parent theme */
 @import url('./css/header.css');
 
+/* Style related to the customizing Twenty Twenty One parent theme */
+@import url('./css/footer.css');
+
+
 /* Sets some variables not available on Twentig neither on Tainacan */
 :root {
     --global--color-border: #cccccc;

@@ -1,0 +1,11 @@
+
+/* Adds border at top of it */
+.widget-area > .widget {
+    padding-top: 20px;
+    border-top: 1px solid var(--global--color-border, #cccccc);
+}
+
+/* Aligns latest elements to the right */
+.widget-area > .widget > .wp-block-columns > .wp-block-column:last-of-type > .wp-block-columns {
+    justify-content: flex-end;
+}

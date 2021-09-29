@@ -23,4 +23,6 @@
 /* Menu border */
 .primary-menu-container {
 	border-bottom: 1px solid var(--global--color-border, #cccccc);
+	padding-top: 12px !important;
+	padding-bottom: 12px !important;
 }
