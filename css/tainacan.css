@@ -1,23 +1,87 @@
+.tainacan-modal,
 .theme-items-list {
-	--tainacan-input-color: #1d1d1d;
-	--tainacan-input-background-color: var(--tainacan-white);
-	--tainacan-input-border-color: var(--tainacan-gray2);
-	--tainacan-label-color: var(--tainacan-gray5);
-	--tainacan-info-color: var(--tainacan-gray4);
-	--tainacan-heading-color: var(--tainacan-black);
+	--tainacan-input-color: var(--content--color--link, #000000);
+	--tainacan-input-background-color: var(--global--color-background, #ffffff);
+	--tainacan-input-border-color: var(--global--color-border, #cccccc);
+	--tainacan-label-color: var(--header--color-text, #777777);
+	--tainacan-info-color: var(--global--color-primary, #676767);
+	--tainacan-heading-color: var(--header--color-text, #777777);
 	--tainacan-skeleton-color: #eeeeee;
 	--tainacan-item-background-color: var(--tainacan-background-color);
 	--tainacan-item-hover-background-color: var(--tainacan-gray1);
-	--tainacan-item-heading-hover-background-color: var(--tainacan-gray2);
-	--tainacan-primary: var(--tainacan-turquoise2);
-	--tainacan-secondary: var(--tainacan-turquoise5);
+	--tainacan-item-heading-hover-background-color: var(--global--color-background, #ffffff);
+	--tainacan-primary: var(--global--color-border, #cccccc);
+	--tainacan-secondary: var(--global--color-primary, #676767);
 	--tainacan-success: var(--tainacan-green2);
 	--tainacan-danger: var(--tainacan-red2);
 	--tainacan-warning: var(--tainacan-yellow2);
-	--tainacan-background-color: var(--tainacan-white);
+	--tainacan-blue5: var(--global--color-primary, #676767);
+	--tainacan-background-color: var(--global--color-background, #ffffff);
 	--tainacan-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--tainacan-base-font-size: 1em;
 	--tainacan-filter-menu-width-theme: 20%;
-	--tainacan-one-column: 4.16667%;
+	--tainacan-one-column: var(--site--padding);
 	--tainacan-container-padding: 25px;
+}
+
+/* Adding border to filters list */
+.theme-items-list #filters-items-list {
+	border: 1px solid var(--global--color-border, #cccccc);
+	padding: 24px;
+}
+
+/* Filters collapse label is ligther */
+.tainacan-modal .filter-item-forms .collapse-trigger,
+.theme-items-list .filter-item-forms .collapse-trigger {
+	color: var(--header--color-text, #777777) !important;
+}
+
+/* Using padding variable to space filters list */
+.tainacan-modal #filters-modal .modal-content,
+.theme-items-list #filters-modal .modal-content {
+	padding: 20px 18px 24px var(--tainacan-one-column) !important;
+}
+
+/* Filters label uppercase */
+.tainacan-modal #filters-modal .modal-content h3,
+.theme-items-list #filters-modal .modal-content h3 {
+	text-transform: uppercase;
+}
+
+/* Title on view modes should be bold and lighter */
+.tainacan-modal .table-container .table-wrapper table.tainacan-table .column-main-content p,
+.theme-items-list .table-container .table-wrapper table.tainacan-table .column-main-content p {
+	font-weight: bold;
+	--tainacan-input-color: var(--header--color-text, #777777) !important;
+	line-height: 1.15 !important;
+}
+.tainacan-masonry-container .tainacan-masonry-item .metadata-title,
+.tainacan-cards-container .tainacan-card .metadata-title,
+.tainacan-records-container .tainacan-record .metadata-title,
+.tainacan-list-container .tainacan-list .metadata-title {
+	padding-left: 0 !important;
+}
+.tainacan-masonry-container .tainacan-masonry-item .metadata-title p,
+.tainacan-cards-container .tainacan-card .metadata-title p,
+.tainacan-records-container .tainacan-record .metadata-title p,
+.tainacan-list-container .tainacan-list .metadata-title p {
+	font-weight: bold;
+}
+
+/* Masonry items have title bellow */
+.tainacan-masonry-container .tainacan-masonry-item:not(.skeleton) {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+/* Even this guys have white background */
+.tainacan-list-container .tainacan-list,
+.tainacan-records-container .tainacan-record {
+	background-color: var(--global--color-background, #ffffff) !important;
+}
+
+/* Fixes weird relationship image error */
+.tainacan-modal .metadata-value .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header img,
+.theme-items-list .metadata-value .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header img {
+	max-width: 22px !important;
 }

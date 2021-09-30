@@ -11,7 +11,7 @@
 			'hide_exposers_button' => false,
 			'hide_items_per_page_button' => false,
 			'hide_go_to_page_button' => false,
-			'show_filters_button_inside_search_control' => false,
+			'show_filters_button_inside_search_control' => true,
 			'start_with_filters_hidden' => false,
 			'filters_as_modal' => false,
 			'show_inline_view_mode_options' => false,
