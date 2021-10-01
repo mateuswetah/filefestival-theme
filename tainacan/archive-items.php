@@ -1,4 +1,8 @@
-<?php get_header(); ?>									
+<?php get_header(); ?>
+	<div class="tainacan-items-list-heading">
+		<h1><?php tainacan_the_collection_name(); ?></h1>
+		<p><?php tainacan_the_collection_description(); ?></p>
+	</div>
     <?php 
 		tainacan_the_faceted_search([
 			'default_view_mode' => 'masonry',

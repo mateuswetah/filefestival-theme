@@ -1,3 +1,30 @@
+/* Collection or term heading */
+.tainacan-items-list-heading {
+	max-width: none;
+	padding-left: var(--responsive--alignfull-padding);
+	padding-right: var(--responsive--alignfull-padding);
+	display: flex;
+	max-width: 960px;
+	margin-top: -1rem !important;
+	margin-bottom: 12px;
+}
+.tainacan-items-list-heading h1 {
+	font-weight: bold;
+	font-size: 1.875rem;
+	text-transform: uppercase;
+	color: var(--header--color-link-hover);
+	margin-right: 3rem;
+	margin-bottom: 0.75rem;
+	min-width: 13.75vw;
+}
+
+@media screen and (max-width: 822px) {
+	.tainacan-items-list-heading {
+		flex-wrap: wrap;
+		max-width: 100%;
+	}
+}
+
 .tainacan-modal,
 .theme-items-list {
 	--tainacan-input-color: var(--content--color--link, #000000);
@@ -24,6 +51,11 @@
 	--tainacan-container-padding: 25px;
 }
 
+/* Margin top should be smaller */
+.theme-items-list {
+	margin-top: 16px;
+}
+
 /* Adding border to filters list */
 .theme-items-list #filters-items-list {
 	border: 1px solid var(--global--color-border, #cccccc);
@@ -40,6 +72,11 @@
 .tainacan-modal #filters-modal .modal-content,
 .theme-items-list #filters-modal .modal-content {
 	padding: 20px 18px 24px var(--tainacan-one-column) !important;
+}
+
+/* Search input should have similar width than filters panel */
+.search-control .search-control-item .search-area {
+	max-width: 13.75vw !important;
 }
 
 /* Filters label uppercase */
@@ -84,4 +121,14 @@
 .tainacan-modal .metadata-value .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header img,
 .theme-items-list .metadata-value .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header img {
 	max-width: 22px !important;
+}
+
+/* Checkobxes have special style */
+.tainacan-modal #filters-modal input[type="checkbox"] + span + .control-label,
+.theme-items-list #filters-modal input[type="checkbox"] + span + .control-label {
+	--tainacan-input-color: var(--global--color-primary);
+}
+.tainacan-modal #filters-modal input[type="checkbox"]:checked + span + .control-label,
+.theme-items-list #filters-modal input[type="checkbox"]:checked + span + .control-label {
+	--tainacan-input-color: var(--content--color--link, #000000);
 }
