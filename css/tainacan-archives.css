@@ -15,7 +15,7 @@
 	color: var(--header--color-link-hover);
 	margin-right: 3rem;
 	margin-bottom: 0.75rem;
-	min-width: 13.75vw;
+	min-width: 235px;
 }
 
 @media screen and (max-width: 822px) {
@@ -46,14 +46,28 @@
 	--tainacan-background-color: var(--global--color-background, #ffffff);
 	--tainacan-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--tainacan-base-font-size: 1em;
-	--tainacan-filter-menu-width-theme: 20%;
+	--tainacan-filter-menu-width-theme: 364px;
 	--tainacan-one-column: var(--site--padding);
 	--tainacan-container-padding: 25px;
+}
+
+@media only screen and (min-width:822px) {
+	.tainacan-modal,
+	.theme-items-list {
+		--tainacan-filter-menu-width-theme: 344px;
+	}
 }
 
 /* Margin top should be smaller */
 .theme-items-list {
 	margin-top: 16px;
+}
+.theme-items-list.is-filters-menu-open {
+	padding-right: var(--tainacan-one-column);
+}
+.theme-items-list:not(.is-filters-menu-open) #items-list-results {
+	padding-right: var(--tainacan-one-column);
+	padding-left: var(--tainacan-one-column);
 }
 
 /* Adding border to filters list */
@@ -71,12 +85,13 @@
 /* Using padding variable to space filters list */
 .tainacan-modal #filters-modal .modal-content,
 .theme-items-list #filters-modal .modal-content {
-	padding: 20px 18px 24px var(--tainacan-one-column) !important;
+	padding: 20px 42px 24px var(--tainacan-one-column) !important;
 }
 
 /* Search input should have similar width than filters panel */
 .search-control .search-control-item .search-area {
-	max-width: 13.75vw !important;
+	max-width: 235px !important;
+	min-width: 235px !important;
 }
 
 /* Filters label uppercase */
@@ -132,3 +147,13 @@
 .theme-items-list #filters-modal input[type="checkbox"]:checked + span + .control-label {
 	--tainacan-input-color: var(--content--color--link, #000000);
 }
+
+/* There is no border in the pagination */
+.theme-items-list .pagination {
+	border-width: 0px;
+}
+.theme-items-list .pagination-area {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+

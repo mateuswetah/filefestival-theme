@@ -21,3 +21,20 @@ function filefestival_parent_theme_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'filefestival_parent_theme_enqueue_styles' );
+
+/* Registers File Festival Custom View Modes */
+function filefestival_register_tainacan_view_modes() {
+	if ( function_exists( 'tainacan_register_view_mode' ) ) {
+
+		// Grid
+		tainacan_register_view_mode('filefestivalgrid', array(
+			'label' => __( 'Cartões', 'filefestival' ),
+			'description' => __( 'Uma grade de itens feita para o festival FILE', 'filefestival' ),
+			'icon' => '<span class="icon"><i class="tainacan-icon tainacan-icon-viewminiature tainacan-icon-1-25em"></i></span>',
+			'dynamic_metadata' => false,
+			'template' => get_stylesheet_directory() . '/tainacan/view-mode-filefestivalgrid.php'
+		));
+
+	}
+}
+add_action( 'after_setup_theme', 'filefestival_register_tainacan_view_modes' );

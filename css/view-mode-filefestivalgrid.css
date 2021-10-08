@@ -1,0 +1,102 @@
+.tainacan-filefestival-grid-container {
+    min-height: 50vh;
+    padding: 36px 0;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-gap: 50px;
+    justify-content: flex-start;
+    margin-top: 20px;
+    border-top: 1px solid var(--global--color-border, #cccccc);
+    animation-name: appear;
+    animation-duration: 0.5s;
+}
+
+.tainacan-filefestival-grid-container .row { justify-content: space-around }
+.tainacan-filefestival-grid-container .col { flex-grow: 0; }
+
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item {
+    width: 220px;
+    margin: 0px 0px 24px 0px;
+    display: block;
+    text-decoration: none !important;
+}
+
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item.skeleton {
+    width: 220px;
+    height: 380px;
+}
+
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail {
+    width: 220px;
+    height: 364px;
+    max-height: 364px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: block;
+    position: relative;
+}
+
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail .skeleton {
+    width: 220px;
+    height: 364px;
+    position: absolute;
+    z-index: -1;
+    background-color: #e0e0e0;
+    bottom: 0;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail img {
+    width: 220px;
+    height: 364px;
+    height: auto;
+    border-radius: 0px;
+    margin-bottom: -5px;
+    visibility: hidden;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail:hover {
+    background-color: #dbdbdb;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item:hover .metadata-title {
+    text-decoration: none !important;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title {
+    flex-shrink: 0;
+    padding: 0.6rem 0rem;
+    text-align: left;
+    position: relative;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title p {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    color: var(--header--color-text, #777777);
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title a,
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title a:hover {
+    color: var(--header--color-text, #777777) !important;
+    text-decoration: none !important;
+}
+
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title .slideshow-icon {
+    border: none;
+    background: none;
+    box-shadow: none;
+    color: var(--tainacan-info-color) !important; 
+    position: absolute;
+    right: 7px;
+    top: 9px;
+    transform: scale(0.0);
+    transition: transform 0.2s ease;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title:hover .slideshow-icon,
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title:focus .slideshow-icon {
+    transform: scale(1.0);
+}
+
+
