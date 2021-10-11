@@ -2,3 +2,80 @@
 	font-weight: normal;
 	font-size: 0.75rem;
 }
+
+.metadata-value p:empty {
+    display: none;
+    visibility: hidden;
+}
+
+/* Metadata type textarea has different separator */
+.multivalue-separator {
+    color: #cbcbcb;
+    margin: 0 8px;
+}
+.hierarchy-separator {
+    color: #cbcbcb;
+}
+.metadata-type-compound .multivalue-separator,
+.metadata-type-textarea .multivalue-separator {
+    display: block;
+    max-height: 1px;
+    width: 70px;
+    background: #cbcbcb;
+    content: none;
+    color: transparent;
+    margin: 0.875rem auto;
+}
+.tainacan-compound-group {
+    padding-left: 1.5rem;
+    border-left: 1px solid #dbdbdb;
+}
+.tainacan-compound-group .label {
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+}
+.tainacan-compound-group p {
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header {
+	display: flex;
+	align-items: center;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header img {
+	margin-right: 12px;
+	max-width: 28px !important;
+	max-height: 28px;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header .label {
+	font-weight: normal;
+	font-style: normal;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+	padding: 0;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum {
+	margin-left: 40px;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum .label {
+	font-size: 0.8125em !important;
+	line-height: 1em;
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+.tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum p {
+	margin-top: 0.25rem;
+	margin-bottom: 0.5rem;
+}
+.tainacan-relationship-group>.multivalue-separator {
+    display: block;
+    max-height: 1px;
+    width: calc(100% - 40px);
+    background: var(--tainacan-gray2);
+    content: none;
+    color: transparent;
+    margin: 0.5em 0 0.5em 40px;
+}

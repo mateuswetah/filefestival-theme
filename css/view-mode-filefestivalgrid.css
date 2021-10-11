@@ -8,12 +8,10 @@
     justify-content: flex-start;
     margin-top: 20px;
     border-top: 1px solid var(--global--color-border, #cccccc);
+    list-style: none;
     animation-name: appear;
     animation-duration: 0.5s;
 }
-
-.tainacan-filefestival-grid-container .row { justify-content: space-around }
-.tainacan-filefestival-grid-container .col { flex-grow: 0; }
 
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item {
     width: 220px;

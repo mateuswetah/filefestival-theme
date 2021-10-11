@@ -1,0 +1,83 @@
+.tainacan-filefestival-list-container {
+    min-height: 50vh;
+    width: 100%;
+    padding: 36px 0;
+    display: block;
+    margin-top: 20px;
+    border-top: 1px solid var(--global--color-border, #cccccc);
+    list-style: none;
+    animation-name: appear;
+    animation-duration: 0.5s;
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item {
+    width: 100%;
+    margin: 0px 0px 24px 0px;
+    padding-bottom: 24px;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 125px repeat(auto-fill, 220px);
+    grid-template-rows: auto auto;
+    column-gap: 60px;
+    row-gap: 4px; 
+    text-decoration: none !important;
+}
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item:not(:last-child) {
+    border-bottom: 1px solid var(--global--color-border, #cccccc);
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item.skeleton {
+    width: 100%;
+    height: 380px;
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail {
+    width: 125px;
+    height: 186px;
+    max-height: 186px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: block;
+    position: relative;
+    grid-row-start: 1;
+    grid-row-end: span all;
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail .skeleton {
+    width: 125px;
+    height: 186px;
+    position: absolute;
+    z-index: -1;
+    background-color: #e0e0e0;
+    bottom: 0;
+}
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail img {
+    width: 125px;
+    height: 186px;
+    height: auto;
+    border-radius: 0px;
+    margin-bottom: -5px;
+    visibility: hidden;
+}
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail:hover {
+    background-color: #dbdbdb;
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-label {
+    color: var(--header--color-text, #777777);
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-value {
+    color: var(--header--color-text, #777777);
+    font-size: 1.0625rem;
+    margin-bottom: 1.5rem;
+}
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-type-core_title .metadata-value {
+    font-weight: bold;
+    font-size: 1.25rem;
+}

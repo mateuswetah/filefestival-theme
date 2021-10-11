@@ -157,3 +157,15 @@
 	margin-right: 0px !important;
 }
 
+/* View modes appear animation */
+@keyframes appear {
+    from {
+        opacity: 0.0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1.0;
+        visibility: visible;
+    }
+}
+

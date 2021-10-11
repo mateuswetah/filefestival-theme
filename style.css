@@ -11,7 +11,11 @@ Version:        0.0.2
 /* Styles related to the Tainacan plugin */
 @import url('./css/tainacan-archives.css');
 @import url('./css/tainacan-singles.css');
+
+/* Styles related to Tainacan view modes */
 @import url('./css/view-mode-filefestivalgrid.css');
+@import url('./css/view-mode-filefestivallist.css');
+@import url('./css/view-mode-filefestivaltable.css');
 
 /* Style from Twentig plugin classes to help with our customizations */
 @import url('./css/twentig-twentyone.css');
