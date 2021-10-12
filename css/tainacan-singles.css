@@ -1,9 +1,108 @@
-.tainacan-item-metadatum  h1 {
+.tainacan-item-single-content {
+    display: grid;
+    grid-template-areas: 'info1 gallery info2 navigation';
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 450px 1fr 235px;
+    column-gap: 50px;
+}
+.tainacan-item-single-content.has-attachments {
+    grid-template-areas: 'info1 gallery gallery navigation'
+                         'info1 info2 info2 navigation';
+    grid-template-rows: auto auto;
+}
+.tainacan-item-single-content.has-empty-document{
+    grid-template-areas: 'info1 info1 info2 info2 navigation'
+                         'gallery gallery info2 info2 navigation';
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 235px;
+}
+.tainacan-item-single-content--information {
+    grid-area: info1;
+    max-width: 100%;
+    column-count: 2;
+    column-gap: 50px;
+}
+.tainacan-item-single-content--information>*{
+    break-inside: avoid;
+    max-width: 100%;
+}
+.tainacan-item-single-content--information .metadata-type-core_description,
+.tainacan-item-single-content--information .metadata-type-core_textarea {
+    column-span: all;
+}
+.tainacan-item-single-content--gallery {
+    grid-area: gallery;
+    max-width: 100%;
+    min-height: 364px;
+}
+.tainacan-item-single-content--information-2 {
+    grid-area: info2;
+    max-width: 100%;
+}
+.tainacan-item-single-content--navigation {
+    grid-area: navigation;
+    max-width: 100%;
+}
+.tainacan-item-single-content.has-attachments .tainacan-item-single-content--gallery .tainacan-media-component {
+    --tainacan-media-main-carousel-height: 364px;
+    --swiper-theme-color: var(--global--color-primary, #676767);
+}
+.tainacan-item-single-content .swiper-slide-metadata {
+    text-align: start !important;
+    padding: 12px 0;
+}
+.tainacan-media-component__swiper-main .swiper-button-disabled,
+.tainacan-media-component__swiper-thumbs .swiper-button-disabled {
+    display: none;
+}
+.tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content a:first-of-type,
+.tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content p:first-of-type {
+    padding: 0;
+}
+.tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content {
+    max-width: 330px;
+    text-align: start;
+}
+.tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide {
+    width: auto;
+    padding: 0;
+}
+.tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content img,
+.tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content video,
+.tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content audio,
+.tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content iframe {
+    width: auto !important;
+    min-height: var(--tainacan-media-main-carousel-height, 364px);
+    height: var(--tainacan-media-main-carousel-height, 364px);
+    object-fit: cover;
+    min-width: 220px;
+    max-width: 330px !important;
+    border-radius: 0;
+}
+.tainacan-item-thumbnail img {
+    margin-bottom: 2rem;
+}
+.tainacan-item-single-content .tainacan-metadatum-label {
 	font-weight: normal;
-	font-size: 0.75rem;
+	font-size: 0.875rem;
+    color: var(--header--color-text,#8a8a8a);
+    margin-bottom: 0.75rem;
+}
+.tainacan-item-single-content .tainacan-metadatum-value {
+	font-weight: normal;
+	font-size: 0.9375rem;
+    color: var(--global--color-primary, #676767);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+.tainacan-item-single-content .metadata-type-core_title .tainacan-metadatum-value {
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-transform: uppercase;
 }
 
-.metadata-value p:empty {
+.metadata-value p:empty,
+p.tainacan-metadatum-value:empty {
     display: none;
     visibility: hidden;
 }
@@ -34,10 +133,13 @@
     margin: 0;
     padding: 0;
     font-style: normal;
+    font-size: 0.75rem;
+    font-weight: normal;
 }
 .tainacan-compound-group p {
     margin-top: 0rem;
     margin-bottom: 0.5rem;
+    font-size: 0.875rem;
 }
 .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header {
 	display: flex;
@@ -51,6 +153,7 @@
 .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-relationship-metadatum-header .label {
 	font-weight: normal;
 	font-style: normal;
+    font-size: 0.875rem;
 	margin-top: 0;
 	margin-left: 0;
 	margin-bottom: 0;
@@ -62,13 +165,15 @@
 }
 .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum .label {
 	font-size: 0.8125em !important;
+    font-weight: normal;
 	line-height: 1em;
 	margin-top: 0px;
-	margin-bottom: 2px;
+	margin-bottom: 6px;
 }
 .tainacan-relationship-group .tainacan-relationship-metadatum .tainacan-metadatum p {
 	margin-top: 0.25rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.875rem;
+    font-size: 0.875rem;
 }
 .tainacan-relationship-group>.multivalue-separator {
     display: block;

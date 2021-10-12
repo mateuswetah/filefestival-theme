@@ -54,26 +54,19 @@
 @media only screen and (min-width:822px) {
 	.tainacan-modal,
 	.theme-items-list {
-		--tainacan-filter-menu-width-theme: 344px;
+		--tainacan-filter-menu-width-theme: 280px;
+	}
+
+	/* Adding border to filters list */
+	.theme-items-list #filters-items-list {
+		border: 1px solid var(--global--color-border, #cccccc);
+		padding: 24px;
 	}
 }
 
 /* Margin top should be smaller */
 .theme-items-list {
 	margin-top: 16px;
-}
-.theme-items-list.is-filters-menu-open {
-	padding-right: var(--tainacan-one-column);
-}
-.theme-items-list:not(.is-filters-menu-open) #items-list-results {
-	padding-right: var(--tainacan-one-column);
-	padding-left: var(--tainacan-one-column);
-}
-
-/* Adding border to filters list */
-.theme-items-list #filters-items-list {
-	border: 1px solid var(--global--color-border, #cccccc);
-	padding: 24px;
 }
 
 /* Filters collapse label is ligther */
@@ -85,7 +78,13 @@
 /* Using padding variable to space filters list */
 .tainacan-modal #filters-modal .modal-content,
 .theme-items-list #filters-modal .modal-content {
-	padding: 20px 42px 24px var(--tainacan-one-column) !important;
+	padding: 20px 42px 24px 0!important;
+}
+
+/* The padding is in the page */
+.search-control {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 /* Search input should have similar width than filters panel */

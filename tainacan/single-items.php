@@ -1,116 +1,99 @@
 <?php get_header(); ?>
 
-<div id="content" class="site-content">
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
+<?php
+    $attachments = [];
+    $attachments = tainacan_get_the_attachments();
+    $document_type = tainacan_get_the_document_type();
 
-            <?php if ( have_posts() ) : ?>
+    $section_classes = 'alignwide tainacan-item-single-content';
 
-                <article id="post-<?php the_ID()?>" class="post-<?php the_ID()?> page type-page status-publish hentry entry">
+    if ( count($attachments) > 0)
+        $section_classes .= ' has-attachments';
+    
+    if ( $document_type == 'empty')
+        $section_classes .= ' has-empty-document ';
+?>
 
-                    <?php while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) : ?>
 
-                        <div class="entry-content">
+    <article id="post-<?php the_ID()?>" class="post-<?php the_ID()?> page type-page status-publish hentry entry">
 
-                            <section class="alignwide ">
+        <?php while ( have_posts() ) : the_post(); ?>
 
-                                <div class="single-item-collection--information justify-content-center">
-                                    <div class="tainacan-metadata-list">
-                                    
-                                    <?php do_action( 'filefestival-tainacan-single-item-metadata-begin' ); ?>
-                                    
-                                        <?php
-                                            $args = array(
-                                                'before_title' => '<div class="tainacan-item-metadatum"><h1>',
-                                                'after_title' => '</h1>',
-                                                'before_value' => '<p>',
-                                                'after_value' => '</p></div>',
-                                            );
-                                            tainacan_the_metadata( $args );
-                                        ?>
-                                        <?php do_action( 'filefestival-tainacan-single-item-metadata-end' ); ?>
-                                    </div>
-                                </div>
-                            </section>
-                        
-                            <?php do_action( 'filefestival-tainacan-single-item-after-metadata' ); ?>
+            <div class="entry-content">
 
-                            <?php if ( tainacan_has_document() ) : ?>
-                                <section class="alignwide">
-                                    <div class="single-item-collection--document">
-                                        <?php tainacan_the_document(); ?>
-                                    </div>
-                                </section>
-                            <?php endif; ?>
+                <section class="<?php echo $section_classes; ?>">
+
+                    <h1 class="screen-reader-text">
+                        <?php the_title() ?>
+                    </h1>
+
+                    <div class="tainacan-item-single-content--information">
                     
-                        <?php do_action( 'filefestival-tainacan-single-item-after-document' ); ?>
+                        <?php if ( $document_type == 'empty' && has_post_thumbnail() ): ?>
+                            <div class="tainacan-item-thumbnail">
+                                <?php the_post_thumbnail('tainacan-medium-full'); ?>
+                            </div>
+                        <?php endif; ?>
 
-                            <?php
-                                if (function_exists('tainacan_get_the_attachments')) {
-                                    $attachments = tainacan_get_the_attachments();
-                                } else {
-                                    // compatibility with pre 0.11 tainacan plugin
-                                    $attachments = array_values(
-                                        get_children(
-                                            array(
-                                                'post_parent' => $post->ID,
-                                                'post_type' => 'attachment',
-                                                'post_mime_type' => 'image',
-                                                'order' => 'ASC',
-                                                'numberposts'  => -1,
-                                            )
-                                        )
-                                    );
-                                }
-                            ?>
+                        <?php
+                            $args = array(
+                                'before_title' => '<h2 class="tainacan-metadatum-label">',
+                                'after_title' => '</h2>',
+                                'before_value' => '<p class="tainacan-metadatum-value">',
+                                'after_value' => '</p>',
+                                'before' => '<div class="metadata-type-$type" $id>',
+                                'after' => '</div>'
+                            );
+                            tainacan_the_metadata( $args );
+                        ?>
 
-                            <?php if ( ! empty( $attachments ) ) : ?>
-                                <hr>
-                                <section class="alignwide">
-                                    <h2 class="title-content-items">Anexos</h2>
-                                    <div class="single-item-collection--attachments">
-                                        <?php foreach ( $attachments as $attachment ) { ?>
-                                            <?php
-                                            if ( function_exists('tainacan_get_attachment_html_url') ) {
-                                                $href = tainacan_get_attachment_html_url($attachment->ID);
-                                            } else {
-                                                $href = wp_get_attachment_url($attachment->ID, 'large');
-                                            }
-                                            ?>
-                                            <div class="single-item-collection--attachments-file">
-                                                <a 
-                                                    class="<?php if (!wp_get_attachment_image( $attachment->ID, 'filefestival-tainacan-item-attachments')) echo'attachment-without-image'; ?>"
-                                                    href="<?php echo $href; ?>" data-toggle="lightbox" data-gallery="example-gallery">
-                                                    <?php
-                                                        echo wp_get_attachment_image( $attachment->ID, 'filefestival-tainacan-item-attachments', true );
-                                                        echo get_the_title( $attachment->ID );
-                                                    ?>
-                                                </a>
-                                            </div>
-                                        <?php }
-                                        ?>
-                                    </div>
-                                </section>
-                            <?php endif; ?>
-                            
-                        </div><!-- .entry-content -->
+                    </div>
 
-                        <footer class="entry-footer">
-                            <?php if ( comments_open() || get_comments_number() ) :
-                                comments_template();
-                            endif; ?>
-                        </footer>
+                    <div class="tainacan-item-single-content--gallery">
 
-                    <?php endwhile; ?>
+                        <?php get_template_part( 'template-parts/single-items-gallery' ); ?>
+                    
+                    </div>
 
-                </article><!-- #post-151666 -->
+                    <div class="tainacan-item-single-content--information-2">
+                        
+                        <?php
+                            $args = array(
+                                'before_title' => '<h2 class="tainacan-metadatum-label">',
+                                'after_title' => '</h2>',
+                                'before_value' => '<p class="tainacan-metadatum-value">',
+                                'after_value' => '</p>',
+                                'before' => '<div class="metadata-type-$type" $id>',
+                                'after' => '</div>'
+                            );
+                            tainacan_the_metadata( $args );
+                        ?>
 
-            <?php else : ?>
-                Nada encontrado aqui.
-            <?php endif; ?>
-            
-        </main><!-- #main -->
-    </div><!-- #primary -->
-</div>
+                    </div>
+
+                    <div class="tainacan-item-single-content--navigation">
+                        
+                        <?php get_template_part( 'template-parts/single-items-navigation' ); ?>
+
+                    </div>
+
+                </section>
+            </div><!-- .entry-content -->
+
+            <footer class="entry-footer">
+                <?php if ( comments_open() || get_comments_number() ) :
+                    comments_template();
+                endif; ?>
+            </footer>
+
+        <?php endwhile; ?>
+
+    </article><!-- #post-151666 -->
+
+<?php else : ?>
+    Nada encontrado aqui.
+<?php endif; ?>
+
 
 <?php get_footer(); ?>

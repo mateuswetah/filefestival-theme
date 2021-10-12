@@ -3,10 +3,14 @@
     width: 100%;
     padding: 0;
     margin-top: 0px;
-    table-layout: auto;
-    display: table;
     animation-name: appear;
     animation-duration: 0.5s;
+    overflow-x: auto;
+}
+.tainacan-filefestival-table-container-table {
+    table-layout: auto;
+    display: table;
+    width: 100%;
 }
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item {
@@ -70,3 +74,4 @@
     font-weight: bold;
     font-size: 1.25rem;
 }
+

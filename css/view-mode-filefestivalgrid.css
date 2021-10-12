@@ -29,9 +29,9 @@
     width: 220px;
     height: 364px;
     max-height: 364px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     margin: 0;
     display: block;
     position: relative;
