@@ -26,6 +26,10 @@
     break-inside: avoid;
     max-width: 100%;
 }
+.tainacan-item-single-content--information>*:nth-of-type(1n+7) {
+    display: none;
+    visibility: hidden;
+}
 .tainacan-item-single-content--information .metadata-type-core_description,
 .tainacan-item-single-content--information .metadata-type-core_textarea {
     column-span: all;
@@ -38,6 +42,14 @@
 .tainacan-item-single-content--information-2 {
     grid-area: info2;
     max-width: 100%;
+}
+.tainacan-item-single-content--information-2>*{
+    break-inside: avoid;
+    max-width: 100%;
+}
+.tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
+    display: none;
+    visibility: hidden;
 }
 .tainacan-item-single-content--navigation {
     grid-area: navigation;

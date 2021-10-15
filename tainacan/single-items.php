@@ -12,6 +12,15 @@
     
     if ( $document_type == 'empty')
         $section_classes .= ' has-empty-document ';
+
+    $metadata = tainacan_get_the_metadata( [
+        'before_title' => '<h2 class="tainacan-metadatum-label">',
+        'after_title' => '</h2>',
+        'before_value' => '<p class="tainacan-metadatum-value">',
+        'after_value' => '</p>',
+        'before' => '<div class="metadata-type-$type" $id>',
+        'after' => '</div>'
+     ] );
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -36,17 +45,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php
-                            $args = array(
-                                'before_title' => '<h2 class="tainacan-metadatum-label">',
-                                'after_title' => '</h2>',
-                                'before_value' => '<p class="tainacan-metadatum-value">',
-                                'after_value' => '</p>',
-                                'before' => '<div class="metadata-type-$type" $id>',
-                                'after' => '</div>'
-                            );
-                            tainacan_the_metadata( $args );
-                        ?>
+                        <?php echo $metadata; ?>
 
                     </div>
 
@@ -57,18 +56,8 @@
                     </div>
 
                     <div class="tainacan-item-single-content--information-2">
-                        
-                        <?php
-                            $args = array(
-                                'before_title' => '<h2 class="tainacan-metadatum-label">',
-                                'after_title' => '</h2>',
-                                'before_value' => '<p class="tainacan-metadatum-value">',
-                                'after_value' => '</p>',
-                                'before' => '<div class="metadata-type-$type" $id>',
-                                'after' => '</div>'
-                            );
-                            tainacan_the_metadata( $args );
-                        ?>
+  
+                        <?php echo $metadata; ?>
 
                     </div>
 
