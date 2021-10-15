@@ -1,9 +1,19 @@
 <?php if ( have_posts() ) : ?>
+	<?php 
+		$metadata_labels = [];
+		$metadata_repository = \Tainacan\Repositories\Metadata::get_instance();
+
+		$metadata_objects = $metadata_repository->fetch([ 'post__in' => $view_mode_displayed_metadata['meta'] ],	'OBJECT');
+		
+		$metadata_labels = array_map(function($metadatum_object) {
+			return $metadatum_object->get_name();
+		}, $metadata_objects);
+	?>
 	<div class="tainacan-filefestival-table-container">
 		<table class="tainacan-filefestival-table-container-table">
 			<thead>
 				<tr>
-					<?php foreach($view_mode_displayed_metadata['meta'] as $metadatum) { echo '<th>' . $metadatum . '</th>'; } ?>
+					<?php foreach($metadata_labels as $metadatum) { echo '<th>' . $metadatum . '</th>'; } ?>
 				</tr>
 			</thead>
 			<tbody>
