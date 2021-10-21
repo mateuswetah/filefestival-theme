@@ -27,11 +27,11 @@
 
 .tainacan-modal,
 .theme-items-list {
-	--tainacan-input-color: var(--content--color--link, #000000);
+	--tainacan-input-color: var(--header--color-text, #777777);
 	--tainacan-input-background-color: var(--global--color-background, #ffffff);
 	--tainacan-input-border-color: var(--global--color-border, #cccccc);
 	--tainacan-label-color: var(--header--color-text, #777777);
-	--tainacan-info-color: var(--global--color-primary, #676767);
+	--tainacan-info-color: var(--header--color-text, #777777);
 	--tainacan-heading-color: var(--header--color-text, #777777);
 	--tainacan-skeleton-color: #eeeeee;
 	--tainacan-item-background-color: var(--tainacan-background-color);
@@ -93,6 +93,24 @@
 	min-width: 235px !important;
 }
 
+/* Only white buttons have a different accent color */
+.tainacan-modal .button.is-white,
+.theme-items-list .button.is-white {
+	--tainacan-input-color: var(--content--color--link, #000000);
+}
+
+/* Dropdown arrows are different */
+.tainacan-modal .dropdown-trigger .icon .tainacan-icon-arrowdown::before,
+.theme-items-list .dropdown-trigger .icon .tainacan-icon-arrowdown::before {
+	content: 'showmore';
+	margin-top: -3px;
+}
+.tainacan-modal .control .select:not(.is-loading)::after,
+.theme-items-list .control .select:not(.is-loading)::after {
+	content: 'showmore' !important;
+	margin-top: -8px !important;
+}
+
 /* Filters label uppercase */
 .tainacan-modal #filters-modal .modal-content h3,
 .theme-items-list #filters-modal .modal-content h3 {
@@ -138,13 +156,61 @@
 }
 
 /* Checkobxes have special style */
-.tainacan-modal #filters-modal input[type="checkbox"] + span + .control-label,
-.theme-items-list #filters-modal input[type="checkbox"] + span + .control-label {
-	--tainacan-input-color: var(--global--color-primary);
-}
 .tainacan-modal #filters-modal input[type="checkbox"]:checked + span + .control-label,
 .theme-items-list #filters-modal input[type="checkbox"]:checked + span + .control-label {
 	--tainacan-input-color: var(--content--color--link, #000000);
+}
+.tainacan-modal .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+.theme-items-list .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
+	background-image: none !important;
+}
+.tainacan-modal .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after,
+.theme-items-list .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after {
+	content: '';
+	width: 1px;
+	height: 6.5px;
+	background-color: var(--content--color--link, #000000);
+	display: block;
+	transform: translate3D(4.5px, 0.5px, 0) rotate(45deg);
+}
+.tainacan-modal .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before,
+.theme-items-list .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before {
+	content: '';
+	width: 6.5px;
+	height: 1px;
+	background-color: var(--content--color--link, #000000);
+	display: block;
+	transform: translate3D(1.5px, 4.5px, 0) rotate(45deg);
+}
+
+/* Filter tags are square */
+.theme-items-list .filter-tags-list .filter-tag,
+.tainacan-modal .filter-tags-list .filter-tag  {
+	border-radius: 0 !important;
+}
+
+/* Button links should be just like normal a tags */
+.tainacan-modal button.link-style:not(.collapse-all),
+.tainacan-modal button.link-style:not(.collapse-all):focus
+.tainacan-modal button.link-style:not(.collapse-all):active,
+.theme-items-list button.link-style:not(.collapse-all),
+.theme-items-list button.link-style:not(.collapse-all):focus,
+.theme-items-list button.link-style:not(.collapse-all):active,
+.theme-items-list .search-control .search-control-item .search-area .is-pulled-right,
+.theme-items-list .search-control .search-control-item .search-area .is-pulled-right:focus,
+.theme-items-list .search-control .search-control-item .search-area .is-pulled-right:active {
+	text-decoration: underline;
+}
+.tainacan-modal button.link-style:not(.collapse-all):hover,
+.theme-items-list button.link-style:not(.collapse-all):hover,
+.theme-items-list .search-control .search-control-item .search-area .is-pulled-right:hover {
+	text-decoration-style: dotted;
+}
+.tainacan-modal a:hover,
+.tainacan-modal a:hover:not([href]),
+.theme-items-list a:hover,
+.theme-items-list a:hover:not([href]) {
+	text-decoration-style: dotted !important;
 }
 
 /* There is no border in the pagination */

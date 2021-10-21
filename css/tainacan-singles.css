@@ -3,35 +3,45 @@
     grid-template-areas: 'info1 gallery info2 navigation';
     grid-template-rows: auto;
     grid-template-columns: 1fr 450px 1fr 235px;
-    column-gap: 50px;
+    column-gap: 64px;
+    row-gap: 24px;
+    margin-top: -24px !important;
 }
 .tainacan-item-single-content.has-attachments {
     grid-template-areas: 'info1 gallery gallery navigation'
                          'info1 info2 info2 navigation';
     grid-template-rows: auto auto;
 }
-.tainacan-item-single-content.has-empty-document{
-    grid-template-areas: 'info1 info1 info2 info2 navigation'
-                         'gallery gallery info2 info2 navigation';
+.tainacan-item-single-content.has-empty-document {
+    grid-template-areas: 'info1 info1 info1 info2 info2 navigation'
+                         'gallery gallery gallery info2 info2 navigation';
     grid-template-rows: auto auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr 235px;
+    grid-template-columns: 175px 1fr 1fr 1fr 1fr 235px;
 }
 .tainacan-item-single-content--information {
     grid-area: info1;
     max-width: 100%;
     column-count: 2;
-    column-gap: 50px;
+    column-gap: 64px;
 }
 .tainacan-item-single-content--information>*{
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content--information>*:nth-of-type(1n+7) {
+.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information {
+    column-count: 3;
+    column-gap: 64px;
+}
+.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information>*:nth-of-type(1n+10) {
+    display: none;
+    visibility: hidden;
+}
+.tainacan-item-single-content:not(.has-empty-document) .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
     display: none;
     visibility: hidden;
 }
 .tainacan-item-single-content--information .metadata-type-core_description,
-.tainacan-item-single-content--information .metadata-type-core_textarea {
+.tainacan-item-single-content--information .metadata-type-textarea {
     column-span: all;
 }
 .tainacan-item-single-content--gallery {
@@ -47,9 +57,17 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
+.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information-2>*:nth-of-type(-1n+8) {
     display: none;
     visibility: hidden;
+}
+.tainacan-item-single-content:not(.has-empty-document) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
+    display: none;
+    visibility: hidden;
+}
+.tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2 {
+    column-count: 3;
+    column-gap: 64px;
 }
 .tainacan-item-single-content--navigation {
     grid-area: navigation;
@@ -67,6 +85,22 @@
 .tainacan-media-component__swiper-thumbs .swiper-button-disabled {
     display: none;
 }
+.tainacan-media-component__swiper-main .swiper-button-next,
+.tainacan-media-component__swiper-main .swiper-container-rtl .swiper-button-prev {
+    left: auto;
+    background: white;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+.tainacan-media-component__swiper-main .swiper-button-prev,
+.tainacan-media-component__swiper-main .swiper-container-rtl .swiper-button-next {
+    right: auto;
+    background: white;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content a:first-of-type,
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content p:first-of-type {
     padding: 0;
@@ -78,6 +112,13 @@
 .tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide {
     width: auto;
     padding: 0;
+}
+.tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:only-child {
+    margin-right: 0 !important;
+    width: 100%;
+}
+.tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:only-child .swiper-slide-content {
+    max-width: none;
 }
 .tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content img,
 .tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content video,
@@ -195,4 +236,11 @@ p.tainacan-metadatum-value:empty {
     content: none;
     color: transparent;
     margin: 0.5em 0 0.5em 40px;
+}
+
+
+/* Navigation links */
+.tainacan-single-navigation-links {
+    display: flex;
+    justify-content: space-between;
 }

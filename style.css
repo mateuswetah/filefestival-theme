@@ -31,4 +31,10 @@ Version:        0.0.2
 /* Sets some variables not available on Twentig neither on Tainacan */
 :root {
     --global--color-border: #cccccc;
+    --global--font-size-xxl: 2.5rem;
+    --global--font-size-xl: 1.875rem;
+    --heading--font-size-h2: 1.5rem;
+}
+.singular .entry-header {
+    padding-bottom: calc(1 * var(--global--spacing-vertical));
 }
