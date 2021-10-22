@@ -45,9 +45,32 @@
     border: none;
     vertical-align: top;
     text-align: start;
+    max-width: 180px;
+    width: 180px;
+    min-width: 80px;
 }
 .tainacan-filefestival-table-item td:not(:empty) {
     padding: calc(0.875 * var(--global--spacing-unit)) calc(2.25 * var(--global--spacing-unit)) calc(0.875 * var(--global--spacing-unit)) 0;
+}
+.tainacan-filefestival-table-item th.tainacan-text--title,
+.tainacan-filefestival-table-item td.metadata-type-core_title {
+    max-width: 290px;
+    width: 290px;
+    min-width: 160px;
+}
+.tainacan-filefestival-table-item th.tainacan-textarea,
+.tainacan-filefestival-table-item td.metadata-type-core_description {
+    max-width: 310px;
+    width: 310px;
+    min-width: 160px;
+}
+.tainacan-filefestival-table-item th.tainacan-numeric,
+.tainacan-filefestival-table-item td.metadata-type-numeric,
+.tainacan-filefestival-table-item th.tainacan-date,
+.tainacan-filefestival-table-item td.metadata-type-date {
+    max-width: 120px;
+    width: 120px;
+    min-width: 120px;
 }
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-label {

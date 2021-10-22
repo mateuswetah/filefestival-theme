@@ -161,7 +161,9 @@
 	--tainacan-input-color: var(--content--color--link, #000000);
 }
 .tainacan-modal .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
-.theme-items-list .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
+.theme-items-list .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+.tainacan-modal .control .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+.theme-items-list .control .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
 	background-image: none !important;
 }
 .tainacan-modal .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after,
@@ -184,6 +186,10 @@
 }
 
 /* Filter tags are square */
+.theme-items-list .filter-tags-list,
+.tainacan-modal .filter-tags-list {
+	padding: 1.5em 0 1.0em 0 !important;
+}
 .theme-items-list .filter-tags-list .filter-tag,
 .tainacan-modal .filter-tags-list .filter-tag  {
 	border-radius: 0 !important;

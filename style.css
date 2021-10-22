@@ -9,8 +9,9 @@ Version:        0.0.2
 */
 
 /* Styles related to the Tainacan plugin */
-@import url('./css/tainacan-archives.css');
-@import url('./css/tainacan-singles.css');
+@import url('./css/tainacan-items-archive.css');
+@import url('./css/tainacan-items-single.css');
+@import url('./css/tainacan-collections-archive.css');
 
 /* Styles related to Tainacan view modes */
 @import url('./css/view-mode-filefestivalgrid.css');

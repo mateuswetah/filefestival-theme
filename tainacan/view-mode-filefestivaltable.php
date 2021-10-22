@@ -39,13 +39,17 @@
 				<tr>
 					<?php if ( $is_repository_level ): ?>
 						<?php if ( $has_title_enabled ): ?>
-							<th class="Tainacan\Metadata_Types\Core_Title"><?php echo __('Título', 'filefestival'); ?></th>
+							<th class="tainacan-text--title"><?php echo __('Título', 'filefestival'); ?></th>
 						<?php endif; if ( $has_description_enabled ) :?>
-							<th class="Tainacan\Metadata_Types\Core_Description"><?php echo __('Descrição', 'filefestival'); ?></th>
+							<th class="tainacan-textarea"><?php echo __('Descrição', 'filefestival'); ?></th>
 						<?php endif; ?>
 					<?php endif; ?>
-					<?php foreach($metadata_objects as $metadatum): ?>
-						<th class="<?php echo $metadatum->get_metadata_type(); ?>"><?php echo $metadatum->get_name(); ?> </th>
+					<?php foreach($metadata_objects as $metadatum): 
+							$metadatum_component = '';
+							$metadatum_object = $metadatum->get_metadata_type_object()->_toArray();
+							$metadatum_component = $metadatum_object['component'];
+						?>
+						<th class="<?php echo $metadatum_component; ?>"><?php echo $metadatum->get_name(); ?> </th>
 					<?php endforeach; ?>
 				</tr>
 			</thead>
@@ -66,7 +70,10 @@
 								'after_title'  => '</h3>',
 								'after_value'  => '</p>',
 								'before' => '<td class="metadata-type-$type" $id>',
-								'after' => '</td>'
+								'after' => '</td>',
+								'hide_empty' => false,
+								//'empty_value_message' => '<span class="empty-metadata-value">' . __('Informação não fornecida.', 'filefestival') . '</span>',
+								'empty_value_message' => ' - '
 							));
 						} 
 					?>
