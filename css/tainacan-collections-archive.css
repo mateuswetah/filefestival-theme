@@ -123,23 +123,32 @@
     row-gap: 64px;
 	margin-bottom: 3rem;
 }
-body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:first-child {
+body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--1 {
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 1;
 	grid-row-end: 3;
 }
-body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:nth-child(2) {
+body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--2 {
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 1;
 	grid-row-end: 2;
 }
-body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:nth-child(3) {
+body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--3 {
 	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 2;
 	grid-row-end: 3;
+}
+.tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--1 {
+	order: -3;
+}
+.tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--2 {
+	order: -2;
+}
+.tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--3 {
+	order: -1;
 }
 
 .tainacan-collections .tainacan-collection .tainacan-collection__thumbnail {
@@ -195,19 +204,19 @@ body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collect
 		grid-template-rows: 240px 240px 218px repeat(auto-fill, 300px);
 		grid-template-columns: 1fr 1fr;
 	}
-	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:first-child {
+	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--1 {
 		grid-column-start: 1;
 		grid-column-end: 3;
 		grid-row-start: 1;
 		grid-row-end: 3;
 	}
-	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:nth-child(2) {
+	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--2 {
 		grid-column-start: 1;
 		grid-column-end: 2;
 		grid-row-start: 3;
 		grid-row-end: 4;
 	}
-	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection:nth-child(3) {
+	body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collections-list .tainacan-collection.tainacan-collectin-highlight--3 {
 		grid-column-start: 2;
 		grid-column-end: 3;
 		grid-row-start: 3;

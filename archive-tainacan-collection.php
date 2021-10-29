@@ -8,7 +8,10 @@
 get_header();
 
 //$description = get_the_archive_description();
-$description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
+$description = get_theme_mod('filefestival_tainacan_collections_archive_description', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.');
+$collection_highlight_1 = get_theme_mod('filefestival_tainacan_collection_first', '');
+$collection_highlight_2 = get_theme_mod('filefestival_tainacan_collection_second', '');
+$collection_highlight_3 = get_theme_mod('filefestival_tainacan_collection_third', '');
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -32,21 +35,16 @@ $description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
                                     <span class="select">
                                         <select
                                                 onchange="
-                                                    document.body.classList.remove('collections-list-layout-lista');
-                                                    document.body.classList.remove('collections-list-layout-grade');
-                                                    document.body.classList.add('collections-list-layout-' + this.value);
-                                                "
-                                                onload="
-                                                    document.body.classList.remove('collections-list-layout-lista');
-                                                    document.body.classList.remove('collections-list-layout-grade');
-                                                    document.body.classList.add('collections-list-layout-' + this.value);
+                                                    var currentURL = new window.URL(document.location);
+                                                    currentURL.searchParams.set('viewmode', this.value);
+                                                    document.location = currentURL.href;
                                                 "
                                                 aria-controls="tainacan-collections-list"
                                                 aria-labelledby="collections-layout-select">
-                                            <option selected value="grade">
+                                            <option <?php echo ($_GET['viewmode'] != 'lista' ? 'selected' : ''); ?> value="grade">
                                                 Grade &nbsp;
                                             </option>
-                                            <option value="lista">
+                                            <option <?php echo ($_GET['viewmode'] == 'lista' ? 'selected' : ''); ?> value="lista">
                                                 Lista &nbsp;
                                             </option>
                                         </select>
@@ -63,7 +61,11 @@ $description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
                     <a 
                             id="<?php echo 'tainacan-collection-' . get_the_ID() ?>"
                             href="<?php echo get_post_permalink(); ?>"
-                            class="tainacan-collection">
+                            class="tainacan-collection
+                                    <?php echo ( get_the_ID() == $collection_highlight_1 ? ' tainacan-collectin-highlight--1 ' : '' ); ?>
+                                    <?php echo ( get_the_ID() == $collection_highlight_2 ? ' tainacan-collectin-highlight--2 ' : '' ); ?>
+                                    <?php echo ( get_the_ID() == $collection_highlight_3 ? ' tainacan-collectin-highlight--3 ' : '' ); ?>
+                            ">
                         <div class="tainacan-collection__thumbnail">
                             <?php if ( has_post_thumbnail() ) {
                                 the_post_thumbnail();

@@ -19,6 +19,12 @@ function filefestival_parent_theme_enqueue_styles() {
 		array( 'twenty-twenty-one-style' ),
 		FILEFESTIVAL_THEME_VERSION
 	);
+
+	// Enqueues popper and tippy to allow display of tooltips
+	wp_enqueue_script( 'filefestival-popper', 'https://unpkg.com/@popperjs/core@2', [], null);
+	wp_enqueue_script( 'filefestival-tippy', 'https://unpkg.com/tippy.js@6', [], null);
+	wp_enqueue_style( 'filefestival-tippy-theme', 'https://unpkg.com/tippy.js@6/themes/light-border.css', [], null);
+	wp_enqueue_script( 'filefestival-tooltips', get_stylesheet_directory_uri() . '/js/tooltips.js', [], null, true);
 }
 add_action( 'wp_enqueue_scripts', 'filefestival_parent_theme_enqueue_styles' );
 
@@ -89,8 +95,26 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 		$next_title = get_the_title( get_next_post() );
 	}
 
-	$previous = $previous_link_url === false ? '' : '<a rel="prev" href="' . $previous_link_url . '"><i class="tainacan-icon tainacan-icon-previous tainacan-icon-18px"></i>&nbsp; <span>' . $previous_title . '</span></a>';
-	$next = $next_link_url === false ? '' :'<a rel="next" href="' . $next_link_url . '"><span>' . $next_title . '</span> &nbsp;<i class="tainacan-icon tainacan-icon-next tainacan-icon-18px"></i></a>';
+	$previous = $previous_link_url === false ? '' : '<a rel="prev" href="' . $previous_link_url . '"><svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.56 13.58"><defs><style>.cls-1{fill:#676767;}</style></defs><path id="next-2" class="cls-1" d="M0,13V.58H0v0H0A.57.57,0,0,1,.58,0h1.1a.59.59,0,0,1,.58.57.25.25,0,0,0,0,.08V5.9L9.8,1.54a.37.37,0,0,1,.54,0,.32.32,0,0,1,.12.26h0V5.25L16.9,1.53a.38.38,0,0,1,.55,0,.36.36,0,0,1,.11.26h0v10a.39.39,0,0,1-.39.38.43.43,0,0,1-.28-.11L10.46,8.33v3.44a.39.39,0,0,1-.39.39A.39.39,0,0,1,9.79,12L2.25,7.69V13h0v0a.58.58,0,0,1-.58.57H.57A.57.57,0,0,1,0,13H0v0Z"/></svg>&nbsp; <span>' . $previous_title . '</span></a>';
+	$next = $next_link_url === false ? '' :'<a rel="next" href="' . $next_link_url . '"><span>' . $next_title . '</span> &nbsp;<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.56 13.57"><defs><style>.cls-1{fill:#676767;}</style></defs><path id="next" class="cls-1" d="M17.56,13V.58h0V.52h0A.57.57,0,0,0,17,0h-1.1a.57.57,0,0,0-.57.57V5.9L7.76,1.53a.39.39,0,0,0-.55,0,.41.41,0,0,0-.11.26h0V5.25L.66,1.53a.39.39,0,0,0-.55,0A.36.36,0,0,0,0,1.8H0v10a.39.39,0,0,0,.39.39A.39.39,0,0,0,.67,12L7.1,8.32v3.44a.39.39,0,0,0,.39.39A.36.36,0,0,0,7.77,12l7.54-4.35V13h0v0a.57.57,0,0,0,.58.57H17a.58.58,0,0,0,.57-.57v0Z"/></svg></a>';
 
 	return ['next' => $next, 'previous' => $previous];
 }
+
+
+/**
+ * Adds class to style different body layout in colections list
+ */
+function filefestival_adds_collection_layout_class( $classes ) {
+
+	if ( is_post_type_archive( 'tainacan-collection' ) )
+    	return array_merge( $classes, array( 'collections-list-layout-' . $_GET['viewmode'] ) );
+
+	return $classes;
+}
+add_filter( 'body_class', 'filefestival_adds_collection_layout_class' );
+
+
+// Remaining imports
+require get_stylesheet_directory() . '/inc/customizer.php';
+require get_stylesheet_directory() . '/inc/icons.php';

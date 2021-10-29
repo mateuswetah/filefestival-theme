@@ -16,7 +16,7 @@
     $metadata = tainacan_get_the_metadata( [
         'before_title' => '<h2 class="tainacan-metadatum-label">',
         'after_title' => '</h2>',
-        'before_value' => '<p class="tainacan-metadatum-value">',
+        'before_value' => '<p class="tainacan-metadatum-value" data-tippy-content>',
         'after_value' => '</p>',
         'before' => '<div class="metadata-type-$type" $id>',
         'after' => '</div>'

@@ -47,7 +47,7 @@
 							array(
 								'metadata__in' => $view_mode_displayed_metadata['meta'],
 								'before_title' => '<h3 class="metadata-label">',
-								'before_value' => '<p class="metadata-value">',
+								'before_value' => '<p class="metadata-value" data-tippy-content>',
 								'after_title'  => '</h3>',
 								'after_value'  => '</p>',
 								'hide_empty'   => false,

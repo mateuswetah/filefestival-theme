@@ -26,3 +26,29 @@
 	padding-top: 12px !important;
 	padding-bottom: 12px !important;
 }
+.primary-navigation > div > .menu-wrapper > li > .sub-menu {
+	border-color: var(--global--color-border, #cccccc);
+}
+.primary-navigation > div > .menu-wrapper > li > .sub-menu::after,
+.primary-navigation > div > .menu-wrapper > li > .sub-menu::before {
+	display: none;
+}
+.primary-navigation a:hover {
+	font-style: normal;
+	font-weight: bold;
+	text-decoration-style: solid;
+}
+.pagination .nav-links > :not(.dots):not(.current):hover,
+.comments-pagination .nav-links > :not(.dots):not(.current):hover {
+	text-decoration-style: solid;
+}
+.pagination .nav-links > :not(.dots):not(.current):hover,
+.comments-pagination .nav-links > :not(.dots):not(.current):hover {
+	text-decoration-thickness: 2px;
+}
+.primary-navigation svg {
+	max-width: 0.56rem;
+}
+.primary-navigation > div > .menu-wrapper .sub-menu-toggle {
+	width: 1rem;
+}

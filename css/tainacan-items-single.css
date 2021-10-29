@@ -138,12 +138,14 @@
 .tainacan-item-single-content .tainacan-metadatum-label {
 	font-weight: normal;
 	font-size: 0.875rem;
+    line-height: 1rem;
     color: var(--header--color-text,#8a8a8a);
     margin-bottom: 0.75rem;
 }
 .tainacan-item-single-content .tainacan-metadatum-value {
 	font-weight: normal;
 	font-size: 0.9375rem;
+    line-height: 1.5rem;
     color: var(--global--color-primary, #676767);
     margin-bottom: 1.5rem;
     display: inline-block;
@@ -243,4 +245,9 @@ p.tainacan-metadatum-value:empty {
 .tainacan-single-navigation-links {
     display: flex;
     justify-content: space-between;
+}
+.tainacan-single-navigation-links svg {
+    width: 1rem;
+    height: auto;
+    color: inherit;
 }

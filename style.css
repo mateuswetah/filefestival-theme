@@ -32,10 +32,43 @@ Version:        0.0.2
 /* Sets some variables not available on Twentig neither on Tainacan */
 :root {
     --global--color-border: #cccccc;
+    --content--color--link: #676767;
+    --global--color-primary: #2a2a2a;
     --global--font-size-xxl: 2.5rem;
     --global--font-size-xl: 1.875rem;
     --heading--font-size-h2: 1.5rem;
+    --font-base: Arial;
+    --font-headings: Arial;
 }
+
+/* Links */
+a {
+    font-weight: bold;
+    transition: all 0.3s;
+}
+a:not(:hover) {
+    font-style: normal;
+}
+a:hover {
+    text-decoration-style: solid;
+    font-style: italic;
+    --content--color--link: var(--global--color-primary, #2a2a2a);
+}
+a:focus {
+    --wp--style--color--link: #b8b8b8;
+    background: initial !important;
+}
+
+/* General spacing */
 .singular .entry-header {
     padding-bottom: calc(1 * var(--global--spacing-vertical));
+}
+
+/* Tippy Tooltips */
+.tippy-box {
+    border-radius: 0;
+    color: var(--content--color--link, #676767);
+    padding: 0.85rem;
+    font-size: 0.8125rem;
+    box-shadow: none !important;
 }
