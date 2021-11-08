@@ -10,7 +10,8 @@
 			</div>
 			<?php 
 				tainacan_the_faceted_search([
-					'default_view_mode' => 'masonry',
+					'enabled_view_modes' => [ 'filefestivalgrid', 'filefestivalgrid2', 'filefestivallist', 'filefestivaltable' ],
+					'default_view_mode' => 'filefestivalgrid',
 					'default_items_per_page' => 12,
 					'hide_filters' => false,
 					'hide_hide_filters_button' => false,
@@ -24,7 +25,7 @@
 					'start_with_filters_hidden' => false,
 					'filters_as_modal' => false,
 					'show_inline_view_mode_options' => false,
-					'show_fullscreen_with_view_modes' => false
+					'show_fullscreen_with_view_modes' => true
 				]); 
 			?>
 

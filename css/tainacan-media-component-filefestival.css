@@ -1,0 +1,60 @@
+/* Tainacan's Phostoswipe gallery with several tweaks...*/
+
+/* Light color scheme */
+.tainacan-photoswipe-layer .pswp__bg {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+.tainacan-photoswipe-layer .pswp__ui .pswp__top-bar,
+.tainacan-photoswipe-layer .pswp__ui .pswp__caption {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+}
+.tainacan-photoswipe-layer .pswp__top-bar .pswp__name,
+.tainacan-photoswipe-layer .pswp__caption__center,
+.tainacan-photoswipe-layer .pswp__counter {
+    color: var(--global--color-primary, #2a2a2a) !important;
+}
+.tainacan-photoswipe-layer .pswp__button {
+    filter: invert(100) !important;
+    background-color: transparent !important;
+}
+.tainacan-photoswipe-layer .pswp__button--arrow--left::before,
+.tainacan-photoswipe-layer .pswp__button--arrow--right::before {
+    background-color: rgba(0,0,0,0.75);
+}
+.tainacan-photoswipe-layer .pswp--css_animation .pswp__preloader__donut {
+    border: 2px solid var(--global--color-primary, #2a2a2a) !important;
+}
+
+/* Modal instead of fullscreen */
+.tainacan-photoswipe-layer:not(.pswp--fs) .pswp__scroll-wrap {
+    background: var(--global--color-background, #ffffff);
+    position: absolute;
+    max-width: 1300px;
+    max-height: 90vh;
+    left: calc((100% - 1300px) / 2);
+    right: calc((100% - 1300px) / 2);
+    top: 5vh;
+    bottom: 5vh;
+    border: 2px solid var(--separator--border-color);
+}
+
+.tainacan-photoswipe-layer .pswp__scroll-wrap .pswp__name {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.tainacan-photoswipe-layer .pswp__caption__center {
+    text-align: start !important;
+    padding: 24px 36px;
+    max-width: 1300px !important;
+}
+
+@media screen and (max-width: 1365px) {
+    .tainacan-photoswipe-layer:not(.pswp--fs) .pswp__scroll-wrap {
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+    .tainacan-photoswipe-layer .pswp__caption__center {
+        max-width: 100%;
+    }
+}

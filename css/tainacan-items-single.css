@@ -244,10 +244,19 @@ p.tainacan-metadatum-value:empty {
 /* Navigation links */
 .tainacan-single-navigation-links {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+}
+.tainacan-single-navigation-links a {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0.5rem;
 }
 .tainacan-single-navigation-links svg {
     width: 1rem;
     height: auto;
     color: inherit;
+}
+.tainacan-single-navigation-links svg:hover {
+    fill: var(--global--color-primary, #2a2a2a);
 }

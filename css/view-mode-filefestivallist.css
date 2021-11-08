@@ -1,7 +1,7 @@
 .tainacan-filefestival-list-container {
     min-height: 50vh;
     width: 100%;
-    padding: 36px 0;
+    padding: 0;
     display: block;
     margin-top: 20px;
     border-top: 1px solid var(--global--color-border, #cccccc);
@@ -11,59 +11,69 @@
 }
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item {
+    display: flex;
     width: 100%;
-    margin: 0px 0px 24px 0px;
-    padding-bottom: 24px;
+    margin: 0px;
+    position: relative;
+}
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .tainacan-filefestival-list-item--metadata {
+    width: calc(100% - 125px - 30px - 60px);
+    flex-basis: calc(100% - 125px - 30px - 60px);
     display: -ms-grid;
     display: grid;
-    grid-template-columns: 125px repeat(auto-fill, 220px);
+    grid-template-columns: repeat(auto-fill, 220px);
     grid-template-rows: auto auto;
     column-gap: 60px;
     row-gap: 4px; 
+    padding: 24px 0 24px 20px;
     text-decoration: none !important;
+    transition: background 0.2s ease;
 }
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item:not(:last-child) {
     border-bottom: 1px solid var(--global--color-border, #cccccc);
 }
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item.skeleton {
-    width: 100%;
+    width: 125px;
     height: 380px;
 }
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail {
-    width: 125px;
-    height: 186px;
-    max-height: 186px;
+    width: calc(125px + 30px + 60px);
+    flex-basis: calc(125px + 30px + 60px);
+    height: calc(186px + 24px + 24px);
+    max-height: calc(186px + 24px + 24px);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 24px 60px 24px 30px;
     margin: 0;
     display: block;
-    position: relative;
     grid-row-start: 1;
     grid-row-end: span all;
+    transition: background 0.2s ease;
 }
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail .skeleton {
     width: 125px;
-    height: 186px;
+    height: calc(186px + 24px + 24px);
     position: absolute;
     z-index: -1;
     background-color: #e0e0e0;
     bottom: 0;
 }
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail img {
-    width: 125px;
-    height: 186px;
-    height: auto;
+    width: 125px !important;
+    height: 186px !important;
     border-radius: 0px;
-    margin-bottom: -5px;
-    visibility: hidden;
+    object-fit: cover;
+    object-position: center;
 }
-.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail:hover {
-    background-color: #dbdbdb;
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail:hover,
+.tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail:hover+.tainacan-filefestival-list-item--metadata {
+    background-color: #f3f3f3;
 }
+
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-label {
     color: var(--header--color-text, #777777);
@@ -75,7 +85,7 @@
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-value {
     color: var(--header--color-text, #777777);
     font-size: 1.0625rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.125rem;
     text-overflow:ellipsis;
     overflow:hidden;
     display: -webkit-box !important;

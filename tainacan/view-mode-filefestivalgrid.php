@@ -1,28 +1,72 @@
+<?php
+	$is_in_grid_two = $request['view_mode'] === 'filefestivalgrid2';
+
+	// In this variation of the view mode, we have to fetch the second metadata
+	if ( $is_in_grid_two ) {
+
+		$metadata_repository = \Tainacan\Repositories\Metadata::get_instance();
+		$metadata_objects = [];
+		$is_repository_level = !isset($request['collection_id']);
+
+		if ( !$is_repository_level ) {
+			$collection = tainacan_get_collection([ 'collection_id' => $request['collection_id'] ]);
+			$metadata_objects = $metadata_repository->fetch_by_collection(
+				$collection,
+				[
+					'posts_per_page' => 20
+				],
+				'OBJECT'
+			);
+		} else {
+			$metadata_objects = $metadata_repository->fetch(
+				[ 
+					'meta_query' => [
+						[
+							'key'     => 'collection_id',
+							'value'   => 'default',
+							'compare' => '='
+						]
+					],
+					'posts_per_page' => 20,
+					'include_control_metadata_types' => true
+				],
+				'OBJECT'
+			);
+		}
+		//var_dump($metadata_objects[1]);
+		if ( count($metadata_objects) < 2 ) {
+			$is_in_grid_two = false;
+		}
+	}
+?>
+
 <?php if ( have_posts() ) : ?>
 	<ul class="tainacan-filefestival-grid-container">
 
 		<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
 			
 			<li class="tainacan-filefestival-grid-item">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<a 
-							href="<?php the_permalink(); ?>"
-							style="background-image: url(<?php the_post_thumbnail_url( 'tainacan-medium' ) ?>)"
-							class="filefestival-grid-item-thumbnail">
-						<?php the_post_thumbnail( 'tainacan-medium' ); ?>
-						<div class="skeleton"></div> 
-					</a>
-				<?php else : ?>
-					<a 
-							href="<?php the_permalink(); ?>"
-							class="filefestival-grid-item-thumbnail">
-						<?php echo '<img alt="', esc_attr_e('Minatura da imagem do item', 'filefestival'), '" src="', esc_url(get_stylesheet_directory_uri()), '/images/thumbnail_placeholder.png">'?>
-						<div class="skeleton"></div> 
-					</a>
-				<?php endif; ?>
-				<div class="metadata-title">
-					<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-				</div>
+				<a href="<?php the_permalink(); ?>">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="filefestival-grid-item-thumbnail">
+							<?php the_post_thumbnail( 'tainacan-medium' ); ?>
+							<div class="skeleton"></div> 
+						</div>
+					<?php else : ?>
+						<div class="filefestival-grid-item-thumbnail">
+							<?php echo '<img alt="', esc_attr_e('Minatura da imagem do item', 'filefestival'), '" src="', esc_url(get_stylesheet_directory_uri()), '/images/thumbnail_placeholder.png">'?>
+							<div class="skeleton"></div> 
+						</div>
+					<?php endif; ?>
+					<div class="metadata-title">
+						<h3><?php the_title(); ?></h3>
+					</div>
+					<?php if ( $is_in_grid_two ) : ?>
+						<div class="metadata-description">
+							<p><?php tainacan_the_metadata(array( 'metadata' => $metadata_objects[1] )); ?></p>
+						</div>
+					<?php endif; ?>
+				</a>
 			</li>	
 		
 		<?php $item_index++; endwhile; ?>

@@ -57,6 +57,7 @@
     max-width: 290px;
     width: 290px;
     min-width: 160px;
+    position: relative;
 }
 .tainacan-filefestival-table-item th.tainacan-textarea,
 .tainacan-filefestival-table-item td.metadata-type-core_description {
@@ -71,6 +72,11 @@
     max-width: 120px;
     width: 120px;
     min-width: 120px;
+}
+
+.tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title:hover,
+.tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title:hover~td {
+    background-color: #f3f3f3;
 }
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-label {
@@ -101,5 +107,18 @@
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title .metadata-value {
     font-weight: bold;
     font-size: 1.25rem;
+}
+.tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title a:not(:hover) {
+    text-decoration: none !important;
+}
+.tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title .metadata-value::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
 }
 

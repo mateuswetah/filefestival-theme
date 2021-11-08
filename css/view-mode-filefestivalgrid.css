@@ -46,18 +46,17 @@
     bottom: 0;
 }
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail img {
-    width: 220px;
-    height: 364px;
-    height: auto;
+    width: 220px !important;
+    height: 364px !important;
+    max-width: 220px !important;
+    max-height: 364px !important;
     border-radius: 0px;
     margin-bottom: -5px;
-    visibility: hidden;
+    object-fit: cover;
+    object-position: center;
 }
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .filefestival-grid-item-thumbnail:hover {
     background-color: #dbdbdb;
-}
-.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item:hover .metadata-title {
-    text-decoration: none !important;
 }
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title {
     flex-shrink: 0;
@@ -65,19 +64,36 @@
     text-align: left;
     position: relative;
 }
-.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title p {
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title h3 {
     font-size: 1.25rem;
     margin-top: 0;
     margin-bottom: 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
     font-weight: bold;
     color: var(--header--color-text, #777777);
 }
-.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title a,
-.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title a:hover {
-    color: var(--header--color-text, #777777) !important;
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-description p,
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item a:hover .metadata-description p,
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-description p:hover {
+    color: var(--header--color-text, #777777);
+    font-weight: normal !important;
+    text-decoration: none !important;
+    font-size: 0.875rem !important;
+    line-height: normal;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item a:not(:hover) {
+    color: var(--header--color-text, #777777);
     text-decoration: none !important;
 }
 

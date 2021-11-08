@@ -89,6 +89,8 @@ if ( !empty( $attachments )  || tainacan_has_document() ) : ?>
             array(
                 'class_main_div' => '',
                 'class_thumbs_div' => '',
+                'show_share_button' => true,
+                'fullscreelEl' => false,
                 'swiper_thumbs_options' => $is_gallery_mode ? 
                     array(
                         'slidesPerView' => 'auto',
