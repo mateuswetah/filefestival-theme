@@ -72,11 +72,11 @@
                 </section>
             </div><!-- .entry-content -->
 
-            <footer class="entry-footer">
-                <?php if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif; ?>
-            </footer>
+            <?php if ( comments_open() || get_comments_number() ) : ?>
+                <footer class="entry-footer">
+                    <?php comments_template(); ?>
+                </footer>
+            <?php endif; ?>
 
         <?php endwhile; ?>
 

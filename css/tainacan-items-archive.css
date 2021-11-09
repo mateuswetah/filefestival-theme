@@ -64,6 +64,13 @@
 		padding: 24px;
 	}
 }
+@media only screen and (max-width: 1024px) {
+	#tainacanFiltersButton,
+	#tainacanFiltersButton .is-hidden-touch {
+		display: inline-block !important;
+		visibility: visible !important;
+	}	
+}
 
 /* Customize tooltips */
 .tooltip {
@@ -128,7 +135,9 @@
 .tainacan-modal .control .select:not(.is-loading)::after,
 .theme-items-list .control .select:not(.is-loading)::after {
 	content: 'showmore' !important;
-	margin-top: -8px !important;
+	margin-top: -6px !important;
+	font-size: 0.75em;
+	color: var(--header--color-text, #777777);
 }
 .tainacan-modal .dropdown .dropdown-menu .dropdown-content .dropdown-item:hover,
 .tainacan-modal .dropdown .dropdown-menu .dropdown-content .has-link a:hover,
@@ -156,6 +165,54 @@
 .tainacan-modal #filters-modal .modal-content h3,
 .theme-items-list #filters-modal .modal-content h3 {
 	text-transform: uppercase;
+}
+
+.tainacan-modal #button-clear-all,
+.theme-items-list #button-clear-all {
+	text-decoration: underline;
+}
+
+/* Datepickers for data filters */
+.tainacan-modal .datepicker .datepicker-header .pagination,
+.theme-items-list .datepicker .datepicker-header .pagination {
+	padding-top: 0;
+}
+
+/* Search Icons are a bit different */
+.tainacan-modal .control.has-icons-right .icon .mdi-magnify::after,
+.theme-items-list .control.has-icons-right .icon .mdi-magnify::after {
+	background-image: url('../images/icons/ICONES_pesquisar.svg');
+	background-size: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	content: "";
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.tainacan-modal .control.has-icons-right .icon .mdi-magnify::before,
+.theme-items-list .control.has-icons-right .icon .mdi-magnify::before {
+	display: none !important;
+}
+
+/* View as icon is an ellipsis */
+.tainacan-icon-viewas::after {
+	background-image: url('../images/icons/ICONES_ver-como.svg');
+	background-size: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: block;
+	content: "";
+	width: 1.25rem;
+	height: 1.25rem;
+}
+.tainacan-icon-viewas::before {
+	display: none !important;
+}
+
+/* Search control buttons are lowercase */
+.search-control .search-control-item {
+	text-transform: lowercase;
 }
 
 /* Title on view modes should be bold and lighter */
@@ -189,13 +246,21 @@
 }
 
 /* Search control has less spacing */
-.theme-items-list .search-control {
-	display: block !important;
+.theme-items-list .search-control[role="region"] {
+	justify-content: flex-start !important;
 }
 .theme-items-list .search-control .search-control-item {
 	margin-right: 60px !important;
 	margin-bottom: 18px !important;
 }
+
+/* No need for filters button on desktop */
+#tainacanFiltersButton {
+	display: none;
+	visibility: hidden;
+}
+
+/* No need for Full Screen button */
 #tainacanFullScreenViewMode:empty {
 	display: none;
 	visibility: hidden;

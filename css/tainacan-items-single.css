@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas: 'info1 gallery info2 navigation';
     grid-template-rows: auto;
-    grid-template-columns: 1fr 450px 1fr 235px;
+    grid-template-columns: 1fr 450px 1fr 190px;
     column-gap: 64px;
     row-gap: 24px;
     margin-top: -24px !important;
@@ -15,7 +15,7 @@
 .tainacan-item-single-content.is-participants-collection {
     grid-template-areas: 'info1 info1 info1 info2 info2 navigation';
     grid-template-rows: auto;
-    grid-template-columns: 175px 1fr 1fr 1fr 1fr 235px;
+    grid-template-columns: 175px 1fr 1fr 1fr 1fr 190px;
 }
 
 /* Default information sections */
@@ -178,6 +178,7 @@
     font-weight: bold;
     font-size: 1.25rem;
     text-transform: uppercase;
+    color: var(--header--color-text,#8a8a8a);
 }
 
 .metadata-value p:empty,
@@ -233,6 +234,7 @@ p.tainacan-metadatum-value:empty {
 	font-weight: normal;
 	font-style: normal;
     font-size: 0.875rem;
+    line-height: 1.75rem;
 	margin-top: 0;
 	margin-left: 0;
 	margin-bottom: 0;
@@ -276,16 +278,20 @@ p.tainacan-metadatum-value:empty {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 0.875rem;
 }
 .tainacan-single-navigation-links a {
     display: flex;
     justify-content: space-between;
-    margin: 2px 0.5rem;
+    margin: 2px 1.5rem;
 }
 .tainacan-single-navigation-links svg {
-    width: 1rem;
+    width: 0.875rem;
     height: auto;
     color: inherit;
+}
+.tainacan-single-navigation-links--list svg {
+    width: 1.5rem;
 }
 .tainacan-single-navigation-links svg:hover {
     fill: var(--global--color-primary, #2a2a2a);

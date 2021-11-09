@@ -5,7 +5,17 @@
     border-top: 1px solid var(--global--color-border, #cccccc);
 }
 
+
 /* Aligns latest elements to the right */
 .widget-area > .widget > .wp-block-columns > .wp-block-column:last-of-type > .wp-block-columns {
     justify-content: flex-end;
+}
+
+/* Other tweaks to  footer */
+.no-widgets .site-footer,
+.widget-area {
+    margin-top: var(--global--spacing-vertical) !important;
+}
+.widget-area a:hover {
+    text-decoration-style: solid;
 }
