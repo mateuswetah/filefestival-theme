@@ -81,13 +81,10 @@
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-label {
     display: none;
-}
-
-.tainacan-filefestival-table-container .multivalue-separator {
-    margin: 0 8px;
-    display: block;
-    height: 3px;
-    color: transparent;
+    color: var(--header--color-text, #777777);
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
 }
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-value {
@@ -122,3 +119,46 @@
     content: '';
 }
 
+/* When in mobile, the table is different */
+@media screen and (max-width: 800px) {
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-container-table {
+        display: block;
+    }
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-container-table tbody {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+    .tainacan-filefestival-table-container th {
+        display: none;
+        visibility: hidden;
+    }
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-item {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-wrap: nowrap;
+        padding-bottom: 0;
+        border-bottom: none !important;
+    }
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-item td {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-item td:not(:empty) {
+        padding: calc(0.5 * var(--global--spacing-unit)) calc(1.25 * var(--global--spacing-unit)) calc(0.75 * var(--global--spacing-unit)) calc(1.25 * var(--global--spacing-unit)) !important;
+    }
+    .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-label {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    .tainacan-filefestival-table-container .multivalue-separator {
+        margin: 0 8px;
+        display: block;
+        height: 3px;
+        color: transparent;
+    }
+}
