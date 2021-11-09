@@ -21,7 +21,9 @@ function filefestival_customize_register($wp_customize) {
 
     // Loads list of Tainacan collections
     $repository = \Tainacan\Repositories\Collections::get_instance();
-    $collections_options = [];
+    $collections_options = [
+        '' => __('Nenhuma coleção', 'filefestival')
+    ];
     $collections = $repository->fetch()->posts;
 
     foreach($collections as $collection) {
@@ -95,6 +97,44 @@ function filefestival_customize_register($wp_customize) {
         'render_callback'   => '__return_false',
         'fallback_refresh'  => true
     ));
+
+    /* Filefestival single item templates */
+    $wp_customize->add_section('filefestival_tainacan_single_items_templates', array(
+        'title' => __('Página do Item do Tainacan', 'filefestival'),
+    ));
+
+    // Adds option to select which collection will have the Works template
+    $wp_customize->add_setting('filefestival_tainacan_single_item_template_works', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_single_item_template_works', array(
+        'label' => __('Coleção com o template das Obras', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_single_items_templates',
+        'settings' => 'filefestival_tainacan_single_item_template_works',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
+
+    // Adds option to select which collection will have the Participants template
+    $wp_customize->add_setting('filefestival_tainacan_single_item_template_participants', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_single_item_template_participants', array(
+        'label' => __('Coleção com o template dos Participantes', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_single_items_templates',
+        'settings' => 'filefestival_tainacan_single_item_template_participants',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
+    
     
 }
 

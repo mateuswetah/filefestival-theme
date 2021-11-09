@@ -1,17 +1,17 @@
 <?php get_header(); ?>
 
 <?php
+    $collection = tainacan_get_collection();
+    $is_works_collection = get_theme_mod('filefestival_tainacan_single_item_template_works', '') == $collection->get_ID();
+    $is_participants_collection = get_theme_mod('filefestival_tainacan_single_item_template_participants', '') == $collection->get_ID();
+
     $attachments = [];
     $attachments = tainacan_get_the_attachments();
-    $document_type = tainacan_get_the_document_type();
 
     $section_classes = 'alignwide tainacan-item-single-content';
-
-    if ( count($attachments) > 0)
-        $section_classes .= ' has-attachments';
-    
-    if ( $document_type == 'empty')
-        $section_classes .= ' has-empty-document ';
+    $section_classes .= $is_works_collection ? ' is-works-collection ' : '';
+    $section_classes .= $is_participants_collection ? ' is-participants-collection ' : '';
+    $section_classes .= count($attachments) > 0 ? ' has-attachments ' : '';
 
     $metadata = tainacan_get_the_metadata( [
         'before_title' => '<h2 class="tainacan-metadatum-label">',
@@ -39,7 +39,7 @@
 
                     <div class="tainacan-item-single-content--information">
                     
-                        <?php if ( $document_type == 'empty' && has_post_thumbnail() ): ?>
+                        <?php if ( $is_participants_collection && has_post_thumbnail() ): ?>
                             <div class="tainacan-item-thumbnail">
                                 <?php the_post_thumbnail('tainacan-medium-full'); ?>
                             </div>
@@ -49,11 +49,13 @@
 
                     </div>
 
-                    <div class="tainacan-item-single-content--gallery">
+                    <?php if ( !$is_participants_collection ): ?>
+                        <div class="tainacan-item-single-content--gallery">
 
-                        <?php get_template_part( 'template-parts/single-items-gallery' ); ?>
-                    
-                    </div>
+                            <?php get_template_part( 'template-parts/single-items-gallery' ); ?>
+                        
+                        </div>
+                    <?php endif; ?>
 
                     <div class="tainacan-item-single-content--information-2">
   
@@ -78,11 +80,13 @@
 
         <?php endwhile; ?>
 
-    </article><!-- #post-151666 -->
+    </article><!-- #post-ID -->
 
-<?php else : ?>
-    Nada encontrado aqui.
-<?php endif; ?>
+<?php 
+    else:
+        echo __( 'Nada encontrado aqui.', 'filefestival'); 
+    endif;
+?>
 
 
 <?php get_footer(); ?>

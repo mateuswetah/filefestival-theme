@@ -12,42 +12,26 @@
                          'info1 info2 info2 navigation';
     grid-template-rows: auto auto;
 }
-.tainacan-item-single-content.has-empty-document {
-    grid-template-areas: 'info1 info1 info1 info2 info2 navigation'
-                         'gallery gallery gallery info2 info2 navigation';
-    grid-template-rows: auto auto;
+.tainacan-item-single-content.is-participants-collection {
+    grid-template-areas: 'info1 info1 info1 info2 info2 navigation';
+    grid-template-rows: auto;
     grid-template-columns: 175px 1fr 1fr 1fr 1fr 235px;
 }
+
+/* Default information sections */
 .tainacan-item-single-content--information {
     grid-area: info1;
     max-width: 100%;
-    column-count: 2;
+    column-count: 1;
     column-gap: 64px;
 }
 .tainacan-item-single-content--information>*{
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information {
-    column-count: 3;
-    column-gap: 64px;
-}
-.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information>*:nth-of-type(1n+10) {
+.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information>*:nth-of-type(1n+5) {
     display: none;
     visibility: hidden;
-}
-.tainacan-item-single-content:not(.has-empty-document) .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
-    display: none;
-    visibility: hidden;
-}
-.tainacan-item-single-content--information .metadata-type-core_description,
-.tainacan-item-single-content--information .metadata-type-textarea {
-    column-span: all;
-}
-.tainacan-item-single-content--gallery {
-    grid-area: gallery;
-    max-width: 100%;
-    min-height: 364px;
 }
 .tainacan-item-single-content--information-2 {
     grid-area: info2;
@@ -57,22 +41,60 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content.has-empty-document .tainacan-item-single-content--information-2>*:nth-of-type(-1n+8) {
+.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+4) {
     display: none;
     visibility: hidden;
 }
-.tainacan-item-single-content:not(.has-empty-document) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
+
+/* Participants Information Section */
+.tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information {
+    column-count: 3;
+    column-gap: 64px;
+}
+.tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*:nth-of-type(1n+11) {
     display: none;
     visibility: hidden;
 }
+.tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information-2>*:nth-of-type(-1n+10) {
+    display: none;
+    visibility: hidden;
+}
+
+/* Works Information Section */
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
+    column-count: 2;
+    column-gap: 64px;
+}
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
+    display: none;
+    visibility: hidden;
+}
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
+    display: none;
+    visibility: hidden;
+}
+
+/* In every templated, the first section textareas span */
+.tainacan-item-single-content--information .metadata-type-core_description,
+.tainacan-item-single-content--information .metadata-type-textarea {
+    column-span: all;
+}
+
+
+/* If there are attachments, the second section has columns */
 .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2 {
     column-count: 3;
     column-gap: 64px;
 }
-.tainacan-item-single-content--navigation {
-    grid-area: navigation;
+
+/* Gallery Section */
+.tainacan-item-single-content--gallery {
+    grid-area: gallery;
     max-width: 100%;
+    min-height: 364px;
 }
+
+/* Tweaks to the media component */
 .tainacan-item-single-content.has-attachments .tainacan-item-single-content--gallery .tainacan-media-component {
     --tainacan-media-main-carousel-height: 364px;
     --swiper-theme-color: var(--global--color-primary, #676767);
@@ -135,6 +157,8 @@
 .tainacan-item-thumbnail img {
     margin-bottom: 2rem;
 }
+
+/* Tweaks to the item metadata */
 .tainacan-item-single-content .tainacan-metadatum-label {
 	font-weight: normal;
 	font-size: 0.875rem;
@@ -240,6 +264,12 @@ p.tainacan-metadatum-value:empty {
     margin: 0.5em 0 0.5em 40px;
 }
 
+
+/* Navigation Section */
+.tainacan-item-single-content--navigation {
+    grid-area: navigation;
+    max-width: 100%;
+}
 
 /* Navigation links */
 .tainacan-single-navigation-links {

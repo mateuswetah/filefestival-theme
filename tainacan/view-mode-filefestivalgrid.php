@@ -33,7 +33,6 @@
 				'OBJECT'
 			);
 		}
-		//var_dump($metadata_objects[1]);
 		if ( count($metadata_objects) < 2 ) {
 			$is_in_grid_two = false;
 		}

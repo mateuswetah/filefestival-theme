@@ -15,7 +15,7 @@
 
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item {
     width: 220px;
-    margin: 0px 0px 24px 0px;
+    margin: 0px;
     display: block;
     text-decoration: none !important;
 }
@@ -91,6 +91,10 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     white-space: normal;
+}
+.tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-description h3 {
+    font-size: 0.875em;
+    display: none;
 }
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item a:not(:hover) {
     color: var(--header--color-text, #777777);
