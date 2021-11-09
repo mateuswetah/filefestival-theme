@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.0.2';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.1.0';
 
 /**
  * Enqueue scripts and styles.
@@ -21,10 +21,10 @@ function filefestival_parent_theme_enqueue_styles() {
 	);
 
 	// Enqueues popper and tippy to allow display of tooltips
-	wp_enqueue_script( 'filefestival-popper', 'https://unpkg.com/@popperjs/core@2', [], null);
-	wp_enqueue_script( 'filefestival-tippy', 'https://unpkg.com/tippy.js@6', [], null);
-	wp_enqueue_style( 'filefestival-tippy-theme', 'https://unpkg.com/tippy.js@6/themes/light-border.css', [], null);
-	wp_enqueue_script( 'filefestival-tooltips', get_stylesheet_directory_uri() . '/js/tooltips.js', [], null, true);
+	wp_enqueue_script( 'filefestival-popper', 'https://unpkg.com/@popperjs/core@2', [], FILEFESTIVAL_THEME_VERSION);
+	wp_enqueue_script( 'filefestival-tippy', 'https://unpkg.com/tippy.js@6', [], FILEFESTIVAL_THEME_VERSION);
+	wp_enqueue_style( 'filefestival-tippy-theme', 'https://unpkg.com/tippy.js@6/themes/light-border.css', [], FILEFESTIVAL_THEME_VERSION);
+	wp_enqueue_script( 'filefestival-tooltips', get_stylesheet_directory_uri() . '/js/tooltips.js', [], FILEFESTIVAL_THEME_VERSION, true);
 }
 add_action( 'wp_enqueue_scripts', 'filefestival_parent_theme_enqueue_styles' );
 

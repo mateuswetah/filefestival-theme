@@ -283,10 +283,13 @@ p.tainacan-metadatum-value:empty {
 .tainacan-single-navigation-links a {
     display: flex;
     justify-content: space-between;
+    text-align: end;
     margin: 2px 1.5rem;
 }
 .tainacan-single-navigation-links svg {
     width: 0.875rem;
+    min-width: 0.875rem;
+    margin-right: 5px;
     height: auto;
     color: inherit;
 }
