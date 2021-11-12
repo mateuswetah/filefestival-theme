@@ -70,7 +70,7 @@
                                 $item = \Tainacan\Theme_Helper::get_instance()->tainacan_get_item();
                                 $related_items = $item->get_related_items();
 
-                                if ( count($related_items) ): ?>
+                                if ( count($related_items) > 0 ): ?>
                                     <div class="metadata-items-related-to-this">
                                         <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações deste evento', 'filefestival'); ?></h2>
                                         <p class="tainacan-metadatum-value">
