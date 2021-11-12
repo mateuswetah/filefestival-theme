@@ -75,7 +75,6 @@
 								'before' => '<td class="metadata-type-$type" $id>',
 								'after' => '</td>',
 								'hide_empty' => false,
-								//'empty_value_message' => '<span class="empty-metadata-value">' . __('Informação não fornecida.', 'filefestival') . '</span>',
 								'empty_value_message' => ' - '
 							));
 						} 

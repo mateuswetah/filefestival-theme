@@ -49,7 +49,7 @@
 /* Participants Information Section */
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information {
     column-count: 3;
-    column-gap: 64px;
+    column-gap: 30px;
 }
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*:nth-of-type(1n+11) {
     display: none;
@@ -63,7 +63,15 @@
 /* Works Information Section */
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
     column-count: 2;
-    column-gap: 64px;
+    column-gap: 30px;
+}
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(1),
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(2) {
+    min-width: 120%;
+}
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(3),
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(4) {
+    max-width: 80%;
 }
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
     display: none;
@@ -91,7 +99,7 @@
 .tainacan-item-single-content--gallery {
     grid-area: gallery;
     max-width: 100%;
-    min-height: 364px;
+    min-height: 440px;
 }
 
 /* Tweaks to the media component */
@@ -102,6 +110,14 @@
 .tainacan-item-single-content .swiper-slide-metadata {
     text-align: start !important;
     padding: 12px 0;
+    max-width: 228px;
+}
+.tainacan-item-single-content .swiper-slide-metadata .swiper-slide-metadata__caption {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 .tainacan-media-component__swiper-main .swiper-button-disabled,
 .tainacan-media-component__swiper-thumbs .swiper-button-disabled {
@@ -112,6 +128,7 @@
     left: auto;
     background: white;
     height: 100%;
+    margin: 0;
     top: 0;
     right: 0;
 }
@@ -120,6 +137,7 @@
     right: auto;
     background: white;
     height: 100%;
+    margin: 0;
     top: 0;
     left: 0;
 }
@@ -128,7 +146,7 @@
     padding: 0;
 }
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content {
-    max-width: 330px;
+    max-width: 261px;
     text-align: start;
 }
 .tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide {
@@ -142,6 +160,9 @@
 .tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:only-child .swiper-slide-content {
     max-width: none;
 }
+.tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:not(.swiper-slide-active) {
+    opacity: 1.0;
+}
 .tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content img,
 .tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content video,
 .tainacan-item-single-content.has-attachments .tainacan-media-component__swiper-main .swiper-slide-content audio,
@@ -150,8 +171,8 @@
     min-height: var(--tainacan-media-main-carousel-height, 364px);
     height: var(--tainacan-media-main-carousel-height, 364px);
     object-fit: cover;
-    min-width: 220px;
-    max-width: 330px !important;
+    min-width: 228px;
+    max-width: 261px !important;
     border-radius: 0;
 }
 .tainacan-item-thumbnail img {
@@ -164,12 +185,12 @@
 	font-size: 0.875rem;
     line-height: 1rem;
     color: var(--header--color-text,#8a8a8a);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6875rem;
 }
 .tainacan-item-single-content .tainacan-metadatum-value {
 	font-weight: normal;
 	font-size: 0.9375rem;
-    line-height: 1.5rem;
+    line-height: 1.875rem;
     color: var(--global--color-primary, #676767);
     margin-bottom: 1.5rem;
     display: inline-block;
@@ -189,8 +210,10 @@ p.tainacan-metadatum-value:empty {
 
 /* Metadata type textarea has different separator */
 .multivalue-separator {
-    color: #cbcbcb;
-    margin: 0 8px;
+    display: block;
+    height: 0;
+    margin: 0;
+    color: transparent;
 }
 .hierarchy-separator {
     color: #cbcbcb;
@@ -271,6 +294,7 @@ p.tainacan-metadatum-value:empty {
 .tainacan-item-single-content--navigation {
     grid-area: navigation;
     max-width: 100%;
+    align-self: flex-end;
 }
 
 /* Navigation links */
@@ -278,7 +302,7 @@ p.tainacan-metadatum-value:empty {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 }
 .tainacan-single-navigation-links a {
     display: flex;

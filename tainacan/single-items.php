@@ -4,6 +4,7 @@
     $collection = tainacan_get_collection();
     $is_works_collection = get_theme_mod('filefestival_tainacan_single_item_template_works', '') == $collection->get_ID();
     $is_participants_collection = get_theme_mod('filefestival_tainacan_single_item_template_participants', '') == $collection->get_ID();
+    $is_events_collection = get_theme_mod('filefestival_tainacan_single_item_template_events', '') == $collection->get_ID();
 
     $attachments = [];
     $attachments = tainacan_get_the_attachments();
@@ -11,6 +12,7 @@
     $section_classes = 'alignwide tainacan-item-single-content';
     $section_classes .= $is_works_collection ? ' is-works-collection ' : '';
     $section_classes .= $is_participants_collection ? ' is-participants-collection ' : '';
+    $section_classes .= $is_events_collection ? ' is-events-collection ' : '';
     $section_classes .= count($attachments) > 0 ? ' has-attachments ' : '';
 
     $metadata = tainacan_get_the_metadata( [
@@ -60,6 +62,36 @@
                     <div class="tainacan-item-single-content--information-2">
   
                         <?php echo $metadata; ?>
+
+                        <?php 
+                            if ( $is_events_collection ) {
+
+                                // Then fetches related ones
+                                $item = \Tainacan\Theme_Helper::get_instance()->tainacan_get_item();
+                                $related_items = $item->get_related_items();
+
+                                if ( count($related_items) ): ?>
+                                    <div class="metadata-items-related-to-this">
+                                        <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações deste evento', 'filefestival'); ?></h2>
+                                        <p class="tainacan-metadatum-value">
+                                        <?php foreach($related_items as $collection_id => $related_group) {
+                                            if (
+                                                isset($related_group['total_items']) &&
+                                                isset($related_group['collection_slug']) &&
+                                                isset($related_group['collection_name']) &&
+                                                $related_group['total_items'] > 0 
+                                            ) : ?>
+                                                <a href="<?php echo '/' . $related_group['collection_slug'] . '?metaquery[0][key]=' . $related_group['metadata_id'] . '&metaquery[0][value][0]=' . $item->get_ID() . '&metaquery[0][compare]=IN'; ?>">
+                                                    <?php echo $related_group['collection_name'] . ' (' . $related_group['total_items'] . ')'; ?>
+                                                </a>
+                                                <span class="multivalue-separator"> | </span>
+                                            <?php endif;
+                                        } ?>
+                                        </p>
+                                    </div>
+                                <?php endif; 
+                            } 
+                        ?>
 
                     </div>
 

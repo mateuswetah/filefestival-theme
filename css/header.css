@@ -35,8 +35,8 @@
 }
 .primary-navigation a:hover {
 	font-style: normal;
-	font-weight: bold;
-	text-decoration-style: solid;
+	font-weight: normal;
+	text-decoration: none;
 }
 .pagination .nav-links > :not(.dots):not(.current):hover,
 .comments-pagination .nav-links > :not(.dots):not(.current):hover {

@@ -12,6 +12,7 @@ $description = get_theme_mod('filefestival_tainacan_collections_archive_descript
 $collection_highlight_1 = get_theme_mod('filefestival_tainacan_collection_first', '');
 $collection_highlight_2 = get_theme_mod('filefestival_tainacan_collection_second', '');
 $collection_highlight_3 = get_theme_mod('filefestival_tainacan_collection_third', '');
+
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -42,10 +43,10 @@ $collection_highlight_3 = get_theme_mod('filefestival_tainacan_collection_third'
                                                 aria-controls="tainacan-collections-list"
                                                 aria-labelledby="collections-layout-select">
                                             <option <?php echo ($_GET['viewmode'] != 'lista' ? 'selected' : ''); ?> value="grade">
-                                                Grade &nbsp;
+                                                <?php echo __('grade', 'filefestival'); ?> &nbsp;
                                             </option>
                                             <option <?php echo ($_GET['viewmode'] == 'lista' ? 'selected' : ''); ?> value="lista">
-                                                Lista &nbsp;
+                                            <?php echo __('lista', 'filefestival'); ?> &nbsp;
                                             </option>
                                         </select>
                                     </span>

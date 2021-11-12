@@ -2,7 +2,7 @@
 
 $attachments = tainacan_get_the_attachments();
 $is_gallery_mode = true;
-$hide_file_name = false;
+$hide_file_name = true;
 $hide_file_caption = false;
 $hide_file_description = true;
 $disable_gallery_lightbox = false;

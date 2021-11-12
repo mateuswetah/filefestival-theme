@@ -83,13 +83,13 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 
 		if (isset($adjacent_items['next'])) {
 			$next_link_url = $adjacent_items['next']['url'];
-			$next_title = $adjacent_items['next']['title'];
+			$next_title = __('Próximo', 'filefestival');//$adjacent_items['next']['title'];
 		} else {
 			$next_link_url = false;
 		}
 		if (isset($adjacent_items['previous'])) {
 			$previous_link_url = $adjacent_items['previous']['url'];
-			$previous_title = $adjacent_items['previous']['title'];
+			$previous_title = __('Anterior', 'filefestival');//$adjacent_items['previous']['title'];
 		} else {
 			$previous_link_url = false;
 		}
@@ -100,8 +100,8 @@ function tainacan_get_adjacent_item_links($thumbnail = null) {
 		$next_link_url = get_permalink( get_next_post() );
 
 		//Get the title of the previous post and next post
-		$previous_title = get_the_title( get_previous_post() );
-		$next_title = get_the_title( get_next_post() );
+		$previous_title = __('Anterior', 'filefestival');//get_the_title( get_previous_post() );
+		$next_title = __('Próximo', 'filefestival');//get_the_title( get_next_post() );
 	}
 
 	$previous = $previous_link_url === false ? '' : '<a rel="prev" href="' . $previous_link_url . '"><svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.56 13.58"><path id="next-2" class="cls-1" d="M0,13V.58H0v0H0A.57.57,0,0,1,.58,0h1.1a.59.59,0,0,1,.58.57.25.25,0,0,0,0,.08V5.9L9.8,1.54a.37.37,0,0,1,.54,0,.32.32,0,0,1,.12.26h0V5.25L16.9,1.53a.38.38,0,0,1,.55,0,.36.36,0,0,1,.11.26h0v10a.39.39,0,0,1-.39.38.43.43,0,0,1-.28-.11L10.46,8.33v3.44a.39.39,0,0,1-.39.39A.39.39,0,0,1,9.79,12L2.25,7.69V13h0v0a.58.58,0,0,1-.58.57H.57A.57.57,0,0,1,0,13H0v0Z"/></svg><span>' . $previous_title . '</span></a>';
@@ -142,6 +142,16 @@ function filefestival_adds_collection_layout_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'filefestival_adds_collection_layout_class' );
+
+
+/**
+ * Filters the loop on collections list to set greater posts per page
+ */
+function filefestival_modify_collections_query( $wp_query ) {
+    if ( $wp_query->query_vars['post_type'] != 'tainacan-collection' ) return;
+    	$wp_query->query_vars['posts_per_page'] = 64;
+}
+add_filter( 'pre_get_posts', 'filefestival_modify_collections_query' );
 
 
 // Remaining imports
