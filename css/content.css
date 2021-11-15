@@ -30,6 +30,7 @@
         max-width: 216px;
         padding-right: 30px;
         float: left;
+        position: absolute;
     }
 
     /* Default sized Blocks */
