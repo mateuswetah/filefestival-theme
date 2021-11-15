@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.1.4';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.1.5';
 
 /**
  * Enqueue scripts and styles.
@@ -159,3 +159,4 @@ add_filter( 'pre_get_posts', 'filefestival_modify_collections_query' );
 // Remaining imports
 require get_stylesheet_directory() . '/inc/customizer.php';
 require get_stylesheet_directory() . '/inc/icons.php';
+require get_stylesheet_directory() . '/inc/editor.php';

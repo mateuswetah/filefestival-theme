@@ -1,6 +1,6 @@
 /* Tainacan item submission block */
 .wp-block-tainacan-item-submission-form .tainacan-checkbox-search-section .button {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-secondary,
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-secondary:hover,
@@ -17,4 +17,8 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:hover,
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:focus {
     color: var(--tainacan-input-color) !important;
+}
+
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .section-label:empty {
+    display: none !important;
 }
