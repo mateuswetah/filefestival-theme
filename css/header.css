@@ -1,6 +1,6 @@
 /* Smaller header padding */
 .site-header {
-	padding-bottom: var(--header--padding);
+	padding-bottom: 0px;
 }
 
 /* Puts site title and tagline aside each other */

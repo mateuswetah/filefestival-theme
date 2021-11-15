@@ -15,7 +15,7 @@
 function filefestival_parent_theme_enqueue_styles() {
 	//wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'filefestival',
-		get_stylesheet_directory_uri() . '/style.css',
+		get_stylesheet_directory_uri() . '/style.min.css',
 		array( 'twenty-twenty-one-style' ),
 		FILEFESTIVAL_THEME_VERSION
 	);
@@ -136,7 +136,7 @@ function tainacan_get_source_item_list_url() {
  */
 function filefestival_adds_collection_layout_class( $classes ) {
 
-	if ( is_post_type_archive( 'tainacan-collection' ) )
+	if ( isset($_GET['viewmode']) && is_post_type_archive( 'tainacan-collection' ) )
     	return array_merge( $classes, array( 'collections-list-layout-' . $_GET['viewmode'] ) );
 
 	return $classes;
@@ -148,8 +148,10 @@ add_filter( 'body_class', 'filefestival_adds_collection_layout_class' );
  * Filters the loop on collections list to set greater posts per page
  */
 function filefestival_modify_collections_query( $wp_query ) {
-    if ( $wp_query->query_vars['post_type'] != 'tainacan-collection' ) return;
+    if ( is_post_type_archive('tainacan-collection') && isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] === 'tainacan-collection' )
     	$wp_query->query_vars['posts_per_page'] = 64;
+	else
+		return;
 }
 add_filter( 'pre_get_posts', 'filefestival_modify_collections_query' );
 

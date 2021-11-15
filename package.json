@@ -1,0 +1,30 @@
+{
+  "name": "filefestival",
+  "version": "0.1.2",
+  "description": "Child theme of TwentyTwentyOne made for the FILE Festival",
+  "main": "js/tooltips.js",
+  "scripts": {
+    "css-minify": "cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output style.min.css style.css",
+    "build": "npm run css-minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateuswetah/filefestival-theme.git"
+  },
+  "keywords": [
+    "wordpress",
+    "tainacan",
+    "theme",
+    "file",
+    "festival"
+  ],
+  "author": "wetah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateuswetah/filefestival-theme/issues"
+  },
+  "homepage": "https://github.com/mateuswetah/filefestival-theme#readme",
+  "devDependencies": {
+    "clean-css-cli": "^4.3.0"
+  }
+}

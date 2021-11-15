@@ -5,12 +5,11 @@
     grid-template-columns: 1fr 450px 1fr 190px;
     column-gap: 64px;
     row-gap: 24px;
-    margin-top: -24px !important;
 }
 .tainacan-item-single-content.has-attachments {
     grid-template-areas: 'info1 gallery gallery navigation'
                          'info1 info2 info2 navigation';
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(auto-fit, 440px)
 }
 .tainacan-item-single-content.is-participants-collection {
     grid-template-areas: 'info1 info1 info1 info2 info2 navigation';

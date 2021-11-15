@@ -5,7 +5,6 @@
 	padding-right: var(--responsive--alignfull-padding);
 	display: flex;
 	max-width: 960px;
-	margin-top: -1rem !important;
 	margin-bottom: 12px;
 }
 .tainacan-items-list-heading h1 {

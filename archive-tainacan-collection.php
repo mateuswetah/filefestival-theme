@@ -42,10 +42,10 @@ $collection_highlight_3 = get_theme_mod('filefestival_tainacan_collection_third'
                                                 "
                                                 aria-controls="tainacan-collections-list"
                                                 aria-labelledby="collections-layout-select">
-                                            <option <?php echo ($_GET['viewmode'] != 'lista' ? 'selected' : ''); ?> value="grade">
+                                            <option <?php echo ( (!isset($_GET['viewmode']) || $_GET['viewmode'] != 'lista') ? 'selected' : ''); ?> value="grade">
                                                 <?php echo __('grade', 'filefestival'); ?> &nbsp;
                                             </option>
-                                            <option <?php echo ($_GET['viewmode'] == 'lista' ? 'selected' : ''); ?> value="lista">
+                                            <option <?php echo ( (isset($_GET['viewmode']) && $_GET['viewmode'] == 'lista') ? 'selected' : ''); ?> value="lista">
                                             <?php echo __('lista', 'filefestival'); ?> &nbsp;
                                             </option>
                                         </select>

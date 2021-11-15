@@ -1,8 +1,7 @@
 .tainacan-collections {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: calc(-1 * var(--global--spacing-vertical)) !important;
-	padding-top: 6px;
+	padding-top: 16px;
 }
 .tainacan-collections header.page-header {
 	flex-basis: 216px;
