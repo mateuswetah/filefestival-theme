@@ -5,7 +5,8 @@
   "main": "js/tooltips.js",
   "scripts": {
     "css-minify": "cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output style.min.css style.css",
-    "build": "npm run css-minify"
+    "css-editor-minify": "cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output editor.min.css css/variables.css",
+    "build": "npm run css-minify && npm run css-editor-minify"
   },
   "repository": {
     "type": "git",

@@ -14,19 +14,19 @@
 @media only screen and (min-width: 1024px) {
 
     /* General container */
-    .singular main>article.entry,
-    .singular main>.comments-area {
+    .singular:not(.home) main>article.entry,
+    .singular:not(.home) main>.comments-area {
         max-width: var(--responsive--alignwide-width);
         margin-left: auto;
         margin-right: auto;
     }
-    .singular main>.comments-area>* {
+    .singular:not(.home) main>.comments-area>* {
         max-width: var(--responsive--aligndefault-width);
         padding-left: 216px;
     }
 
     /* General post title */
-    .singular .entry-header {
+    .singular:not(.home) .entry-header {
         max-width: 216px;
         padding-right: 30px;
         float: left;
@@ -34,16 +34,16 @@
     }
 
     /* Default sized Blocks */
-    .singular .post-thumbnail,
-    .singular .entry-content .wp-audio-shortcode,
-    .singular .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-    .singular .entry-content [class*="inner-container"] > :not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-    .singular .default-max-width {
+    .singular:not(.home) .post-thumbnail,
+    .singular:not(.home) .entry-content .wp-audio-shortcode,
+    .singular:not(.home) .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+    .singular:not(.home) .entry-content [class*="inner-container"] > :not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+    .singular:not(.home) .default-max-width {
         margin-left: 216px;
     }
     /* Wide aligned Blocks */
-    .singular .alignwide:not(.entry-header):not(.tainacan-item-single-content),
-    .singular .wide-max-width {
+    .singular:not(.home) .alignwide:not(.entry-header):not(.tainacan-item-single-content),
+    .singular:not(.home) .wide-max-width {
         margin-left: 216px;
     }
 }

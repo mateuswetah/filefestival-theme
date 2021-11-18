@@ -28,6 +28,15 @@ function filefestival_parent_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'filefestival_parent_theme_enqueue_styles' );
 
+
+/**
+ * Enqueue WordPress theme styles within Gutenberg.
+ */
+function filefestival_editor_styles() {
+	wp_enqueue_style( 'filefestival_editor_styles', get_stylesheet_directory_uri() . '/editor.min.css', array(), FILEFESTIVAL_THEME_VERSION );
+}
+add_action( 'enqueue_block_editor_assets', 'filefestival_editor_styles' );
+
 /* Registers File Festival Custom View Modes */
 function filefestival_register_tainacan_view_modes() {
 	if ( function_exists( 'tainacan_register_view_mode' ) ) {
