@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.1.6';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.1.8';
 
 /**
  * Enqueue scripts and styles.
@@ -164,6 +164,15 @@ function filefestival_modify_collections_query( $wp_query ) {
 }
 add_filter( 'pre_get_posts', 'filefestival_modify_collections_query' );
 
+/**
+ * Allows upload of SVG files
+ */
+function filefestival_upload_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svgz'] = 'application/x-gzip';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'filefestival_upload_mime_types' );
 
 // Remaining imports
 require get_stylesheet_directory() . '/inc/customizer.php';
