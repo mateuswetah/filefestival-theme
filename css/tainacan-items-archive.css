@@ -278,11 +278,15 @@
 }
 
 /* Checkobxes have special style */
+.theme-items-list .search-control .b-checkbox.checkbox {
+	display: flex;
+}
 .tainacan-modal .tainacan-form input[type="checkbox"]:checked + span + .control-label,
 .theme-items-list input[type="checkbox"]:checked + span + .control-label,
 .tainacan-modal .tainacan-form input[type="checkbox"]:checked + span + .control-label .checkbox-label-text,
 .theme-items-list input[type="checkbox"]:checked + span + .control-label .checkbox-label-text {
 	--tainacan-input-color: var(--tainacan-secondary);
+	color: var(--tainacan-secondary);
 }
 .tainacan-modal .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
 .theme-items-list .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
@@ -300,8 +304,8 @@
 .theme-items-list .field .b-checkbox.checkbox input[type="checkbox"] + .check,
 .tainacan-modal .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + .check,
 .theme-items-list .control .b-checkbox.checkbox input[type="checkbox"] + .check {
-	width: 15px;
-	height: 15px;
+	width: 16px;
+	height: 16px;
 	border-radius: 3px;
 	margin-top: -1px;
 }
@@ -311,7 +315,7 @@
 .theme-items-list .control .b-checkbox.checkbox input[type="checkbox"] + span + .control-label,
 .tainacan-modal .tainacan-form .checkbox-label-text,
 .theme-items-list .checkbox-label-text {
-	line-height: 1.75em !important;
+	line-height: 1.875em !important;
 }
 .tainacan-modal .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after,
 .theme-items-list .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after {
@@ -326,6 +330,10 @@
 .theme-items-list .filter-tags-list,
 .tainacan-modal .filter-tags-list {
 	padding: 1.5em 0 1.0em 0 !important;
+}
+.theme-items-list .filter-tags-list .filter-tag-metadatum-name,
+.tainacan-modal .filter-tags-list .filter-tag-metadatum-name {
+	list-style: 1.75;
 }
 .theme-items-list .tag,
 .tainacan-modal .tag,
