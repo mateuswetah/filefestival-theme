@@ -37,7 +37,6 @@
     .singular:not(.home) .post-thumbnail,
     .singular:not(.home) .entry-content .wp-audio-shortcode,
     .singular:not(.home) .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-    .singular:not(.home) .entry-content [class*="inner-container"] > :not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
     .singular:not(.home) .default-max-width {
         margin-left: 216px;
     }

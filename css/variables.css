@@ -21,6 +21,18 @@ body .editor-styles-wrapper {
     --font-headings: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+@media screen and (max-width: 822px) {
+    :root {
+        --site--padding: 32px;
+    }
+}
+
+@media screen and (min-width: 722px) {
+    .wp-block-column:not(:first-child) {
+        margin-left: 4em;
+    }
+}
+
 body.singular h1,
 body.singular h2,
 body.singular h3,
@@ -36,14 +48,10 @@ body .editor-styles-wrapper h6 {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 822px) {
-    :root {
-        --site--padding: 32px;
-    }
+.editor-styles-wrapper .wp-block.editor-post-title__block {
+    border-bottom: none;
 }
-
-@media screen and (min-width: 722px) {
-    .wp-block-column:not(:first-child) {
-        margin-left: 4em;
-    }
+.editor-styles-wrapper .editor-post-title__input {
+    font-weight: bold;
+    text-transform: uppercase;
 }
