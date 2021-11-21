@@ -14,19 +14,19 @@
 @media only screen and (min-width: 1024px) {
 
     /* General container */
-    .singular:not(.home) main>article.entry,
-    .singular:not(.home) main>.comments-area {
+    .singular:not(.home):not(.page-template-custom-title) main>article.entry,
+    .singular:not(.home):not(.page-template-custom-title) main>.comments-area {
         max-width: var(--responsive--alignwide-width);
         margin-left: auto;
         margin-right: auto;
     }
-    .singular:not(.home) main>.comments-area>* {
+    .singular:not(.home):not(.page-template-custom-title) main>.comments-area>* {
         max-width: var(--responsive--aligndefault-width);
         padding-left: 216px;
     }
 
     /* General post title */
-    .singular:not(.home) .entry-header {
+    .singular:not(.home):not(.page-template-custom-title) .entry-header {
         max-width: 216px;
         padding-right: 30px;
         float: left;
@@ -34,15 +34,15 @@
     }
 
     /* Default sized Blocks */
-    .singular:not(.home) .post-thumbnail,
-    .singular:not(.home) .entry-content .wp-audio-shortcode,
-    .singular:not(.home) .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
-    .singular:not(.home) .default-max-width {
+    .singular:not(.home):not(.page-template-custom-title) .post-thumbnail,
+    .singular:not(.home):not(.page-template-custom-title) .entry-content .wp-audio-shortcode,
+    .singular:not(.home):not(.page-template-custom-title) .entry-content > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+    .singular:not(.home):not(.page-template-custom-title) .default-max-width {
         margin-left: 216px;
     }
     /* Wide aligned Blocks */
-    .singular:not(.home) .alignwide:not(.entry-header):not(.tainacan-item-single-content),
-    .singular:not(.home) .wide-max-width {
+    .singular:not(.home):not(.page-template-custom-title) .alignwide:not(.entry-header):not(.tainacan-item-single-content),
+    .singular:not(.home):not(.page-template-custom-title) .wide-max-width {
         margin-left: 216px;
     }
 }

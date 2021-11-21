@@ -12,6 +12,7 @@ body .editor-styles-wrapper {
     --heading--font-size-h3: 1.0rem;
     --heading--font-size-h4: 0.875rem;
     --heading--font-weight: bold;
+    --heading--font-weight-page-title: bold;
     --global--font-size-page-title: 2.1875rem;
     --pagination--font-size: 0.875rem;
     --global--spacing-vertical: 16px;
