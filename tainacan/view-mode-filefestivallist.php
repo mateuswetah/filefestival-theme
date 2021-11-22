@@ -66,7 +66,7 @@
 <?php else : ?>
 	<div class="tainacan-filefestival-list-container">
 		<section class="section">
-			<div class="content has-text-gray4 has-text-centered">
+			<div class="content has-text-gray-4 has-text-centered">
 				<p>
 					<span class="icon is-large">
 						<i class="tainacan-icon tainacan-icon-48px tainacan-icon-items"></i>

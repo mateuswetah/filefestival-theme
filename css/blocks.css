@@ -81,39 +81,53 @@
 /* WP Contact Form 7 */
 .wpcf7-form {
 	column-count: 2;
+	column-gap: 2rem;
 	margin: 0 2rem;
 }
 .wpcf7-form>p label {
 	padding: 2px;
 }
 .wpcf7-form>p {
-	margin-bottom: 1.5rem;
 	break-inside: avoid;
 }
-.wpcf7-form>p:nth-of-type(n+4) {
+.wpcf7-form>p:nth-of-type(n+3) {
 	column-span: all;
 }
 .wpcf7-form>p:last-of-type {
 	display: flex;
 	flex-direction: row-reverse;
-	justify-content: flex-end;
+	justify-content: end;
 }
-
+.wpcf7-form .wpcf7-text,
+.wpcf7-form .wpcf7-textarea {
+	width: 100%;
+}
+.wpcf7-form .wpcf7-text:hover,
+.wpcf7-form .wpcf7-textarea:hover,
+.wpcf7-form .wpcf7-text:focus,
+.wpcf7-form .wpcf7-textarea:focus,
+.wpcf7-form .wpcf7-text:active,
+.wpcf7-form .wpcf7-textarea:active {
+	border-color: var(--global--color-primary, #676767);
+}
 .wpcf7-form input[type='submit'] {
 	font-weight: normal;
 }
 .wpcf7-form input[type='submit']:not(:hover) {
-	background-color: var(--tainacan-secondary);
-	color: var(--global--color-background);
+	background-color: #676767 !important;
+	color: var(--global--color-background) !important;
 }
 
 /* Newsletter plugin */
+.tnp-subscription-minimal {
+	margin-bottom: 2px;
+}
 .tnp-subscription-minimal form {
 	display: flex;
 }
 .tnp-subscription-minimal input.tnp-email {
 	margin-right: 0.5rem;
-	background-color: var(--global--color-background);
+	background-color: var(--global--color-background) !important;
 }
 .tnp-subscription-minimal input.tnp-email:focus,
 .tnp-subscription-minimal input.tnp-email:hover,
@@ -121,9 +135,13 @@
 	border-color: var(--global--color-primary, #676767);
 }
 .tnp-subscription-minimal input.tnp-submit {
-	background-color: (--global--color-background);
-	color:var(--content--color--link);
+	background-color: var(--global--color-background) !important;
+	color:var(--content--color--link) !important;
+	border: 1px solid #ccc !important;
 	text-transform: uppercase;
+}
+.tnp-subscription-minimal input.tnp-submit:hover {
+	border-color: var(--global--color-primary, #676767) !important;
 }
 
 

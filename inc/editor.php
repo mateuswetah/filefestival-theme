@@ -11,27 +11,27 @@ function filefestival_theme_setup() {
         ),
         array(
             'name' => __( 'Cinza 1', 'filefestival' ),
-            'slug' => 'gray1',
+            'slug' => 'gray-1',
             'color' => '#cccccc',
         ),
         array(
             'name' => __( 'Cinza 2', 'filefestival' ),
-            'slug' => 'gray2',
+            'slug' => 'gray-2',
             'color' => '#777777',
         ),
         array(
             'name' => __( 'Cinza 3', 'filefestival' ),
-            'slug' => 'gray3',
+            'slug' => 'gray-3',
             'color' => '#676767',
         ),
         array(
             'name' => __( 'Cinza 4', 'filefestival' ),
-            'slug' => 'gray4',
+            'slug' => 'gray-4',
             'color' => '#333333',
         ),
         array(
             'name' => __( 'Cinza 5', 'filefestival' ),
-            'slug' => 'gray5',
+            'slug' => 'gray-5',
             'color' => '#2a2a2a',
         ),
         array(
