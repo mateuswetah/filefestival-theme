@@ -34,6 +34,12 @@ body .editor-styles-wrapper {
         --site--padding: 32px;
     }
 }
+@media screen and (min-width: 822px) {
+    body .editor-styles-wrapper {
+        --max--alignwide-width: 1800px;
+        --responsive--alignwide-width: min(calc(100vw - var(--site--padding)*2),var(--max--alignwide-width));
+    }
+}
 
 @media screen and (min-width: 722px) {
     .wp-block-column:not(:first-child) {

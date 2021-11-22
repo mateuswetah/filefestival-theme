@@ -119,15 +119,17 @@
 }
 
 /* Newsletter plugin */
-.tnp-subscription-minimal {
+.wp-block-tnp-minimal {
 	margin-bottom: 2px;
 }
 .tnp-subscription-minimal form {
 	display: flex;
+	flex-wrap: nowrap;
 }
 .tnp-subscription-minimal input.tnp-email {
 	margin-right: 0.5rem;
 	background-color: var(--global--color-background) !important;
+	width: 100% !important;
 }
 .tnp-subscription-minimal input.tnp-email:focus,
 .tnp-subscription-minimal input.tnp-email:hover,
@@ -139,6 +141,12 @@
 	color:var(--content--color--link) !important;
 	border: 1px solid #ccc !important;
 	text-transform: uppercase;
+	background-image: url('../images/icons/enviar_email.svg') !important;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 0.55rem;
+	font-size: 0 !important;
+	width: 2rem !important;
 }
 .tnp-subscription-minimal input.tnp-submit:hover {
 	border-color: var(--global--color-primary, #676767) !important;
