@@ -1,4 +1,7 @@
 /* Tainacan item submission block */
+.wp-block-tainacan-item-submission-form {
+	--tainacan-one-column: 0px;
+}
 .wp-block-tainacan-item-submission-form .tainacan-checkbox-search-section .button {
     background-color: transparent !important;
 }
@@ -73,4 +76,62 @@
 
 .wp-block-tainacan-item-submission-form .help-tooltip::before {
     display: none;
+}
+
+/* WP Contact Form 7 */
+.wpcf7-form {
+	column-count: 2;
+	margin: 0 2rem;
+}
+.wpcf7-form>p label {
+	padding: 2px;
+}
+.wpcf7-form>p {
+	margin-bottom: 1.5rem;
+	break-inside: avoid;
+}
+.wpcf7-form>p:nth-of-type(n+4) {
+	column-span: all;
+}
+.wpcf7-form>p:last-of-type {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+.wpcf7-form input[type='submit'] {
+	font-weight: normal;
+}
+.wpcf7-form input[type='submit']:not(:hover) {
+	background-color: var(--tainacan-secondary);
+	color: var(--global--color-background);
+}
+
+/* Newsletter plugin */
+.tnp-subscription-minimal form {
+	display: flex;
+}
+.tnp-subscription-minimal input.tnp-email {
+	margin-right: 0.5rem;
+	background-color: var(--global--color-background);
+}
+.tnp-subscription-minimal input.tnp-email:focus,
+.tnp-subscription-minimal input.tnp-email:hover,
+.tnp-subscription-minimal input.tnp-email:active {
+	border-color: var(--global--color-primary, #676767);
+}
+.tnp-subscription-minimal input.tnp-submit {
+	background-color: (--global--color-background);
+	color:var(--content--color--link);
+	text-transform: uppercase;
+}
+
+
+/* Form warning columns */
+.wp-block-columns.subscription-form-warning {
+	padding: 12px;
+    border: 1px solid #ccc;
+}
+.wp-block-columns.subscription-form-warning .wp-block-column:not(:first-child) {
+	margin-left: 1em;
 }
