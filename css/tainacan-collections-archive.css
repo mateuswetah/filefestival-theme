@@ -120,7 +120,7 @@
 .tainacan-collections .tainacan-collections-list {
 	flex-basis: calc(90% - 216px - 64px);
 	display: grid;
-    grid-template-rows: 14vh repeat(auto-fit, 20vh);
+    grid-template-rows: 17vh 17vh repeat(auto-fit,20vh);
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 64px;
     row-gap: 64px;
