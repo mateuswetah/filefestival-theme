@@ -118,9 +118,9 @@
 }
 
 .tainacan-collections .tainacan-collections-list {
-	flex-basis: calc(100% - 216px - 64px - 64px);
+	flex-basis: calc(90% - 216px - 64px);
 	display: grid;
-    grid-template-rows: 178px 178px repeat(auto-fit, 300px);
+    grid-template-rows: 14vh repeat(auto-fit, 20vh);
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 64px;
     row-gap: 64px;
@@ -195,14 +195,13 @@ body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collect
 }
 .tainacan-collections .tainacan-collection .tainacan-collection__title h2 {
 	font-weight: bold;
-	font-size: 1.25rem;
 	color: var(--header--color-text, #777777);
 	text-transform: uppercase;
 	margin-top: 1rem;
 }
 
 /* Medium desktop screen */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1360px) {
 	.tainacan-collections .tainacan-collections-list {
 		flex-basis: calc(100% - 216px - 64px);
 		grid-template-rows: 178px 178px 218px repeat(auto-fill, 300px);

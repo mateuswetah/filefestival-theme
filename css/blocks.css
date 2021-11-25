@@ -120,7 +120,8 @@
 
 /* Newsletter plugin */
 .wp-block-tnp-minimal {
-	margin-bottom: 2px;
+	margin-bottom: 2px !important;
+	margin-top: 0px !important;
 }
 .tnp-subscription-minimal form {
 	display: flex;

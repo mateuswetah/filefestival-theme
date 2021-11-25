@@ -8,9 +8,9 @@ body .editor-styles-wrapper {
     --global--font-size-xxl: 6rem;
     --global--font-size-xl: 1.875rem;
     --heading--font-size-h1: 1.5rem;
-    --heading--font-size-h2: 1.125rem;
-    --heading--font-size-h3: 1.0rem;
-    --heading--font-size-h4: 0.875rem;
+    --heading--font-size-h2: 0.875rem;
+    --heading--font-size-h3: 0.8125rem;
+    --heading--font-size-h4: 0.75rem;
     --heading--font-weight: bold;
     --heading--font-weight-page-title: bold;
     --global--font-size-page-title: 2.1875rem;

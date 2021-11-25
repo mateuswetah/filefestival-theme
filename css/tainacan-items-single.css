@@ -2,7 +2,7 @@
     display: grid;
     grid-template-areas: 'info1 gallery info2 navigation';
     grid-template-rows: auto;
-    grid-template-columns: 1fr 450px 1fr 190px;
+    grid-template-columns: 33% 1fr 1fr 190px;
     column-gap: 64px;
     row-gap: 24px;
     padding-top: 1rem;
@@ -49,7 +49,7 @@
 /* Participants Information Section */
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information {
     column-count: 3;
-    column-gap: 30px;
+    column-gap: 32px;
 }
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*:nth-of-type(1n+11) {
     display: none;
@@ -63,7 +63,7 @@
 /* Works Information Section */
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
     column-count: 2;
-    column-gap: 30px;
+    column-gap: 32px;
 }
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(1),
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(2) {
@@ -71,7 +71,8 @@
 }
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(3),
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>:nth-of-type(4) {
-    max-width: 80%;
+    max-width: calc(80% - 32px);
+    margin-left: 32px;
 }
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
     display: none;
@@ -192,6 +193,7 @@
     line-height: 1rem;
     color: var(--header--color-text,#8a8a8a);
     margin-bottom: 0.6875rem;
+    text-transform: none;
 }
 .tainacan-item-single-content .tainacan-metadatum-value {
 	font-weight: normal;
@@ -303,6 +305,8 @@ p.tainacan-metadatum-value:empty {
 .tainacan-item-single-content--navigation {
     grid-area: navigation;
     max-width: 100%;
+    width: 190px;
+    justify-self: flex-end;
     align-self: flex-end;
 }
 
@@ -334,15 +338,14 @@ p.tainacan-metadatum-value:empty {
 }
 
 /* Smaller desktop screen */
-@media screen and (max-width: 1285px) {
+@media screen and (max-width: 1360px) {
     .tainacan-item-single-content,
     .tainacan-item-single-content.has-attachments {
         display: grid;
         grid-template-areas: 'info1 gallery'
                              'info1 info2 '
                              'navigation navigation';
-        grid-template-rows: auto auto auto;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 40% 60%;
     }
     .tainacan-item-single-content.is-participants-collection {
         grid-template-areas: 'info1 info1'

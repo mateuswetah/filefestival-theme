@@ -95,8 +95,12 @@
 .theme-items-list .filter-item-forms .collapse-trigger {
 	color: var(--header--color-text, #777777) !important;
 }
+.theme-items-list .filter-item-forms .collapse-content {
+	margin-top: 6px !important;
+}
 .theme-items-list .filter-item-forms .collapse-trigger .icon {
 	margin-right: -5px;
+	margin-left: 2px;
 }
 
 /* Using padding variable to space filters list */
@@ -104,11 +108,15 @@
 .theme-items-list #filters-modal .modal-content {
 	padding: 20px 42px 24px 0!important;
 }
+.theme-items-list #filters-modal .filters-components-list {
+	margin-left: -3px;
+}
 
 /* The padding is in the page */
 .search-control {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
+	padding-bottom: 6px !important;
 }
 
 /* Search input should have similar width than filters panel */
@@ -400,3 +408,10 @@
     }
 }
 
+
+/* Larger desktop screen */
+@media screen and (max-width: 1400px) {
+	.theme-items-list .search-control .search-control-item {
+		margin-right: 40px !important;
+	}
+}

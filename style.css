@@ -5,7 +5,7 @@ Description:    New theme for the FILE Festival
 Author:         Mateus Machado Luna
 Author URI:     mateuswetah
 Template:       twentytwentyone
-Version:        0.1.18
+Version:        0.1.19
 */
 
 /* Styles related to the Tainacan plugin */
@@ -48,7 +48,6 @@ a:not(:hover) {
 }
 a:hover {
     text-decoration-style: solid;
-    font-style: italic;
     --content--color--link: var(--global--color-primary, #2a2a2a);
 }
 a:focus {
