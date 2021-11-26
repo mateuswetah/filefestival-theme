@@ -48,7 +48,7 @@
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="filefestival-grid-item-thumbnail">
-							<?php the_post_thumbnail( 'tainacan-medium' ); ?>
+							<?php the_post_thumbnail( 'large' ); ?>
 							<div class="skeleton"></div> 
 						</div>
 					<?php else : ?>

@@ -42,6 +42,10 @@
 .comments-pagination .nav-links > :not(.dots):not(.current):hover {
 	text-decoration-style: solid;
 }
+.primary-navigation .current-menu-item > a:first-child:hover,
+.primary-navigation .current_page_item > a:first-child:hover {
+	text-decoration-style: solid;
+}
 .pagination .nav-links > :not(.dots):not(.current):hover,
 .comments-pagination .nav-links > :not(.dots):not(.current):hover {
 	text-decoration-thickness: 2px;

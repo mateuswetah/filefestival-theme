@@ -375,6 +375,10 @@
 .theme-items-list .search-control .search-control-item .search-area .is-pulled-right:active {
 	text-decoration: underline;
 }
+.tainacan-modal a:hover, .tainacan-modal a:hover:not([href]),
+.theme-items-list a:hover, .theme-items-list a:hover:not([href]) {
+	text-decoration-thickness: 1px;
+}
 /* .tainacan-modal button.link-style:not(.collapse-all):hover,
 .theme-items-list button.link-style:not(.collapse-all):hover,
 .theme-items-list .search-control .search-control-item .search-area .is-pulled-right:hover {

@@ -30,21 +30,23 @@
 				<?php endif; ?>
 
 				<div class="tainacan-filefestival-list-item--metadata">
-					<?php if ( $is_repository_level && $has_title_enabled ): ?>
-						<div class="metadata-type-core_title">
+					<?php if ( $has_title_enabled ): ?>
+						<a 
+								href="<?php the_permalink(); ?>"
+								class="metadata-type-core_title">
 							<h3 class="metadata-label"><?php echo __('Título', 'filefestival'); ?></h3>
 							<p class="metadata-value"><?php echo get_the_title(); ?></p>
-						</div>
+						</a>
 					<?php endif; if ( $is_repository_level && $has_description_enabled ): ?>
 						<div class="metadata-type-core_description">
 							<h3 class="metadata-label"><?php echo __('Descrição', 'filefestival'); ?></h3>
 							<p class="metadata-value"><?php echo get_the_excerpt(); ?></p>
 						</div>
 					<?php endif; ?>
-
 					<?php if ( $has_meta ) {
 							tainacan_the_metadata(
 								array(
+									'exclude_title' => true,
 									'metadata__in' => $view_mode_displayed_metadata['meta'],
 									'before_title' => '<h3 class="metadata-label">',
 									'before_value' => '<p class="metadata-value" data-tippy-content>',

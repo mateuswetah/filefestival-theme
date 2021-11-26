@@ -29,7 +29,7 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information>*:nth-of-type(1n+5) {
+.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information>*:nth-of-type(1n+6) {
     display: none;
     visibility: hidden;
 }
@@ -41,7 +41,7 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+4) {
+.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+5) {
     display: none;
     visibility: hidden;
 }
@@ -111,7 +111,16 @@
 .tainacan-item-single-content .swiper-slide-metadata {
     text-align: start !important;
     padding: 12px 0;
+}
+.tainacan-item-single-content .swiper-slide-metadata br {
+    display: none;
+    visibility: hidden;
+}
+.tainacan-item-single-content.has-attachments .swiper-slide-metadata {
     max-width: 228px;
+}
+.tainacan-item-single-content:not(.has-attachments) .swiper-slide-metadata {
+    max-width: 100%;
 }
 .tainacan-item-single-content .swiper-slide-metadata .swiper-slide-metadata__caption {
     text-overflow:ellipsis;
@@ -120,6 +129,10 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+.tainacan-media-component,
+.tainacan-media-component .tainacan-media-component__swiper-main {
+    height: 100% !important; /* This messes with the arrow alignment, but avoids caption hidden by overflow */
+}
 .tainacan-media-component__swiper-main .swiper-button-disabled,
 .tainacan-media-component__swiper-thumbs .swiper-button-disabled {
     display: none;
@@ -127,7 +140,7 @@
 .tainacan-media-component__swiper-main .swiper-button-next,
 .tainacan-media-component__swiper-main .swiper-container-rtl .swiper-button-prev {
     left: auto;
-    background: white;
+    background: var(--global--color-background);
     height: 100%;
     margin: 0;
     top: 0;
@@ -136,7 +149,7 @@
 .tainacan-media-component__swiper-main .swiper-button-prev,
 .tainacan-media-component__swiper-main .swiper-container-rtl .swiper-button-next {
     right: auto;
-    background: white;
+    background: var(--global--color-background);
     height: 100%;
     margin: 0;
     top: 0;
@@ -338,7 +351,7 @@ p.tainacan-metadatum-value:empty {
 }
 
 /* Smaller desktop screen */
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 1400px) {
     .tainacan-item-single-content,
     .tainacan-item-single-content.has-attachments {
         display: grid;

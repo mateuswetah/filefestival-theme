@@ -68,7 +68,7 @@
 
 .wp-block-tainacan-item-submission-form .help-tooltip {
     border: 1px solid var(--content--color--link, #676767);
-    background: white;
+    background: var(--global--color-background);
     border-radius: 0;
     color: var(--content--color--link, #676767);
     font-size: 0.8125rem;
@@ -161,4 +161,9 @@
 }
 .wp-block-columns.subscription-form-warning .wp-block-column:not(:first-child) {
 	margin-left: 1em;
+}
+
+/* Image inside the h1 title block */
+.entry-content h1>img {
+	display: block;
 }

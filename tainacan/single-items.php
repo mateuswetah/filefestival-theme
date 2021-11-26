@@ -63,50 +63,48 @@
   
                         <?php echo $metadata; ?>
 
-                        <?php 
-                            if ( $is_events_collection ) {
+                        <?php
+                            // Then fetches related ones
+                            try {
+                                $item = new \Tainacan\entities\Item(get_the_ID());
 
-                                // Then fetches related ones
-                                try {
-                                    $item = new \Tainacan\entities\Item(get_the_ID());
+                                if ( $item instanceof \Tainacan\Entities\Item ) {
+                                    $related_items = $item->get_related_items();
 
-                                    if ( $item instanceof \Tainacan\Entities\Item ) {
-                                        $related_items = $item->get_related_items();
-
-                                        if ( count($related_items) > 0 ): ?>
-                                            <div class="metadata-items-related-to-this">
-                                                <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações deste evento', 'filefestival'); ?></h2>
-                                                <p class="tainacan-metadatum-value">
-                                                <?php 
-                                                    $related_links = [];
-                                                    foreach($related_items as $collection_id => $related_group) {
-                                                        if (
-                                                            isset($related_group['total_items']) &&
-                                                            isset($related_group['collection_slug']) &&
-                                                            isset($related_group['collection_name']) &&
-                                                            $related_group['total_items'] > 0
-                                                        ) {
-                                                            ob_start();
-                                                            ?>
-                                                                <a href="<?php echo '/' . $related_group['collection_slug'] . '?metaquery[0][key]=' . $related_group['metadata_id'] . '&metaquery[0][value][0]=' . $item->get_ID() . '&metaquery[0][compare]=IN'; ?>">
-                                                                    <?php echo $related_group['collection_name'] . ' (' . $related_group['total_items'] . ')'; ?>
-                                                                </a>
-                                                            <?php
-                                                            $related_links[] = ob_get_contents();
-                                                            ob_end_clean();
-                                                        }
+                                    if ( count($related_items) > 0 ): ?>
+                                        <div class="metadata-items-related-to-this">
+                                            <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações', 'filefestival'); ?></h2>
+                                            <p class="tainacan-metadatum-value">
+                                            <?php 
+                                                $related_links = [];
+                                                foreach($related_items as $collection_id => $related_group) {
+                                                    if (
+                                                        isset($related_group['total_items']) &&
+                                                        isset($related_group['collection_slug']) &&
+                                                        isset($related_group['collection_name']) &&
+                                                        $related_group['total_items'] > 0
+                                                    ) {
+                                                        ob_start();
+                                                        ?>
+                                                            <a href="<?php echo '/' . $related_group['collection_slug'] . '?metaquery[0][key]=' . $related_group['metadata_id'] . '&metaquery[0][value][0]=' . $item->get_ID() . '&metaquery[0][compare]=IN'; ?>">
+                                                                <?php echo $related_group['collection_name'] . ' (' . $related_group['total_items'] . ')'; ?>
+                                                            </a>
+                                                        <?php
+                                                        $related_links[] = ob_get_contents();
+                                                        ob_end_clean();
                                                     }
-                                                    echo implode($related_links, ' <span class="multivalue-separator"> | </span>');
-                                                ?>
-                                                </p>
-                                            </div>
-                                    
-                                        <?php endif;
-                                    }
-                                } catch (Exception $error) {
-                                    echo '';
+                                                }
+                                                echo implode($related_links, ' <span class="multivalue-separator"> | </span>');
+                                            ?>
+                                            </p>
+                                        </div>
+                                
+                                    <?php endif;
                                 }
-                            } 
+                            } catch (Exception $error) {
+                                echo '';
+                            }
+                            
                         ?>
 
                     </div>

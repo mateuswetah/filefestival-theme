@@ -38,14 +38,27 @@
     border: 2px solid var(--separator--border-color);
 }
 
-.tainacan-photoswipe-layer .pswp__scroll-wrap .pswp__name {
-    font-weight: bold;
-    text-transform: uppercase;
+.tainacan-photoswipe-layer .pswp__scroll-wrap .pswp__name,
+.tainacan-photoswipe-layer .pswp__scroll-wrap .pswp__description,
+.tainacan-photoswipe-layer .pswp__caption__center br {
+    display: none;
+    visibility: hidden;
+    font-size: 0;
 }
 .tainacan-photoswipe-layer .pswp__caption__center {
     text-align: start !important;
     padding: 24px 36px;
     max-width: 1300px !important;
+}
+.tainacan-photoswipe-layer .pswp__share-tooltip {
+    border-radius: 0;
+}
+.tainacan-photoswipe-layer .pswp__share-tooltip>a:hover {
+    background: initial;
+    color: initial;
+}
+.tainacan-photoswipe-layer .pswp__share-tooltip>a:hover::before {
+    border-bottom-color: var(--global--color-background);
 }
 
 @media screen and (max-width: 1365px) {
