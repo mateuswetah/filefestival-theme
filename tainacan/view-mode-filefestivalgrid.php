@@ -7,13 +7,14 @@
 		$metadata_repository = \Tainacan\Repositories\Metadata::get_instance();
 		$metadata_objects = [];
 		$is_repository_level = !isset($request['collection_id']);
-
+		
 		if ( !$is_repository_level ) {
 			$collection = tainacan_get_collection([ 'collection_id' => $request['collection_id'] ]);
 			$metadata_objects = $metadata_repository->fetch_by_collection(
 				$collection,
 				[
-					'posts_per_page' => 20
+					'posts_per_page' => 50,
+					// 'post_status' => 'publish'
 				],
 				'OBJECT'
 			);
@@ -27,7 +28,8 @@
 							'compare' => '='
 						]
 					],
-					'posts_per_page' => 20,
+					// 'post_status' => 'publish',
+					'posts_per_page' => 50,
 					'include_control_metadata_types' => true
 				],
 				'OBJECT'
@@ -62,7 +64,19 @@
 					</div>
 					<?php if ( $is_in_grid_two ) : ?>
 						<div class="metadata-description">
-							<p><?php tainacan_the_metadata(array( 'metadata' => $metadata_objects[1] )); ?></p>
+							<p>
+								<?php
+									foreach($metadata_objects as $metadata_object) {
+										if ( $metadata_object->get_metadata_type() !== 'Tainacan\Metadata_Types\Core_Title' ) {
+											$second_metadata_value = tainacan_get_the_metadata([ 'metadata' => $metadata_object ]);
+											if ( !empty($second_metadata_value) ) {
+												echo $second_metadata_value;
+												break;
+											}
+										}
+									}
+								?>
+							</p>
 						</div>
 					<?php endif; ?>
 				</a>

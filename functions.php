@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.1.25';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.1.27';
 
 /**
  * Enqueue scripts and styles.
@@ -157,9 +157,14 @@ add_filter( 'body_class', 'filefestival_adds_collection_layout_class' );
  * Filters the loop on collections list to set greater posts per page
  */
 function filefestival_modify_collections_query( $wp_query ) {
-    if ( is_post_type_archive('tainacan-collection') && isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] === 'tainacan-collection' )
-    	$wp_query->query_vars['posts_per_page'] = 64;
-	else
+    if ( is_post_type_archive('tainacan-collection') && isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] === 'tainacan-collection' ) {
+		$wp_query->query_vars['posts_per_page'] = 64;
+
+		$subscription_collection_id = get_theme_mod('filefestival_tainacan_collection_subscription', '');
+		if ( !empty($subscription_collection_id) ) {
+    		$wp_query->query_vars['post__not_in'] = [ $subscription_collection_id ];
+		}
+	} else
 		return;
 }
 add_filter( 'pre_get_posts', 'filefestival_modify_collections_query' );

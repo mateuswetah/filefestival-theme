@@ -45,8 +45,6 @@ function filefestival_customize_register($wp_customize) {
         'priority' => 2,
         'choices' => $collections_options
     ));
-
-    // Adds option to select the main three collections on the collection list
     $wp_customize->add_setting('filefestival_tainacan_collection_second', array(
         'default' => '',
         'type' => 'theme_mod',
@@ -61,8 +59,6 @@ function filefestival_customize_register($wp_customize) {
         'priority' => 2,
         'choices' => $collections_options
     ));
-
-    // Adds option to select the main three collections on the collection list
     $wp_customize->add_setting('filefestival_tainacan_collection_third', array(
         'default' => '',
         'type' => 'theme_mod',
@@ -74,6 +70,24 @@ function filefestival_customize_register($wp_customize) {
         'type' => 'select',
         'section' => 'filefestival_tainacan_collections_list',
         'settings' => 'filefestival_tainacan_collection_third',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
+
+
+    // Adds option to select the subscription form
+    $wp_customize->add_setting('filefestival_tainacan_collection_subscription', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_collection_subscription', array(
+        'label' => __('Coleção da Ficha de Inscrição', 'filefestival'),
+        'description' => __('Esta coleção não aparecerá na lista de coleções', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_collections_list',
+        'settings' => 'filefestival_tainacan_collection_subscription',
         'priority' => 2,
         'choices' => $collections_options
     ));
