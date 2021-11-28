@@ -133,6 +133,9 @@
 .tainacan-media-component .tainacan-media-component__swiper-main {
     height: 100% !important; /* This messes with the arrow alignment, but avoids caption hidden by overflow */
 }
+.tainacan-media-component__swiper-main .swiper-container {
+    list-style-type: none !important;
+}
 .tainacan-media-component__swiper-main .swiper-button-disabled,
 .tainacan-media-component__swiper-thumbs .swiper-button-disabled {
     display: none;
@@ -320,7 +323,8 @@ p.tainacan-metadatum-value:empty {
     max-width: 100%;
     width: 145px;
     justify-self: flex-end;
-    align-self: flex-end;
+    align-self: stretch;
+    height: 100%;
 }
 
 /* Navigation links */
@@ -329,6 +333,25 @@ p.tainacan-metadatum-value:empty {
     flex-direction: column;
     justify-content: space-between;
     font-size: 0.8125rem;
+    height: 100%;
+}
+.tainacan-single-navigation-links .tainacan-metadatum-label {
+    text-align: right;
+    text-align: end;
+    margin-bottom: 1rem;
+}
+.tainacan-single-navigation-links .items-in-common {
+    margin-bottom: auto;
+}
+.tainacan-single-navigation-links .items-in-common  .item-in-common {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 1.75rem;
+    width: 100%;
+}
+.tainacan-single-navigation-links .items-in-common  .item-in-common img {
+    margin-bottom: 0.5rem;
 }
 .tainacan-single-navigation-links a {
     display: flex;
@@ -342,6 +365,9 @@ p.tainacan-metadatum-value:empty {
     margin-right: 5px;
     height: auto;
     color: inherit;
+}
+.tainacan-single-navigation-links--list {
+    margin-top: auto;
 }
 .tainacan-single-navigation-links--list svg {
     width: 1.5rem;
@@ -387,6 +413,10 @@ p.tainacan-metadatum-value:empty {
         grid-template-rows: auto auto auto;
         grid-template-columns: 1fr 1fr;
     }
+    .tainacan-single-navigation-links .items-in-common  .item-in-common {
+        display: none;
+        visibility: hidden;
+    }
 }
 
 /* Mobile */
@@ -399,14 +429,14 @@ p.tainacan-metadatum-value:empty {
                              'info2'
                              'navigation';
         grid-template-rows: auto auto auto auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
     }
     .tainacan-item-single-content.is-participants-collection {
         grid-template-areas: 'info1'
                              'info2'
                              'navigation';
         grid-template-rows: auto auto auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
     }
     .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information,
     .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2,

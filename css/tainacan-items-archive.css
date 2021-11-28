@@ -378,6 +378,7 @@
 .tainacan-modal a:hover, .tainacan-modal a:hover:not([href]),
 .theme-items-list a:hover, .theme-items-list a:hover:not([href]) {
 	text-decoration-thickness: 1px;
+	color: var(--content--color--link) !important;
 }
 /* .tainacan-modal button.link-style:not(.collapse-all):hover,
 .theme-items-list button.link-style:not(.collapse-all):hover,
