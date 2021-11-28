@@ -366,7 +366,7 @@ p.tainacan-metadatum-value:empty {
     height: auto;
     color: inherit;
 }
-.tainacan-single-navigation-links--list {
+.tainacan-single-navigation-links .related-pages {
     margin-top: auto;
 }
 .tainacan-single-navigation-links--list svg {

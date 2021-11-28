@@ -119,23 +119,48 @@
 }
 
 /* Newsletter plugin */
-.wp-block-tnp-minimal {
+.wp-block-tnp,
+.wp-block-tnp-minimal  {
 	margin-bottom: 2px !important;
 	margin-top: 0px !important;
 }
+.tnp-subscription form,
 .tnp-subscription-minimal form {
 	display: flex;
 	flex-wrap: nowrap;
 }
+.tnp-subscription form {
+	flex-direction: column;
+}
+.tnp-subscription form .tnp-field {
+	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+}
+.tnp-subscription input.tnp-email,
+.tnp-subscription input.tnp-field-firstname,
 .tnp-subscription-minimal input.tnp-email {
 	margin-right: 0.5rem;
 	background-color: var(--global--color-background) !important;
 	width: 100% !important;
 }
+.tnp-subscription input.tnp-field-firstname:focus,
+.tnp-subscription input.tnp-field-firstname:hover,
+.tnp-subscription input.tnp-field-firstname:active,
+.tnp-subscription input.tnp-email:focus,
+.tnp-subscription input.tnp-email:hover,
+.tnp-subscription input.tnp-email:active,
 .tnp-subscription-minimal input.tnp-email:focus,
 .tnp-subscription-minimal input.tnp-email:hover,
 .tnp-subscription-minimal input.tnp-email:active {
 	border-color: var(--global--color-primary, #676767);
+}
+.tnp-subscription input.tnp-submit {
+	background-color: var(--global--color-background) !important;
+	color:var(--content--color--link) !important;
+	border: 1px solid #ccc !important;
 }
 .tnp-subscription-minimal input.tnp-submit {
 	background-color: var(--global--color-background) !important;
@@ -149,9 +174,13 @@
 	font-size: 0 !important;
 	width: 2rem !important;
 }
+.tnp-subscription input.tnp-submit:hover, 
 .tnp-subscription-minimal input.tnp-submit:hover {
 	border-color: var(--global--color-primary, #676767) !important;
 }
+.tnp-subscription input.tnp-submit {
+	margin-left: auto;
+} 
 
 
 /* Form warning columns */
