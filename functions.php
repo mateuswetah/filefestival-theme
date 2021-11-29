@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.2.1';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.2.2';
 
 /**
  * Enqueue scripts and styles.
@@ -79,6 +79,17 @@ function filefestival_register_tainacan_view_modes() {
 	}
 }
 add_action( 'after_setup_theme', 'filefestival_register_tainacan_view_modes' );
+
+
+/**
+ *  
+ * Loads text domain files from the languages folder 
+ * 
+ */
+function filefestival_add_translations() {
+	load_theme_textdomain('filefestival', get_stylesheet_directory() . '/languages');
+}
+add_action( 'after_setup_theme', 'filefestival_add_translations' );
 
 /**
  * Retrieves an item adjacent link, either using WP strategy or Tainacan plugin tainacan_get_adjacent_items()

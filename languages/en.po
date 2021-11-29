@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FILE Festival\n"
+"POT-Creation-Date: 2021-11-28 21:09-0300\n"
+"PO-Revision-Date: 2021-11-28 21:09-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: archive-tainacan-collection.php:22
+msgid "FILE Arquivo"
+msgstr "FILE Archive"
+
+#: archive-tainacan-collection.php:31
+msgid "visualização"
+msgstr "view mode"
+
+#: archive-tainacan-collection.php:46
+msgid "grade"
+msgstr "grid"
+
+#: archive-tainacan-collection.php:49
+msgid "lista"
+msgstr "list"
+
+#: functions.php:46
+msgid "Cartões"
+msgstr "Cards"
+
+#: functions.php:47
+msgid "Uma grade de itens feita para o festival FILE"
+msgstr "Uma grade de itens feita para o festival FILE"
+
+#: functions.php:55
+msgid "Fichas"
+msgstr "Records"
+
+#: functions.php:56
+msgid ""
+"Uma ficha de itens com mais informações que a grade, feita para o festival "
+"FILE"
+msgstr ""
+"A records list of items with more information than the grid, made for the "
+"FILE festival"
+
+#: functions.php:64
+msgid "Lista"
+msgstr "List"
+
+#: functions.php:65
+msgid "Uma lista de itens feita para o festival FILE"
+msgstr "A list of items made for the FILE festival"
+
+#: functions.php:73
+msgid "Tabela"
+msgstr "Table"
+
+#: functions.php:74
+msgid "Uma tabela de itens feita para o festival FILE"
+msgstr "A table of items mad for the FILE festival"
+
+#: functions.php:106 functions.php:124
+msgid "Próximo"
+msgstr "Next"
+
+#: functions.php:112 functions.php:123
+msgid "Anterior"
+msgstr "Previous"
+
+#: inc/customizer.php:19
+msgid "Lista de Coleções do Tainacan"
+msgstr "Tainacan Collections List"
+
+#: inc/customizer.php:25
+msgid "Nenhuma coleção"
+msgstr "No collection"
+
+#: inc/customizer.php:41
+msgid "Coleção de destaque 1"
+msgstr "Highlight collection 1"
+
+#: inc/customizer.php:55
+msgid "Coleção de destaque 2"
+msgstr "Highlight collection 2"
+
+#: inc/customizer.php:69
+msgid "Coleção de destaque 3"
+msgstr "Highlight collection 3"
+
+#: inc/customizer.php:86
+msgid "Coleção da Ficha de Inscrição"
+msgstr "Subscription Form Collection"
+
+#: inc/customizer.php:87
+msgid "Esta coleção não aparecerá na lista de coleções"
+msgstr "This collection shall not appear in the collections list"
+
+#: inc/customizer.php:103
+msgid "Descrição abaixo do título da página"
+msgstr "Description below the page title"
+
+#: inc/customizer.php:117
+msgid "Página do Item do Tainacan"
+msgstr "Tainacan Item Page"
+
+#: inc/customizer.php:128
+msgid "Coleção com o template das Obras"
+msgstr "Collection with the Works template"
+
+#: inc/customizer.php:144
+msgid "Coleção com o template dos Participantes"
+msgstr "Collection with the Participants template"
+
+#: inc/customizer.php:160
+msgid "Coleção com o template dos Eventos"
+msgstr "Collection with the Events template"
+
+#: inc/editor.php:8
+msgid "Branco"
+msgstr "White"
+
+#: inc/editor.php:13
+msgid "Cinza 1"
+msgstr "Gray 1"
+
+#: inc/editor.php:18
+msgid "Cinza 2"
+msgstr "Gray 2"
+
+#: inc/editor.php:23
+msgid "Cinza 3"
+msgstr "Gray 3"
+
+#: inc/editor.php:28
+msgid "Cinza 4"
+msgstr "Gray 4"
+
+#: inc/editor.php:33
+msgid "Cinza 5"
+msgstr "Gray 5"
+
+#: inc/editor.php:38
+msgid "Preto"
+msgstr "Black"
+
+#: tainacan/archive-repository.php:8
+msgid "Todos os itens do arquivo"
+msgstr "Every item of the archive"
+
+#: tainacan/single-items.php:76
+msgid "Mais informações"
+msgstr "More information"
+
+#: tainacan/single-items.php:133
+msgid "Nada encontrado aqui."
+msgstr "Nothing found here."
+
+#: tainacan/view-mode-filefestivalgrid.php:98
+#: tainacan/view-mode-filefestivallist.php:77
+#: tainacan/view-mode-filefestivaltable.php:98
+msgid "Nenhum item encontrado."
+msgstr "No item found."
+
+#: tainacan/view-mode-filefestivallist.php:37
+#: tainacan/view-mode-filefestivaltable.php:41
+msgid "Título"
+msgstr "Title"
+
+#: tainacan/view-mode-filefestivallist.php:42
+#: tainacan/view-mode-filefestivaltable.php:43
+msgid "Descrição"
+msgstr "Description"
+
+#: template-parts/single-items-navigation.php:61
+msgid "Veja também:"
+msgstr "See also:"
+
+#: template-parts/single-items-navigation.php:79
+msgid "Voltar para a lista"
+msgstr "Return to the list"
