@@ -22,7 +22,7 @@
         'after_value' => '</p>',
         'before' => '<div class="metadata-type-$type" $id>',
         'after' => '</div>'
-     ] );
+    ] );
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -39,8 +39,14 @@
                         <?php the_title() ?>
                     </h1>
 
+                    <?php if ( $is_participants_collection && has_post_thumbnail() ): ?>
+                        <div class="tainacan-item-thumbnail">
+                            <?php the_post_thumbnail('tainacan-medium-full'); ?>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="tainacan-item-single-content--information">
-                    
+
                         <?php if ( $is_participants_collection && has_post_thumbnail() ): ?>
                             <div class="tainacan-item-thumbnail">
                                 <?php the_post_thumbnail('tainacan-medium-full'); ?>
@@ -71,7 +77,7 @@
                                 if ( $item instanceof \Tainacan\Entities\Item ) {
                                     $related_items = $item->get_related_items();
 
-                                    if ( count($related_items) > 0 ): ?>
+                                    if ( $related_items && count($related_items) > 0 ): ?>
                                         <div class="metadata-items-related-to-this">
                                             <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações', 'filefestival'); ?></h2>
                                             <p class="tainacan-metadatum-value">

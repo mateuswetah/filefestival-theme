@@ -161,6 +161,11 @@
 	background-color: var(--global--color-background) !important;
 	color:var(--content--color--link) !important;
 	border: 1px solid #ccc !important;
+	font-weight: normal;
+}
+.tnp-subscription input.tnp-submit:not(:hover) {
+	background-color: #676767 !important;
+	color: var(--global--color-background) !important;
 }
 .tnp-subscription-minimal input.tnp-submit {
 	background-color: var(--global--color-background) !important;
@@ -176,6 +181,8 @@
 }
 .tnp-subscription input.tnp-submit:hover, 
 .tnp-subscription-minimal input.tnp-submit:hover {
+	background-color: var(--global--color-background) !important;
+	color:var(--content--color--link) !important;
 	border-color: var(--global--color-primary, #676767) !important;
 }
 .tnp-subscription input.tnp-submit {
