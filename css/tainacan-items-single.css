@@ -55,6 +55,10 @@
     display: none;
     visibility: hidden;
 }
+.tainacan-item-single-content.is-participants-collection .tainacan-item-thumbnail img {
+    max-width: 205px !important;
+    height: auto !important;
+}
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information {
     column-width: 240px;
     column-gap: 32px;
@@ -458,10 +462,6 @@ p.tainacan-metadatum-value:empty {
     .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information .tainacan-item-thumbnail {
         display: block;
         visibility: visible;
-    }
-    .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information .tainacan-item-thumbnail img {
-        max-width: 205px !important;
-        height: auto !important;
     }
     .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2,
     .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {

@@ -56,3 +56,35 @@
 .primary-navigation > div > .menu-wrapper .sub-menu-toggle {
 	width: 1rem;
 }
+
+.primary-navigation > div > .menu-wrapper .menu-item-gtranslate select#gtranslate_selector {
+	color: var(--header--color-text);
+	text-transform: lowercase;
+	border: none !important;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-appearance: none;
+	-moz-user-select: none;
+	user-select: none;
+	background-image: url('../images/icons/ICONES_Dropdown Menus.svg');
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-size: 9px;
+	padding-right: 1rem;
+	text-align: end;
+}
+.primary-navigation > div > .menu-wrapper .menu-item-gtranslate:hover select#gtranslate_selector {
+	color: var(--header--color-link-hover,var(--header--color-text));
+}
+
+@media screen and (min-width: 482px) {
+	.primary-navigation > div > .menu-wrapper {
+		width: 100%;
+	}.primary-navigation > div > .menu-wrapper .menu-item {
+		width: auto;
+	}
+	.primary-navigation > div > .menu-wrapper .menu-item-gtranslate {
+		margin-left: auto;
+	}	
+}

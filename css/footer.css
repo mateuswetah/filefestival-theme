@@ -19,3 +19,20 @@
 .widget-area a:hover {
     text-decoration-style: solid;
 }
+
+@media screen and (min-width: 652px) {
+    aside.widget-area {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media screen and (max-width: 651px) {
+    aside.widget-area {
+        text-align: center;
+    }
+    aside.widget-area .wp-block-social-links {
+        justify-content: center;
+    }
+    aside.widget-area .wp-block-image {
+        margin-top: -42px !important;
+    }
+}

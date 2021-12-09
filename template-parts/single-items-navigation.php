@@ -8,7 +8,7 @@
         
         foreach( $related_taxonomies as $related_taxonomy ) {
             $terms = [];
-            $terms = get_the_terms($_POST, $related_taxonomy);
+            $terms = get_the_terms($post, $related_taxonomy);
 
             if ( $terms && count($terms) > 0 ) {
                 $tax_query = array();

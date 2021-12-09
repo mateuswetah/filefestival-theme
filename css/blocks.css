@@ -25,7 +25,10 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .section-label:empty {
     display: none !important;
 }
-
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field.has-collapses-hidden {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control-label {
     font-size: 0.875em;
 }
@@ -140,15 +143,15 @@
 	flex-direction: column;
 }
 .tnp-subscription input.tnp-email,
-.tnp-subscription input.tnp-field-firstname,
+.tnp-subscription input.tnp-name,
 .tnp-subscription-minimal input.tnp-email {
 	margin-right: 0.5rem;
 	background-color: var(--global--color-background) !important;
 	width: 100% !important;
 }
-.tnp-subscription input.tnp-field-firstname:focus,
-.tnp-subscription input.tnp-field-firstname:hover,
-.tnp-subscription input.tnp-field-firstname:active,
+.tnp-subscription input.tnp-name:focus,
+.tnp-subscription input.tnp-name:hover,
+.tnp-subscription input.tnp-name:active,
 .tnp-subscription input.tnp-email:focus,
 .tnp-subscription input.tnp-email:hover,
 .tnp-subscription input.tnp-email:active,
