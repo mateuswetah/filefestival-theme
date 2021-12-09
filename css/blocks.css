@@ -203,6 +203,18 @@
 }
 
 /* Image inside the h1 title block */
-.entry-content h1>img {
+.entry-content h1>a {
+	position: relative;
+}
+.entry-content h1>a:hover>img {
+	filter: brightness(0.2);
+}
+.entry-content h1>a:hover>img::after {
+	content: '';
 	display: block;
+	height: 4px;
+	width: 100%;
+	background: var(--global--color-secondary, #2a2a2a);
+	position: absolute;
+	bottom: -15px;
 }
