@@ -15,11 +15,11 @@ body .editor-styles-wrapper {
     --filefestival-color--gray-5: #2a2a2a;
     --filefestival-color--black: #000000;
 
-    --global--font-size-base: 1rem;
     --global--font-size-xs: 0.75rem;
-    --global--font-size-sm: 0.875rem;
-    --global--font-size-md: 1.125rem;
-    --global--font-size-lg: 1.25rem;
+    --global--font-size-sm: 0.8125rem;
+    --global--font-size-base: 0.875rem; /* normal, default */
+    --global--font-size-md: 1.0rem;
+    --global--font-size-lg: 1.125rem;
     --global--font-size-xl: 1.875rem;
     --global--font-size-xxl: 6rem;
     --global--font-size-xxxl: 5rem;

@@ -45,7 +45,7 @@
 	--tainacan-blue5: var(--global--color-primary, #676767);
 	--tainacan-background-color: var(--global--color-background, #ffffff);
 	--tainacan-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	--tainacan-base-font-size: 1em;
+	--tainacan-base-font-size: 1rem;
 	--tainacan-filter-menu-width-theme: 364px;
 	--tainacan-one-column: var(--site--padding);
 	--tainacan-container-padding: 25px;

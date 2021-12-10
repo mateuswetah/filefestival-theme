@@ -19,7 +19,7 @@ $collection_highlight_3 = get_theme_mod('filefestival_tainacan_collection_third'
     <div class="entry-content">
         <section class="tainacan-collections alignwide">
             <header class="page-header alignwide">
-                <h1 class="page-title"><?php echo __('FILE Arquivo', 'filefestival') ; ?></h1>
+                <h1 class="page-title notranslate">FILE ARCHIVE</h1>
                 <?php if ( $description ) : ?>
                     <div class="archive-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
                 <?php endif; ?>

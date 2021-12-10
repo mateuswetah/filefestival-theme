@@ -32,6 +32,16 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control-label {
     font-size: 0.875em;
 }
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle {
+	margin-left: -13px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle + div {
+	margin-top: 0.125em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field.tainacan-metadatum-component--tainacan-compound>.collapse-handle>.label {
+	font-weight: bold;
+	text-transform: lowercase;
+}
 
 /* Checkobxes have special style */
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-checkbox.checkbox {
@@ -76,9 +86,88 @@
     color: var(--content--color--link, #676767);
     font-size: 0.8125rem;
 }
-
 .wp-block-tainacan-item-submission-form .help-tooltip::before {
     display: none;
+}
+
+/* Compound metadata input */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs {
+	padding-left: 0;
+	margin-left: 0px !important;
+	border-left: none;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .field {
+	margin-left: 0px;
+}
+
+/* Terms agreement section */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field {
+	border: 1px solid var(--tainacan-input-border-color);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field .control-label {
+	font-weight: normal;
+	font-size: 0.875rem;
+	line-height: 1.25rem !important;
+	color: var(--content--color--link);
+	padding-left: 1rem;
+}
+
+/* Hover effect on inputs */
+.tainacan-modal input.input:not(.is-danger):hover,
+.tainacan-modal .input:not(.is-danger):hover,
+.tainacan-modal textarea.textarea:not(.is-danger):hover,
+.tainacan-modal .textarea:not(.is-danger):hover,
+.tainacan-modal input[type="color"].input:not(.is-danger):hover,
+.tainacan-modal input[type="date"].input:not(.is-danger):hover,
+.tainacan-modal input[type="datetime-local"].input:not(.is-danger):hover,
+.tainacan-modal input[type="datetime"].input:not(.is-danger):hover,
+.tainacan-modal input[type="email"].input:not(.is-danger):hover,
+.tainacan-modal input[type="number"].input:not(.is-danger):hover,
+.tainacan-modal input[type="month"].input:not(.is-danger):hover,
+.tainacan-modal input[type="password"].input:not(.is-danger):hover,
+.tainacan-modal input[type="search"].input:not(.is-danger):hover,
+.tainacan-modal input[type="tel"].input:not(.is-danger):hover,
+.tainacan-modal input[type="text"].input:not(.is-danger):hover,
+.tainacan-modal input[type="time"].input:not(.is-danger):hover,
+.tainacan-modal input[type="url"].input:not(.is-danger):hover,
+.tainacan-modal input[type="week"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input.input:not(.is-danger):hover,
+.tainacan-item-submission-form .input:not(.is-danger):hover,
+.tainacan-item-submission-form textarea.textarea:not(.is-danger):hover,
+.tainacan-item-submission-form .textarea:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="color"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="date"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="datetime-local"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="datetime"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="email"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="number"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="month"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="password"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="search"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="tel"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="text"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="time"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="url"].input:not(.is-danger):hover,
+.tainacan-item-submission-form input[type="week"].input:not(.is-danger):hover,
+.theme-items-list input.input:not(.is-danger):hover,
+.theme-items-list .input:not(.is-danger):hover,
+.theme-items-list textarea.textarea:not(.is-danger):hover,
+.theme-items-list .textarea:not(.is-danger):hover,
+.theme-items-list input[type="color"].input:not(.is-danger):hover,
+.theme-items-list input[type="date"].input:not(.is-danger):hover,
+.theme-items-list input[type="datetime-local"].input:not(.is-danger):hover,
+.theme-items-list input[type="datetime"].input:not(.is-danger):hover,
+.theme-items-list input[type="email"].input:not(.is-danger):hover,
+.theme-items-list input[type="number"].input:not(.is-danger):hover,
+.theme-items-list input[type="month"].input:not(.is-danger):hover,
+.theme-items-list input[type="password"].input:not(.is-danger):hover,
+.theme-items-list input[type="search"].input:not(.is-danger):hover,
+.theme-items-list input[type="tel"].input:not(.is-danger):hover,
+.theme-items-list input[type="text"].input:not(.is-danger):hover,
+.theme-items-list input[type="time"].input:not(.is-danger):hover,
+.theme-items-list input[type="url"].input:not(.is-danger):hover,
+.theme-items-list input[type="week"].input:not(.is-danger):hover {
+	border: 1px solid var(--tainacan-gray4) !important;
 }
 
 /* WP Contact Form 7 */
@@ -196,10 +285,18 @@
 /* Form warning columns */
 .wp-block-columns.subscription-form-warning {
 	padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--tainacan-input-border-color);
 }
 .wp-block-columns.subscription-form-warning .wp-block-column:not(:first-child) {
 	margin-left: 1em;
+}
+@media screen and (min-width: 652px) and (max-width: 1023px) {
+	.wp-block-columns.subscription-form-warning .wp-block-column:first-child {
+		flex-basis: 42px !important;
+	}
+	.wp-block-columns.subscription-form-warning .wp-block-column:last-child {
+		flex-basis: calc(100% - 56px) !important;
+	}
 }
 
 /* Image inside the h1 title block */

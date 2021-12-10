@@ -43,9 +43,9 @@
 	margin-right: 0.5em;
 }
 .tainacan-collections header.page-header .tainacan-collections-control .field-label .label {
-	font-size: 0.875em !important;
 	font-weight: normal !important;
 	margin-bottom: 0;
+	font-size: 1em;
 }
 .tainacan-collections header.page-header .tainacan-collections-control .field-body {
 	align-items: center;
@@ -84,7 +84,6 @@
 	border: none;
 	border-radius: 1px !important;
 	font-weight: normal;
-	font-size: 0.875em !important;
 	font-family: var(--tainacan-font-family,);
 	line-height: 1.75em !important;
 	height: auto !important;
@@ -113,7 +112,7 @@
 	line-height: 1.5em;
 	width: 1rem;
 	position: absolute;
-	top: 2px;
+	top: 4px;
 	z-index: -1;
 }
 
