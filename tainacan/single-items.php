@@ -36,9 +36,11 @@
             $item_meta = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $URL_metadatum);
             if ( !$item_meta->has_value() )
                 continue;
-
-            $URL_metadata_html[] = $item_meta->get_value_as_html();
-            $URL_metadata_IDs[] = $URL_metadatum->get_ID(); 
+            else {
+                $URL_metadata_html[] = $item_meta->get_value_as_html();
+                $URL_metadata_IDs[] = $URL_metadatum->get_ID();
+                break;
+            }
         }
     }
     

@@ -83,11 +83,11 @@
     column-count: 2;
     column-gap: 32px;
 }
-.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+8) {
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
     display: none;
     visibility: hidden;
 }
-.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information-2>*:nth-of-type(-1n+7) {
+.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
     display: none;
     visibility: hidden;
 }
@@ -367,6 +367,7 @@ p.tainacan-metadatum-value:empty {
     text-align: start;
     margin-bottom: 1.75rem;
     width: 100%;
+    line-height: 1.25rem;
 }
 .tainacan-single-navigation-links .items-in-common  .item-in-common img {
     margin-bottom: 0.5rem;
@@ -396,6 +397,12 @@ p.tainacan-metadatum-value:empty {
 
 /* Medium desktop screen */
 @media screen and (max-width: 1400px) {
+    .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2 {
+        column-count: 2;
+    }
+}
+/* Smaller Medium desktop screen */
+@media screen and (max-width: 1340px) {
     .tainacan-item-single-content.is-works-collection,
     .tainacan-item-single-content.has-attachments.is-works-collection {
         display: grid;
@@ -403,9 +410,6 @@ p.tainacan-metadatum-value:empty {
                              'info1 info2 '
                              'navigation navigation';
         grid-template-columns: 40% calc(60% - 64px);
-    }
-    .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2 {
-        column-count: 2;
     }
     .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
         column-count: 1;
@@ -422,13 +426,14 @@ p.tainacan-metadatum-value:empty {
                              'info1 info2 '
                              'navigation navigation';
         grid-template-columns: 40% calc(60% - 64px);
+        grid-template-rows: 440px auto auto;
     }
     .tainacan-item-single-content.is-participants-collection {
         grid-template-areas: 'gallery info1'
                              'info2 info2'
                              'navigation navigation';
-        grid-template-rows: auto auto auto;
         grid-template-columns: 205px 1fr;
+        grid-template-rows: auto auto auto;
     }
     .tainacan-single-navigation-links .items-in-common  .item-in-common {
         display: none;
@@ -444,27 +449,27 @@ p.tainacan-metadatum-value:empty {
         grid-template-areas: 'info1'
                              'gallery'
                              'info2'
-                             'navigation';
-        grid-template-rows: auto auto auto auto;
-        grid-template-columns: 100%;
+                             'navigation' !important;
+        grid-template-rows: auto auto auto auto !important;
+        grid-template-columns: 100% !important;
     }
     .tainacan-item-single-content.is-participants-collection {
         grid-template-areas: 'info1'
                              'info2'
-                             'navigation';
-        grid-template-rows: auto auto auto;
-        grid-template-columns: 100%;
+                             'navigation' !important;
+        grid-template-rows: auto auto auto !important;
+        grid-template-columns: 100% !important;
     }
     .tainacan-item-single-content.is-participants-collection>.tainacan-item-thumbnail {
-        display: none;
-        visibility: hidden;
+        display: none !important;
+        visibility: hidden !important;
     }
     .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information .tainacan-item-thumbnail {
-        display: block;
-        visibility: visible;
+        display: block !important;
+        visibility: visible !important;
     }
     .tainacan-item-single-content.has-attachments .tainacan-item-single-content--information-2,
     .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
-        column-count: 1;
+        column-count: 1 !important;
     }
 }
