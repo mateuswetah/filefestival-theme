@@ -102,9 +102,9 @@
 
 /* Terms agreement section */
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field {
-	border: 1px solid var(--tainacan-input-border-color);
+	border: 1px solid var(--tainacan-input-border-color) !important;
 }
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field .control-label {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .terms-agreement-confirmation-section .field .control-label {
 	font-weight: normal;
 	font-size: 0.875rem;
 	line-height: 1.25rem !important;
@@ -168,6 +168,10 @@
 .theme-items-list input[type="url"].input:not(.is-danger):hover,
 .theme-items-list input[type="week"].input:not(.is-danger):hover {
 	border: 1px solid var(--tainacan-gray4) !important;
+}
+
+.theme-items-list .tab-item {
+	outline: none !important;
 }
 
 /* WP Contact Form 7 */

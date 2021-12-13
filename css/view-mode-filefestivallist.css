@@ -77,7 +77,7 @@
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-label {
     color: var(--header--color-text, #777777);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: normal;
     margin-bottom: 0.5rem;
     text-decoration: none !important;
@@ -94,7 +94,7 @@
 }
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-type-core_title .metadata-value {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: inherit;
 }
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-type-core_title a:not(:hover) {

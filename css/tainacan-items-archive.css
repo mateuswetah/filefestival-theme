@@ -380,17 +380,6 @@
 	text-decoration-thickness: 1px;
 	color: var(--content--color--link) !important;
 }
-/* .tainacan-modal button.link-style:not(.collapse-all):hover,
-.theme-items-list button.link-style:not(.collapse-all):hover,
-.theme-items-list .search-control .search-control-item .search-area .is-pulled-right:hover {
-	text-decoration-style: dotted;
-}
-.tainacan-modal a:hover,
-.tainacan-modal a:hover:not([href]),
-.theme-items-list a:hover,
-.theme-items-list a:hover:not([href]) {
-	text-decoration-style: dotted !important;
-} */
 
 /* There is no border in the pagination */
 .theme-items-list .pagination {
@@ -399,6 +388,21 @@
 .theme-items-list .pagination-area {
 	margin-left: 0px !important;
 	margin-right: 0px !important;
+}
+.theme-items-list .pagination-area .items-per-page .field-label {
+	padding-top: 0.5em;
+}
+.theme-items-list .pagination-area .pagination ul li {
+    margin: 0.4em 0 0 0.2em;
+}
+
+/* Exposers modal */
+.tainacan-modal .exposer-types-container .exposer-types-list .exposer-type:hover {
+	border: 1px solid var(--tainacan-secondary);
+}
+.theme-items-list #tainacanExposersButton.search-control-item .button .gray-icon {
+	display: none;
+	visibility: hidden;
 }
 
 /* View modes appear animation */

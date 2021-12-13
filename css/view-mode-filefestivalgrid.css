@@ -67,7 +67,7 @@
     position: relative;
 }
 .tainacan-filefestival-grid-container .tainacan-filefestival-grid-item .metadata-title h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     margin-top: 0;
     margin-bottom: 0;
     text-overflow:ellipsis;
@@ -85,7 +85,7 @@
     color: var(--header--color-text, #777777);
     font-weight: normal !important;
     text-decoration: none !important;
-    font-size: 0.875rem !important;
+    font-size: 0.8125rem !important;
     line-height: normal;
     text-overflow:ellipsis;
     overflow:hidden;

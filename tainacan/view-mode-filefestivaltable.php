@@ -69,7 +69,7 @@
 								'exclude_title' => true,
 								'metadata__in' => $view_mode_displayed_metadata['meta'],
 								'before_title' => '<h3 class="metadata-label">',
-								'before_value' => '<p class="metadata-value" data-tippy-content>',
+								'before_value' => '<p class="metadata-value">',
 								'after_title'  => '</h3>',
 								'after_value'  => '</p>',
 								'before' => '<td class="metadata-type-$type" $id>',

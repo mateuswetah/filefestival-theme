@@ -89,7 +89,7 @@
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-value {
     color: var(--header--color-text, #777777);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 }
 
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-value .hierarchy-separator {
@@ -97,7 +97,7 @@
 }
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title .metadata-value {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     color: inherit;
 }
 .tainacan-filefestival-table-container .tainacan-filefestival-table-item .metadata-type-core_title a:not(:hover) {
