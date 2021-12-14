@@ -5,7 +5,7 @@ Description:    New theme for the FILE Festival
 Author:         Mateus Machado Luna
 Author URI:     mateuswetah
 Template:       twentytwentyone
-Version:        0.3.4
+Version:        0.3.16
 */
 
 /* Styles related to the Tainacan plugin */
@@ -62,6 +62,7 @@ svg {
 /* Removing special focus from TwentyTwentyOne :( */
 .site .button:focus,
 a:focus,
+a:focus img,
 textarea:focus,
 select:focus,
 button:focus,
@@ -72,6 +73,13 @@ input[type="reset"]:focus,
 .wp-block-button .wp-block-button__link:focus,
 .wp-block-file a.wp-block-file__button:focus {
     outline: none !important;
+}
+
+/* Special Style for Audio tags */
+audio::-webkit-media-controls-enclosure {
+    margin: auto 0;
+    border-radius: 0;
+    background: #cccccc;
 }
 
 /* Tippy Tooltips */

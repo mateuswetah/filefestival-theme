@@ -24,8 +24,7 @@
                         'value'   => 'TAINACAN_URL_Plugin_Metadata_Type',
                         'compare' => '='
                     ]
-                ],
-                'per_page' => -1
+                ]
             ],
             'OBJECT'
         );

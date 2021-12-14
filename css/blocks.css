@@ -44,13 +44,24 @@
 }
 
 /* Checkobxes have special style */
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-checkbox.checkbox {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-checkbox.checkbox,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-radio.radio {
 	display: flex;
 }
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label,
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label .checkbox-label-text {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"] + span + .control-label .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="radio"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="radio"] + span + .control-label .radio-label-text {
+	font-weight: normal;
+	font-size: 0.875rem;
 	--tainacan-input-color: var(--tainacan-secondary);
 	color: var(--tainacan-secondary);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="radio"]:checked + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="radio"]:checked + span + .control-label .radio-label-text {
+	color: var(--global--color-secondary, #2a2a2a) !important;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
@@ -62,20 +73,37 @@
 	height: 16px;
 	border: none;
 }
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"]:checked + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"]:checked + .check {
+	background-image: url('../images/icons/ICONES_radio.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: 16px 16px !important;
+	width: 16px !important;
+	height: 16px !important;
+	border: none !important;
+}
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"] + .check,
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + .check {
-	width: 16px;
-	height: 16px;
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"] + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"] + .check {
+	width: 16px !important;
+	height: 16px !important;
 	border-radius: 3px;
 	margin-top: -1px;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"] + span + .control-label,
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + span + .control-label,
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .checkbox-label-text {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .radio-label-text  {
 	line-height: 1.875em !important;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after,
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-radio.radio input[type="radio"]:checked + .check::after,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-radio.radio input[type="radio"]:checked + .check::before {
 	display: none;
 }
 
@@ -182,6 +210,7 @@
 }
 .wpcf7-form>p label {
 	padding: 2px;
+	display: block;
 }
 .wpcf7-form>p {
 	break-inside: avoid;

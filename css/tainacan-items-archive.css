@@ -41,6 +41,7 @@
 	--tainacan-secondary: var(--global--color-primary, #676767);
 	--tainacan-success: var(--content--color--link, #000000);
 	--tainacan-danger: var(--tainacan-red2);
+	--tainacan-yellow2: var(--header--color-text, #777777);
 	--tainacan-warning: var(--tainacan-yellow2);
 	--tainacan-blue5: var(--global--color-primary, #676767);
 	--tainacan-background-color: var(--global--color-background, #ffffff);
@@ -333,6 +334,12 @@
 .theme-items-list .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before {
 	display: none;
 }
+.tainacan-modal .tainacan-form .tainacan-modal-checkbox-list-body .b-checkbox.checkbox {
+	font-size: 1rem !important;
+}
+.tainacan-modal .tainacan-form .tainacan-modal-checkbox-list-body .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
+	color: var(--filefestival-color--gray-5, #2a2a2a) !important;
+}
 
 /* Filter tags are square */
 .theme-items-list .filter-tags-list,
@@ -341,7 +348,7 @@
 }
 .theme-items-list .filter-tags-list .filter-tag-metadatum-name,
 .tainacan-modal .filter-tags-list .filter-tag-metadatum-name {
-	list-style: 1.75;
+	line-height: 1.75;
 }
 .theme-items-list .tag,
 .tainacan-modal .tag,
@@ -354,7 +361,9 @@
 
 /* Buttons have diffferent color and borders */
 .tainacan-modal .button,
-.theme-items-list .button {
+.theme-items-list .button,
+.tainacan-modal .tainacan-form .field .control .button,
+.theme-items-list .tainacan-form .field .control .button {
 	border-radius: 0px !important;
 }
 
@@ -396,6 +405,15 @@
     margin: 0.4em 0 0 0.2em;
 }
 
+/* Modal in general */
+.tainacan-modal .modal-background {
+	background-color: rgba(255, 255, 255, 0.86);
+}
+.tainacan-modal .animation-content .tainacan-modal-content,
+.tainacan-modal .animation-content .modal-card {
+	border: 1px solid var(--global--color-border,#ccc);
+}
+
 /* Exposers modal */
 .tainacan-modal .exposer-types-container .exposer-types-list .exposer-type:hover {
 	border: 1px solid var(--tainacan-secondary);
@@ -403,6 +421,39 @@
 .theme-items-list #tainacanExposersButton.search-control-item .button .gray-icon {
 	display: none;
 	visibility: hidden;
+}
+
+/* Dialog and Snackbars */
+.tainacan-modal .tainacan-dialog .modal-card,
+.theme-items-list .tainacan-dialog .modal-card,
+.tainacan-modal .tainacan-form .modal-card,
+.theme-items-list .tainacan-form .modal-card {
+	border-radius: 0 !important;
+}
+.tainacan-modal .tainacan-dialog .modal-card .modal-card-title,
+.theme-items-list .tainacan-dialog .modal-card .modal-card-title {
+	text-transform: uppercase;
+}
+.tainacan-modal .tainacan-dialog.dialog .modal-card .button.is-success,
+.theme-items-list .tainacan-dialog.dialog .modal-card .button.is-success {
+	border-radius: 0px !important;
+}
+.tainacan-modal .tainacan-dialog .modal-card .control-label {
+	font-size: 0.875rem;
+}
+.theme-items-list .metadata-alert {
+	margin-top: 20px !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	background-color: var(--global--color-background, #ffffff) !important;
+	--tainacan-yellow2: var(--header--color-text, #777777);
+	--tainacan-yellow1: var(--global--color-background, #ffffff);
+	color: var(--header--color-text, #777777) !important;
+	border: 1px solid var(--global--color-border,#ccc) !important;
+	border-radius: 0px !important;
+}
+.theme-items-list .metadata-alert .text {
+	margin-left: 12px !important;
 }
 
 /* View modes appear animation */
