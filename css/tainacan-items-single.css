@@ -172,6 +172,12 @@
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content a:first-of-type,
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content p:first-of-type {
     padding: 0;
+    height: var(--tainacan-media-main-carousel-height, 364px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc;
+    border-radius: 0px;
 }
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content {
     max-width: 261px;

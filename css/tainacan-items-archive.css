@@ -411,7 +411,7 @@
 }
 .tainacan-modal .animation-content .tainacan-modal-content,
 .tainacan-modal .animation-content .modal-card {
-	border: 1px solid var(--global--color-border,#ccc);
+	border: 2px solid var(--global--color-border,#ccc);
 }
 
 /* Exposers modal */

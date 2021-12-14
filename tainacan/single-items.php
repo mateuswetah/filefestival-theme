@@ -13,32 +13,39 @@
     $metadata_repository = \Tainacan\Repositories\Metadata::get_instance();
     $URL_metadata_html = [];
     $URL_metadata_IDs = [];
+    $max_URL_meta_to_add_to_carousel = 2;
 
     if ($is_works_collection) {
-        $URL_metadata_objects = $metadata_repository->fetch_by_collection(
-            tainacan_get_collection(),
+        $metadata_objects = $metadata_repository->fetch_by_collection(
+            $collection,
             [ 
-                'meta_query' => [
-                    [
-                        'key'     => 'metadata_type',
-                        'value'   => 'TAINACAN_URL_Plugin_Metadata_Type',
-                        'compare' => '='
-                    ]
-                ]
+                // 'meta_query' => [
+                //     [
+                //         'key'     => 'metadata_type',
+                //         'value'   => 'TAINACAN_URL_Plugin_Metadata_Type',
+                //         'compare' => '='
+                //     ]
+                // ],
+                'posts_per_page' => -1
             ],
             'OBJECT'
         );
+        $metadata_objects = $metadata_repository->order_result($metadata_objects, $collection);
+        $URL_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
+            return $metadatum_object && $metadatum_object->get_metadata_type() == 'TAINACAN_URL_Plugin_Metadata_Type';
+        });
+        if ( count($URL_metadata_objects) > $max_URL_meta_to_add_to_carousel )
+            array_splice($URL_metadata_objects, $max_URL_meta_to_add_to_carousel);
     }
     if ( !empty($URL_metadata_objects) ) {
 
         foreach($URL_metadata_objects as $URL_metadatum) {
-            $item_meta = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $URL_metadatum);
-            if ( !$item_meta->has_value() )
+            $item_metadata_repository = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $URL_metadatum);
+            if ( !$item_metadata_repository->has_value() )
                 continue;
             else {
-                $URL_metadata_html[] = $item_meta->get_value_as_html();
+                $URL_metadata_html[] = $item_metadata_repository->get_value_as_html();
                 $URL_metadata_IDs[] = $URL_metadatum->get_ID();
-                break;
             }
         }
     }
