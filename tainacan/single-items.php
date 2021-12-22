@@ -44,7 +44,15 @@
             if ( !$item_metadata_repository->has_value() )
                 continue;
             else {
-                $URL_metadata_html[] = $item_metadata_repository->get_value_as_html();
+                if ( !$item_metadata_repository->is_multiple() )
+                    $URL_metadata_html[] = $item_metadata_repository->get_value_as_html();
+                else {
+                    
+                    $URL_metadata_htmls = explode( $item_metadata_repository->get_multivalue_separator(), $item_metadata_repository->get_value_as_html() );
+                    
+                    foreach($URL_metadata_htmls as $a_URL_metadata_html)
+                        $URL_metadata_html[] = $a_URL_metadata_html;
+                }
                 $URL_metadata_IDs[] = $URL_metadatum->get_ID();
             }
         }

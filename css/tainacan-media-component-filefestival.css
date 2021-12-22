@@ -60,6 +60,10 @@
 .tainacan-photoswipe-layer .pswp__share-tooltip>a:hover::before {
     border-bottom-color: var(--global--color-background);
 }
+.tainacan-photoswipe-layer .pswp__container audio {
+    border-radius: 0;
+    width: 95%;
+}
 
 @media screen and (max-width: 1365px) {
     .tainacan-photoswipe-layer:not(.pswp--fs) .pswp__scroll-wrap {

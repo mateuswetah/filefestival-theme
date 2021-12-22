@@ -399,11 +399,15 @@
 	margin-right: 0px !important;
 }
 .theme-items-list .pagination-area .items-per-page .field-label {
-	padding-top: 0.5em;
+	padding-top: 0.465em !important;
 }
 .theme-items-list .pagination-area .pagination ul li {
     margin: 0.4em 0 0 0.2em;
 }
+.theme-items-list .pagination-area .pagination ul .pagination-link.is-current {
+	color: black !important;
+	font-weight: bolder !important;
+} 
 
 /* Modal in general */
 .tainacan-modal .modal-background {

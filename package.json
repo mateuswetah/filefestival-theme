@@ -1,6 +1,6 @@
 {
   "name": "filefestival",
-  "version": "0.3.19",
+  "version": "0.3.23",
   "description": "Child theme of TwentyTwentyOne made for the FILE Festival",
   "main": "js/tooltips.js",
   "scripts": {
