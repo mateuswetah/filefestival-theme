@@ -52,12 +52,11 @@
 	--tainacan-container-padding: 25px;
 }
 
-@media only screen and (min-width:822px) {
+@media only screen and (min-width: 768px) {
 	.tainacan-modal,
 	.theme-items-list {
 		--tainacan-filter-menu-width-theme: 280px;
 	}
-
 	/* Adding border to filters list */
 	.theme-items-list #filters-items-list {
 		border: 1px solid var(--global--color-border, #cccccc);
@@ -477,5 +476,15 @@
 @media screen and (max-width: 1400px) {
 	.theme-items-list .search-control .search-control-item {
 		margin-right: 40px !important;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.theme-items-list:not(.is-fullscreen) .search-control {
+		justify-content: center !important;
+	}
+	.theme-items-list:not(.is-fullscreen) .search-control .search-control-item {
+		margin-right: 20px !important;
+		margin-left: 20px !important;
 	}
 }

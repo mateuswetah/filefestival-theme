@@ -78,10 +78,24 @@
 	color: var(--header--color-link-hover,var(--header--color-text));
 }
 
+.menu-button-container #primary-mobile-menu .dropdown-icon.open .svg-icon {
+	max-width: 1rem;
+	top: 0;
+}
+
+@media screen and (max-width: 481px) {
+	.primary-navigation > div > .menu-wrapper .menu-item-gtranslate select#gtranslate_selector {
+		font-size: 1.125rem;
+		padding-left: 0;
+	}
+}
+
 @media screen and (min-width: 482px) {
 	.primary-navigation > div > .menu-wrapper {
 		width: 100%;
-	}.primary-navigation > div > .menu-wrapper .menu-item {
+		justify-content: space-between;
+	}
+	.primary-navigation > div > .menu-wrapper .menu-item {
 		width: auto;
 	}
 	.primary-navigation > div > .menu-wrapper .menu-item-gtranslate {

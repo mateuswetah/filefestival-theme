@@ -257,6 +257,9 @@ body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collect
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 	}
+	.tainacan-collections header.page-header .tainacan-collections-control .field-label {
+		text-align: left;
+	}
 }
 
 /* Smaller mobile screen */
@@ -264,8 +267,10 @@ body:not(.collections-list-layout-lista) .tainacan-collections .tainacan-collect
 	.tainacan-collections .tainacan-collections-list {
 		display: flex;
 		flex-direction: column;
+		gap: none;
 	}
 	.tainacan-collections .tainacan-collections-list .tainacan-collection {
 		height: 180px;
+		margin-bottom: 64px;
 	}
 }

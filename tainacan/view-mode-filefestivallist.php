@@ -2,7 +2,7 @@
 	<?php 
 		$is_repository_level = !isset($request['collection_id']);
 		$has_thumbnail_enabled = in_array('thumbnail', $view_mode_displayed_metadata);
-		$has_title_enabled = in_array('title', $view_mode_displayed_metadata);
+		$has_title_enabled = true; // in_array('title', $view_mode_displayed_metadata); -- Set to true as it would only work in the repository level
 		$has_description_enabled = in_array('description', $view_mode_displayed_metadata);
 		$has_meta = isset($view_mode_displayed_metadata['meta']) && count($view_mode_displayed_metadata['meta']) > 0;
 	?>

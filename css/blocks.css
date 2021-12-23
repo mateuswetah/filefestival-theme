@@ -242,6 +242,11 @@
 	background-color: #676767 !important;
 	color: var(--global--color-background) !important;
 }
+@media screen and (max-width: 1024px) {
+	.wpcf7-form {
+		margin: 0rem;
+	}
+}
 
 /* Newsletter plugin */
 .wp-block-tnp,
@@ -325,6 +330,12 @@
 	.wp-block-columns.subscription-form-warning .wp-block-column:last-child {
 		flex-basis: calc(100% - 56px) !important;
 	}
+}
+
+/* Team page columns */
+.wp-block-columns.has-marginless-paragraphs p {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 /* Image inside the h1 title block */

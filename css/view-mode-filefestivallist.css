@@ -85,7 +85,7 @@
 
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-value {
     color: var(--header--color-text, #777777);
-    font-size: 1.0625rem;
+    font-size: 0.8125rem;
     margin-bottom: 1.125rem;
 }
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .empty-metadata-value {
@@ -100,4 +100,19 @@
 .tainacan-filefestival-list-container .tainacan-filefestival-list-item .metadata-type-core_title a:not(:hover) {
     text-decoration: none !important;
     color: var(--header--color-text, #777777);
+}
+
+/* When in mobile, the list breaks */
+@media screen and (max-width: 800px) {
+    .tainacan-filefestival-list-container .tainacan-filefestival-list-item .filefestival-list-item-thumbnail {
+        width: calc(125px + 30px + 30px);
+        flex-basis: calc(125px + 30px + 30px);
+        padding: 24px 30px 24px 30px;
+    }
+    .tainacan-filefestival-list-container .tainacan-filefestival-list-item .tainacan-filefestival-list-item--metadata {
+        width: calc(100% - 125px - 30px - 30px);
+        flex-basis: calc(100% - 125px - 30px - 30px);
+        grid-template-columns: auto;
+        padding: 24px 0 24px 20px;
+    }
 }
