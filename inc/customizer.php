@@ -164,6 +164,38 @@ function filefestival_customize_register($wp_customize) {
         'priority' => 2,
         'choices' => $collections_options
     ));
+
+    // Adds option to select which collection will have the Activities template
+    $wp_customize->add_setting('filefestival_tainacan_single_item_template_activities', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_single_item_template_activities', array(
+        'label' => __('Coleção com o template das Atividades Educacionais', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_single_items_templates',
+        'settings' => 'filefestival_tainacan_single_item_template_activities',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
+
+    // Adds option to select which collection will have the Publications template
+    $wp_customize->add_setting('filefestival_tainacan_single_item_template_publications', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_single_item_template_publications', array(
+        'label' => __('Coleção com o template das Publicações & Mídia', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_single_items_templates',
+        'settings' => 'filefestival_tainacan_single_item_template_publications',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
     
 }
 

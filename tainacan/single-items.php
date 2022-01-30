@@ -5,6 +5,8 @@
     $is_works_collection = get_theme_mod('filefestival_tainacan_single_item_template_works', '') == $collection->get_ID();
     $is_participants_collection = get_theme_mod('filefestival_tainacan_single_item_template_participants', '') == $collection->get_ID();
     $is_events_collection = get_theme_mod('filefestival_tainacan_single_item_template_events', '') == $collection->get_ID();
+    $is_activities_collection = get_theme_mod('filefestival_tainacan_single_item_template_activities', '') == $collection->get_ID();
+    $is_publications_collection = get_theme_mod('filefestival_tainacan_single_item_template_publications', '') == $collection->get_ID();
 
     $attachments = [];
     $attachments = tainacan_get_the_attachments();
@@ -166,7 +168,20 @@
 
                     <div class="tainacan-item-single-content--navigation">
                         
-                        <?php get_template_part( 'template-parts/single-items-navigation', null, array('metadata_objects' => $metadata_objects) ); ?>
+                        <?php 
+                            get_template_part(
+                                'template-parts/single-items-navigation',
+                                null,
+                                array(
+                                    'metadata_objects' => $metadata_objects,
+                                    'is_works_collection' => $is_works_collection,
+                                    'is_participants_collection' => $is_participants_collection,
+                                    'is_events_collection' => $is_events_collection,
+                                    'is_activities_collection' => $is_activities_collection,
+                                    'is_publications_collection' => $is_publications_collection
+                                )
+                            );
+                        ?>
 
                     </div>
 

@@ -1,16 +1,23 @@
 <?php 
 
-    // Building query to fetch items related to this via relationships
+    // Variables from single-items.php template
     $metadata_objects = isset($args['metadata_objects']) ? $args['metadata_objects'] : []; 
+    $is_works_collection = isset($args['is_works_collection']) ? $args['is_works_collection'] : false;
+    $is_participants_collection = isset($args['is_participants_collection']) ? $args['is_participants_collection'] : false;
+    $is_events_collection = isset($args['is_events_collection']) ? $args['is_events_collection'] : false;
+    $is_activities_collection = isset($args['is_activities_collection']) ? $args['is_activities_collection'] : false;
+    $is_publications_collection = isset($args['is_publications_collection']) ? $args['is_publications_collection'] : false; 
+
+    // Building query to fetch items related to this via relationships
     $relationship_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
         return $metadatum_object && $metadatum_object->get_metadata_type() == 'Tainacan\Metadata_Types\Relationship';
     });
-    
     $related_items_id = [];
     $related_items_object = [];
 
     if ( $relationship_metadata_objects && count($relationship_metadata_objects) > 0 ) {
         
+        // For most collections, we get the first relationship metadata that has values
         foreach( $relationship_metadata_objects as $relationship_metadatum_object ) {
             $item_metadata_repository = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $relationship_metadatum_object);
             
@@ -30,14 +37,53 @@
             }
         }
 
+        // Fetching the related items 
         $args = array(
             'posts_per_page' => 2,
             'post__in' => $related_items_id,
             'orderby' => 'post__in'
         );
-
         $items_repository = \Tainacan\Repositories\Items::get_instance();
         $related_items_object = $items_repository->fetch($args, [], 'OBJECT');
+
+        // Some collections also search for items related to a certain related item
+        $more_related_items_object = [];
+        if ( ( $is_works_collection || $is_activities_collection || $is_publications_collection ) && count($related_items_object) > 0 ) {
+
+            $items_related_to_this = $related_items_object[0]->get_related_items();
+            if ( $items_related_to_this && count($items_related_to_this) > 0 ) {
+
+                foreach( $items_related_to_this as $items_related_to_this_group ) {
+                    
+                    if ( isset($items_related_to_this_group['total_items']) && $items_related_to_this_group['total_items'] == 0)
+                        continue;
+
+                    if ( $items_related_to_this_group['items'] && count($items_related_to_this_group['items']) > 0 ) {
+
+                        $items_related_to_this_group['items'] = array_filter($items_related_to_this_group['items'], function($a_related_item) {
+                            return isset($a_related_item['id']) && $a_related_item['id'] !== get_the_ID();
+                        });
+                        $more_related_items_object = array_merge($more_related_items_object, $items_related_to_this_group['items']);
+                    }
+
+                    if ( count($more_related_items_object) >= 1 )
+                        break;
+                }
+            }
+        }
+
+        // We only add more related items after displaying at least one of the initial relations
+        if ( count($more_related_items_object) > 0 && isset($more_related_items_object[0]['id']) ) {
+            $item = new \Tainacan\entities\Item($more_related_items_object[0]['id']);
+
+            if ( $item instanceof \Tainacan\Entities\Item ) {
+                if (count($related_items_object) === 1)
+                    $related_items_object[] = $item;
+
+                if (count($related_items_object) > 1)
+                    $related_items_object[1] = $item;
+            }
+        }
     }
     
     // Next and Previous Items
