@@ -1,47 +1,45 @@
 <?php 
 
-    // Building query to fetch items related to this via a taxonomy
-    $related_taxonomies = get_post_taxonomies();
-    $items_in_common = [];
+    // Building query to fetch items related to this via relationships
+    $metadata_objects = isset($args['metadata_objects']) ? $args['metadata_objects'] : []; 
+    $relationship_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
+        return $metadatum_object && $metadatum_object->get_metadata_type() == 'Tainacan\Metadata_Types\Relationship';
+    });
+    
+    $related_items_id = [];
+    $related_items_object = [];
 
-    if ( $related_taxonomies && count($related_taxonomies) > 0 ) {
+    if ( $relationship_metadata_objects && count($relationship_metadata_objects) > 0 ) {
         
-        foreach( $related_taxonomies as $related_taxonomy ) {
-            $terms = [];
-            $terms = get_the_terms($post, $related_taxonomy);
-
-            if ( $terms && count($terms) > 0 ) {
-                $tax_query = array();
-
-                foreach( $terms as $term ) {
-                    $tax_query[] = array(
-                        'taxonomy' => $related_taxonomy,
-                        'field' => 'slug',
-                        'terms' => $term->slug,
-                        'relation' => 'OR'
-                    );
+        foreach( $relationship_metadata_objects as $relationship_metadatum_object ) {
+            $item_metadata_repository = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $relationship_metadatum_object);
+            
+            if ( !$item_metadata_repository->has_value() )
+                continue;
+            else {
+                if ( !$item_metadata_repository->is_multiple() )
+                    $related_items_id[] = $item_metadata_repository->get_value();
+                else {
+                    
+                    $related_items_ids = $item_metadata_repository->get_value();
+                    
+                    foreach($related_items_ids as $a_related_item_html) {
+                        $related_items_id[] = $a_related_item_html;
+                    }
                 }
-
-                if ( count($tax_query) > 0 ) {
-
-                    $args = array(
-                        'posts_per_page' => 2,
-                        'taxquery' => $tax_query,
-                        'post__not_in' => [ $post->ID ],
-                        'orderby' => 'rand'
-                    );
-
-                    $items_repository = \Tainacan\Repositories\Items::get_instance();
-
-                    $items_in_common = $items_repository->fetch($args, [], 'OBJECT');
-                }
-                
-                if ( $items_in_common && count($items_in_common) > 0 )
-                    break;
             }
         }
-    }
 
+        $args = array(
+            'posts_per_page' => 2,
+            'post__in' => $related_items_id,
+            'orderby' => 'post__in'
+        );
+
+        $items_repository = \Tainacan\Repositories\Items::get_instance();
+        $related_items_object = $items_repository->fetch($args, [], 'OBJECT');
+    }
+    
     // Next and Previous Items
     $adjacent_links = [
         'next' => '',
@@ -56,20 +54,20 @@
 <?php if ($previous !== '' || $next !== '') : ?>
 
     <div class="tainacan-single-navigation-links">
-        <?php if ( $items_in_common && count($items_in_common) > 0 ) : ?>
+        <?php if ( $related_items_object && count($related_items_object) > 0 ) : ?>
             <div class="items-in-common">
                 <h2 class="tainacan-metadatum-label"><?php echo __('Veja também:', 'filefestival') ?></h2>
-                <?php foreach( $items_in_common as $item_in_common ) : $common_item_id = $item_in_common->get_ID(); ?>
-                    <a href="<?php echo get_the_permalink( $common_item_id ) ?>" class="item-in-common">
+                <?php foreach( $related_items_object as $related_item ) : $related_item_id = $related_item->get_ID(); ?>
+                    <a href="<?php echo get_the_permalink( $related_item_id ) ?>" class="item-in-common">
                         <?php
-                            if ( has_post_thumbnail( $common_item_id ) ) {
-                                echo get_the_post_thumbnail($common_item_id , 'tainacan-medium-large' );
+                            if ( has_post_thumbnail( $related_item_id ) ) {
+                                echo get_the_post_thumbnail($related_item_id , 'tainacan-medium-large' );
                             } else {
-                                $media_type = $item_in_common->get_document_mimetype();
+                                $media_type = $related_item->get_document_mimetype();
                                 echo '<img src="' . tainacan_get_the_mime_type_icon($media_type, 'tainacan-medium-large') . '" />';
                             }
                         ?>
-                        <?php echo get_the_title( $common_item_id ); ?>
+                        <?php echo get_the_title( $related_item_id ); ?>
                     </a>
                 <?php endforeach; ?>
             </div>

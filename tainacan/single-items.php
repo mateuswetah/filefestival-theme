@@ -15,22 +15,18 @@
     $URL_metadata_IDs = [];
     $max_URL_meta_to_add_to_carousel = 2;
 
+    /* Getch metadata objects to use here and in the single-items-navigation.php */        
+    $metadata_objects = $metadata_repository->fetch_by_collection(
+        $collection,
+        [
+            'posts_per_page' => -1
+        ],
+        'OBJECT'
+    );
+    $metadata_objects = $metadata_repository->order_result($metadata_objects, $collection);
+
     if ($is_works_collection) {
-        $metadata_objects = $metadata_repository->fetch_by_collection(
-            $collection,
-            [ 
-                // 'meta_query' => [
-                //     [
-                //         'key'     => 'metadata_type',
-                //         'value'   => 'TAINACAN_URL_Plugin_Metadata_Type',
-                //         'compare' => '='
-                //     ]
-                // ],
-                'posts_per_page' => -1
-            ],
-            'OBJECT'
-        );
-        $metadata_objects = $metadata_repository->order_result($metadata_objects, $collection);
+
         $URL_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
             return $metadatum_object && $metadatum_object->get_metadata_type() == 'TAINACAN_URL_Plugin_Metadata_Type';
         });
@@ -170,7 +166,7 @@
 
                     <div class="tainacan-item-single-content--navigation">
                         
-                        <?php get_template_part( 'template-parts/single-items-navigation' ); ?>
+                        <?php get_template_part( 'template-parts/single-items-navigation', null, array('metadata_objects' => $metadata_objects) ); ?>
 
                     </div>
 
