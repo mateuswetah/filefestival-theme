@@ -30,21 +30,23 @@
                     
                     $related_items_ids = $item_metadata_repository->get_value();
                     
-                    foreach($related_items_ids as $a_related_item_html) {
-                        $related_items_id[] = $a_related_item_html;
+                    foreach($related_items_ids as $a_related_item_id) {
+                        $related_items_id[] = $a_related_item_id;
                     }
                 }
             }
         }
 
         // Fetching the related items 
-        $args = array(
-            'posts_per_page' => 2,
-            'post__in' => $related_items_id,
-            'orderby' => 'post__in'
-        );
-        $items_repository = \Tainacan\Repositories\Items::get_instance();
-        $related_items_object = $items_repository->fetch($args, [], 'OBJECT');
+        if ( count($related_items_id) > 0 ) {
+            $args = array(
+                'posts_per_page' => 2,
+                'post__in' => $related_items_id,
+                'orderby' => 'post__in'
+            );
+            $items_repository = \Tainacan\Repositories\Items::get_instance();
+            $related_items_object = $items_repository->fetch($args, [], 'OBJECT');
+        }
 
         // Some collections also search for items related to a certain related item
         $more_related_items_object = [];
