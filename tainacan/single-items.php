@@ -15,7 +15,7 @@
     $metadata_repository = \Tainacan\Repositories\Metadata::get_instance();
     $URL_metadata_html = [];
     $URL_metadata_IDs = [];
-    $max_URL_meta_to_add_to_carousel = 2;
+    $max_URL_meta_to_add_to_carousel = $is_works_collection ? 2 : 1;
 
     /* Getch metadata objects to use here and in the single-items-navigation.php */        
     $metadata_objects = $metadata_repository->fetch_by_collection(
@@ -27,7 +27,7 @@
     );
     $metadata_objects = $metadata_repository->order_result($metadata_objects, $collection);
 
-    if ($is_works_collection) {
+    if ($is_works_collection || $is_events_collection) {
 
         $URL_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
             return $metadatum_object && $metadatum_object->get_metadata_type() == 'TAINACAN_URL_Plugin_Metadata_Type';
@@ -151,7 +151,7 @@
                                                         ob_end_clean();
                                                     }
                                                 }
-                                                echo implode($related_links, ' <span class="multivalue-separator"> | </span>');
+                                                echo implode(' <span class="multivalue-separator"> | </span>', $related_links);
                                             ?>
                                             </p>
                                         </div>

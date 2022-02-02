@@ -14,13 +14,13 @@
     });
     $related_items_id = [];
     $related_items_object = [];
-
+    
     if ( $relationship_metadata_objects && count($relationship_metadata_objects) > 0 ) {
         
         // For most collections, we get the first relationship metadata that has values
         foreach( $relationship_metadata_objects as $relationship_metadatum_object ) {
             $item_metadata_repository = new \Tainacan\Entities\Item_Metadata_Entity(tainacan_get_item(), $relationship_metadatum_object);
-            
+            echo '<div style="display: none; visibility:hidden;">' . $relationship_metadatum_object->get_name() . ': ' . json_encode($item_metadata_repository->get_value()) . '</div>';
             if ( !$item_metadata_repository->has_value() )
                 continue;
             else {
@@ -35,26 +35,31 @@
                     }
                 }
             }
-        }
 
+        }
+        
         // Fetching the related items 
         if ( count($related_items_id) > 0 ) {
-            $args = array(
+            $related_query = array(
                 'posts_per_page' => 2,
                 'post__in' => $related_items_id,
-                'orderby' => 'post__in'
+                'order_by' => 'post__in'
             );
             $items_repository = \Tainacan\Repositories\Items::get_instance();
-            $related_items_object = $items_repository->fetch($args, [], 'OBJECT');
+            $related_items_object = $items_repository->fetch($related_query, [], 'OBJECT');
         }
-
+        
         // Some collections also search for items related to a certain related item
         $more_related_items_object = [];
-        if ( ( $is_works_collection || $is_activities_collection || $is_publications_collection ) && count($related_items_object) > 0 ) {
+        if (
+            ( $is_works_collection || $is_activities_collection || $is_publications_collection ) &&
+            count($related_items_object) > 0 &&
+            $related_items_object[0] instanceof \Tainacan\Entities\Item
+        ) {
 
             $items_related_to_this = $related_items_object[0]->get_related_items();
             if ( $items_related_to_this && count($items_related_to_this) > 0 ) {
-
+                
                 foreach( $items_related_to_this as $items_related_to_this_group ) {
                     
                     if ( isset($items_related_to_this_group['total_items']) && $items_related_to_this_group['total_items'] == 0)
@@ -71,9 +76,10 @@
                     if ( count($more_related_items_object) >= 1 )
                         break;
                 }
+                
             }
         }
-
+        
         // We only add more related items after displaying at least one of the initial relations
         if ( count($more_related_items_object) > 0 && isset($more_related_items_object[0]['id']) ) {
             $item = new \Tainacan\entities\Item($more_related_items_object[0]['id']);
@@ -93,9 +99,8 @@
         'next' => '',
         'previous' => ''
     ];
-
     $adjacent_links = tainacan_get_adjacent_item_links();
-
+    
     $previous = $adjacent_links['previous'];
     $next = $adjacent_links['next'];
 ?>

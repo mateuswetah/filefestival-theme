@@ -57,13 +57,6 @@
 
 @media screen and (max-width: 1279px) {
 
-    /* Editors kit tablet breakpoint should appear earlier */
-    body:not(.wp-admin) .blockopts-hide.blockopts-mobile,
-    body:not(.wp-admin) .editorskit-no-mobile {
-        display: none;
-        visibility: hidden;
-    }    
-
     /* Special columns size for the home page */
     .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child {
         flex-basis: min(494px, 100%) !important;
