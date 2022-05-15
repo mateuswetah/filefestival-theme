@@ -27,7 +27,7 @@
     );
     $metadata_objects = $metadata_repository->order_result($metadata_objects, $collection);
 
-    if ($is_works_collection || $is_events_collection) {
+    if ($is_works_collection || $is_events_collection || $is_activities_collection) {
 
         $URL_metadata_objects = array_filter($metadata_objects, function($metadatum_object) {
             return $metadatum_object && $metadatum_object->get_metadata_type() == 'TAINACAN_URL_Plugin_Metadata_Type';

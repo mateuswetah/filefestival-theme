@@ -51,6 +51,7 @@
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="filefestival-grid-item-thumbnail">
 							<?php the_post_thumbnail( 'large' ); ?>
+							<!-- <?php tainacan_the_document(); ?> -->
 							<div class="skeleton"></div> 
 						</div>
 					<?php else : ?>
