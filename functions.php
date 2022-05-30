@@ -190,6 +190,81 @@ function filefestival_upload_mime_types( $mimes ){
 }
 add_filter( 'upload_mimes', 'filefestival_upload_mime_types' );
 
+/**
+ * Add search box to primary menu
+ */
+function filefestival_nav_search($items, $args) {
+    // If this isn't the primary menu, do nothing
+    if ( !($args->theme_location == 'primary') ) 
+    	return $items;
+
+	$tainacan_search_bar = '';
+	ob_start();
+
+	?>
+	<li class="menu-item menu-item--search">
+		<div
+				class="wp-block-tainacan-search-bar is-style-default"
+				data-module="search-bar">
+			<div class="tainacan-search-container">
+				<form 
+						id="tainacan-search-bar-block"
+						action="<?php echo (esc_url_raw( get_site_url() ) . '/' . \Tainacan\Theme_Helper::get_instance()->get_items_list_slug()); ?>"
+						data-queryparam="search"
+						method="get">
+					<input
+							id="tainacan-search-bar-block_input"
+							label="<?php echo __('Busca', 'filefestival') ?>"
+							name="search"
+							placeholder="<?php echo __('Busca', 'filefestival') ?>...">
+					<button
+							class="button"
+							type="submit">
+						<span class="icon">
+							<i>
+							<svg
+									width="16"
+									height="16"
+									viewBox="0 0 16 16"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z" stroke="#707070" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M14 14.0001L11.1 11.1001" stroke="#707070" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							</i>
+						</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</li>
+	<?php
+
+	$tainacan_search_bar = ob_get_contents();
+	ob_clean();
+
+    // Otherwise, add search form
+    return $items . $tainacan_search_bar;
+}
+add_filter('wp_nav_menu_items', 'filefestival_nav_search', 10, 2);
+
+add_filter('tainacan-get-item-metadatum-as-html-before-value', function($before, $item_metadatum) {
+	
+	if ( $item_metadatum ) {
+		$metadatum = $item_metadatum->get_metadatum();
+
+		if ( $metadatum ) {
+			$metadata_type = $metadatum->get_metadata_type();
+
+			if ( $metadata_type === 'Tainacan\Metadata_Types\Core_Title' || $metadata_type === 'Tainacan\Metadata_Types\Relationship' ) {
+				return str_replace('tainacan-metadatum-value', 'tainacan-metadatum-value notranslate', $before);
+			}
+		}
+	}
+	return $before;
+
+}, 10, 2);
+
 // Remaining imports
 require get_stylesheet_directory() . '/inc/customizer.php';
 require get_stylesheet_directory() . '/inc/icons.php';
