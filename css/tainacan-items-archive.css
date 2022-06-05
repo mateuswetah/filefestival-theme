@@ -292,6 +292,9 @@
 	margin-bottom: 5px !important;
 	grid-column-start: 1;
 }
+.theme-items-list .search-control .search-control-item--search {
+	order: 1;
+}
 
 /* Avoids overlapping metadata name */
 #tainacanSortByDropdown .dropdown-trigger button.button {
