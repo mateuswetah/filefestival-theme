@@ -5,7 +5,7 @@ Description:    New theme for the FILE Festival
 Author:         Mateus Machado Luna
 Author URI:     mateuswetah
 Template:       twentytwentyone
-Version:        0.4.12
+Version:        0.4.13
 */
 
 /* Styles related to the Tainacan plugin */
@@ -100,4 +100,9 @@ audio::-webkit-media-controls-enclosure {
     padding: 0.85rem;
     font-size: 0.8125rem;
     box-shadow: none !important;
+}
+
+/* Home columns padding */
+.wp-container-14 {
+    gap: 0px !important;
 }
