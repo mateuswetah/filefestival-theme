@@ -5,7 +5,7 @@
 
 	$collections = $Tainacan_Collections->fetch(
 		array(
-			'posts_per_page' => 6,
+			'posts_per_page' => 10,
 			'post__not_in' => [ tainacan_get_collection_id() ] //'exclude' => [ tainacan_get_collection_id() ]
 		)
 	, 'OBJECT' );
@@ -51,7 +51,7 @@
 				'default_items_per_page' => 12,
 				'hide_filters' => false,
 				'hide_hide_filters_button' => false,
-				'hide_search' => false,
+				'hide_search' => true,
 				'hide_advanced_search' => true,
 				'hide_sort_by_button' => false,
 				'hide_exposers_button' => false,

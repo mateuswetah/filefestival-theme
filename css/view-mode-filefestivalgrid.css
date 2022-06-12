@@ -6,7 +6,7 @@
     grid-template-columns: repeat(auto-fill, max(220px, 20%));
     grid-gap: 50px;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin-top: 5px;
     border-top: 1px solid var(--global--color-border, #cccccc);
     list-style: none;
     animation-name: appear;

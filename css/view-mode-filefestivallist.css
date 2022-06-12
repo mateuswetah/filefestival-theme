@@ -3,7 +3,7 @@
     width: 100%;
     padding: 0;
     display: block;
-    margin-top: 20px;
+    margin-top: 5px;
     border-top: 1px solid var(--global--color-border, #cccccc);
     list-style: none;
     animation-name: appear;

@@ -6,6 +6,7 @@
     column-gap: 64px;
     row-gap: 24px;
     padding-top: 1rem;
+    --swiper-theme-color: var(--global--color-primary, #676767);
 }
 .tainacan-item-single-content.has-attachments {
     grid-template-areas: 'info1 gallery gallery navigation'
@@ -171,7 +172,7 @@
 }
 .tainacan-media-component__swiper-main .swiper-button-next::after,
 .tainacan-media-component__swiper-main .swiper-button-prev::after {
-    margin-top: -75px;
+    margin-top: -28px;
 }
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content a:first-of-type,
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content p:first-of-type {
