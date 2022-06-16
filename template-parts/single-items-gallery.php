@@ -77,6 +77,7 @@ if ( !empty( $attachments )  || tainacan_has_document() ) : ?>
                 'class_main_div' => '',
                 'class_thumbs_div' => '',
                 'show_share_button' => true,
+                'lightbox_has_light_background' => true,
                 'fullscreelEl' => false,
                 'swiper_thumbs_options' => array(
                     'slidesPerView' => 'auto',

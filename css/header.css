@@ -57,7 +57,7 @@
 	width: 1rem;
 }
 
-.primary-navigation > div > .menu-wrapper .menu-item-gtranslate select#gtranslate_selector {
+select#gtranslate_selector {
 	color: var(--header--color-text);
 	text-transform: lowercase;
 	border: none !important;
@@ -74,7 +74,7 @@
 	padding-right: 1rem;
 	text-align: end;
 }
-.primary-navigation > div > .menu-wrapper .menu-item-gtranslate:hover select#gtranslate_selector {
+.menu-item-gtranslate:hover select#gtranslate_selector {
 	color: var(--header--color-link-hover,var(--header--color-text));
 }
 
@@ -93,21 +93,21 @@
 	display: flex;
 	align-items: center;
 }
-.site-header .wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block {
+.wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block input::placeholder {
+	opacity: 0.5;
+}
+.wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block button .icon svg {
+	max-width: 2rem;
+	fill: transparent !important;
+}
+.wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block {
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;
 }
-.site-header .wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block input::placeholder {
-	opacity: 0.5;
-}
-.site-header .wp-block-tainacan-search-bar .tainacan-search-container #tainacan-search-bar-block button .icon svg {
-	max-width: 2rem;
-	fill: transparent;
-}
 
 @media screen and (max-width: 481px) {
-	.primary-navigation > div > .menu-wrapper .menu-item-gtranslate select#gtranslate_selector {
+	.primary-menu-container select#gtranslate_selector {
 		font-size: 1.125rem;
 		padding-left: 0;
 	}
@@ -117,9 +117,26 @@
 	.site-header .menu-item--search {
 		order: -1;
 	}
+	.mobile-subheader {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+		visibility: visible;
+		max-width: var(--responsive--alignwide-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mobile-subheader select#gtranslate_selector {
+		height: 3em;
+		margin: auto;
+	}
 }
 
 @media screen and (min-width: 482px) {
+	.mobile-subheader {
+		display: none;
+		visibility: hidden;
+	}
 	.primary-navigation > div > .menu-wrapper {
 		width: 100%;
 		justify-content: space-between;
