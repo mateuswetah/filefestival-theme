@@ -186,6 +186,7 @@
 .tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:not(:only-child) .swiper-slide-content a:first-of-type,
 .tainacan-item-single-content .tainacan-media-component__swiper-main li.swiper-slide:not(:only-child) .swiper-slide-content p:first-of-type {
     height: var(--tainacan-media-main-carousel-height, 364px);
+    overflow: hidden;
 }
 .tainacan-item-single-content .tainacan-item-single-content--gallery .tainacan-media-component__swiper-main .swiper-slide-content {
     max-width: 261px;
