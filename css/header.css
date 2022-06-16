@@ -129,7 +129,7 @@
 	}
 	.primary-navigation > div > .menu-wrapper .menu-item-gtranslate {
 		margin-left: auto;
-		margin-right: auto;
+		margin-right: calc(8em + 15% - 206px + var(--primary-nav--padding));
 	}	
 	.site-header .menu-item--search {
 		margin-left: auto;

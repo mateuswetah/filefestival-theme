@@ -55,31 +55,43 @@
     }
 }
 
+
+/* Home columns padding */
+.singular.home .entry-content .wp-block-columns.home-columns {
+    gap: 8em !important;
+}
+.singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:first-child .wp-block-group {
+    gap: 0px !important;
+}
+@media screen and (max-width: 1279px) {
+    .singular.home .entry-content .wp-block-columns.home-columns {
+        gap: 4em !important;
+    }
+}
 @media screen and (max-width: 1279px) {
 
     /* Special columns size for the home page */
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child {
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:first-child {
         flex-basis: min(494px, 100%) !important;
     }
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:not(:first-child) {
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:not(:first-child) {
         flex-basis: 100% !important;
+        margin-left: 0em;
+        margin-right: 2em;
     }
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column {
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column {
         flex-basis: calc(50% - 1rem) !important;
     }
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column:nth-child(2n) {
-        margin-left: 2rem !important;
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column.editorskit-no-tablet.editorskit-no-mobile {
+        display: none;
     }
 }
 @media screen and (max-width: 768px) {
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column {
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column {
         flex-basis: calc(50% - 0.5rem) !important;
     }
-    .singular.home .entry-content>.wp-block-columns>.wp-block-column:first-child>.wp-block-columns:last-of-type>.wp-block-column:nth-child(2n) {
-        margin-left: 1rem !important;
+    .singular.home .entry-content .wp-block-columns.home-columns>.wp-block-column:not(:first-child) {
+        margin-left: 0em;
+        margin-right: 0em;
     }
-}
-
-.singular.home .entry-content>.wp-block-columns .wp-block-image {
-    margin-bottom: 10px !important;
 }

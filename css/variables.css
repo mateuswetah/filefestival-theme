@@ -58,11 +58,6 @@ body .editor-styles-wrapper {
     }
 }
 
-@media screen and (min-width: 722px) {
-    .wp-block-column:not(:first-child) {
-        margin-left: 4em;
-    }
-}
 
 body.singular h1,
 body.singular h2,
