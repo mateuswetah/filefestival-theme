@@ -64,6 +64,7 @@
         'after_value' => '</p>',
         'before' => '<div class="metadata-type-$type" $id>',
         'after' => '</div>',
+        'display_slug_as_class' => true,
         'hide_empty' => !$is_works_collection,
         'empty_value_message' => ' - '
     ] );

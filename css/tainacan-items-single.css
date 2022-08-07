@@ -363,6 +363,29 @@ p.tainacan-metadatum-value:empty {
     margin: 0.5em 0 0.5em 40px;
 }
 
+/* Sponsors images */
+.tainacan-item-single-content.is-events-collection .tainacan-item-single-content--information-2 .metadata-slug-logos {
+    column-span: all;
+}
+.tainacan-item-single-content.is-events-collection .tainacan-item-single-content--information-2 .metadata-slug-logos .tainacan-metadatum-label,
+.tainacan-item-single-content.is-events-collection .tainacan-item-single-content--information-2 .metadata-slug-logos .multivalue-separator {
+    display: none;
+    visibility: hidden;
+}
+/* Show this only on desktop */
+
+@media screen and (min-width: 1025px) {
+    .tainacan-item-single-content.is-events-collection .tainacan-item-single-content--information-2 .metadata-slug-logos .tainacan-metadatum-value a:last-of-type{
+        display: none;
+        visibility: hidden;
+    }    
+}
+@media screen and (max-width: 1024px) {
+    .tainacan-item-single-content.is-events-collection .tainacan-item-single-content--information-2 .metadata-slug-logos .tainacan-metadatum-value a:first-of-type {
+        display: none;
+        visibility: hidden;
+    }    
+}
 
 /* Navigation Section */
 .tainacan-item-single-content--navigation {
