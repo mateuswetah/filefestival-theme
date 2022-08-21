@@ -5,7 +5,9 @@
 
 	$collections = $Tainacan_Collections->fetch(
 		array(
-			'posts_per_page' => 10
+			'posts_per_page' => 10,
+			'status' => 'publish',
+			'post__not_in' => [ tainacan_get_collection_id(), 76628, 1492 ]
 		)
 	, 'OBJECT' );
 
