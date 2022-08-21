@@ -7,7 +7,7 @@
 		array(
 			'posts_per_page' => 10,
 			'status' => 'publish',
-			'post__not_in' => [ tainacan_get_collection_id() ] //'exclude' => [ tainacan_get_collection_id() ]
+			'post__not_in' => [ tainacan_get_collection_id(), 76628, 1492 ] //'exclude' => [ tainacan_get_collection_id() ]
 		)
 	, 'OBJECT' );
 
