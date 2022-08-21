@@ -7,6 +7,13 @@
 		$has_description_enabled = in_array('description', $view_mode_displayed_metadata);
 		$has_meta = isset($view_mode_displayed_metadata['meta']) && count($view_mode_displayed_metadata['meta']) > 0;
 
+		$collection_id_works = get_theme_mod('filefestival_tainacan_single_item_template_works', '');
+		$collection_id_participants = get_theme_mod('filefestival_tainacan_single_item_template_participants', '');
+		$collection_id_events = get_theme_mod('filefestival_tainacan_single_item_template_events', '');
+		$collection_id_activities = get_theme_mod('filefestival_tainacan_single_item_template_activities', '');
+		$collection_id_publications = get_theme_mod('filefestival_tainacan_single_item_template_publications', '');
+		$collection_id_places = get_theme_mod('filefestival_tainacan_single_item_template_places', '');
+
 		if ( $has_meta ) {
 			if ( !$is_repository_level ) {
 				$collection = tainacan_get_collection([ 'collection_id' => $request['collection_id'] ]);
@@ -60,7 +67,21 @@
 				
 				<tr class="tainacan-filefestival-table-item">
 					<?php if ( $has_title_enabled ): ?>
-						<td class="metadata-type-core_title"><a href="<?php the_permalink(); ?>"><p class="metadata-value"><?php echo get_the_title(); ?></p></a></td>
+						<?php
+							$collection_id = str_replace('_item', '', str_replace('tnc_col_', '', get_post_type()));
+							$title_class = 'metadata-type-core_title';
+
+							if (
+								$collection_id == $collection_id_works ||
+								$collection_id == $collection_id_participants ||
+								$collection_id == $collection_id_events ||
+								$collection_id == $collection_id_places
+							) {
+								$title_class .= ' notranslate';
+							}
+
+						?>
+						<td class="<?php echo $title_class; ?>"><a href="<?php the_permalink(); ?>"><p class="metadata-value"><?php echo get_the_title(); ?></p></a></td>
 					<?php endif; if ( $is_repository_level && $has_description_enabled ): ?>
 						<td class="metadata-type-core_description"><p class="metadata-value"><?php echo get_the_excerpt(); ?></p></td>
 					<?php endif; ?>

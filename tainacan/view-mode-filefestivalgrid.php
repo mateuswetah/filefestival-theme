@@ -1,6 +1,13 @@
 <?php
 	$is_in_grid_two = $request['view_mode'] === 'filefestivalgrid2';
 
+	$collection_id_works = get_theme_mod('filefestival_tainacan_single_item_template_works', '');
+	$collection_id_participants = get_theme_mod('filefestival_tainacan_single_item_template_participants', '');
+	$collection_id_events = get_theme_mod('filefestival_tainacan_single_item_template_events', '');
+	$collection_id_activities = get_theme_mod('filefestival_tainacan_single_item_template_activities', '');
+	$collection_id_publications = get_theme_mod('filefestival_tainacan_single_item_template_publications', '');
+	$collection_id_places = get_theme_mod('filefestival_tainacan_single_item_template_places', '');
+
 	// In this variation of the view mode, we have to fetch the second metadata
 	if ( $is_in_grid_two ) {
 
@@ -60,7 +67,22 @@
 							<div class="skeleton"></div> 
 						</div>
 					<?php endif; ?>
-					<div class="metadata-title">
+
+					<?php
+							$collection_id = str_replace('_item', '', str_replace('tnc_col_', '', get_post_type()));
+							$title_class = 'metadata-title';
+
+							if (
+								$collection_id == $collection_id_works ||
+								$collection_id == $collection_id_participants ||
+								$collection_id == $collection_id_events ||
+								$collection_id == $collection_id_places
+							) {
+								$title_class .= ' notranslate';
+							}
+						?>
+
+					<div class="<?php echo $title_class; ?>">
 						<h3><?php the_title(); ?></h3>
 					</div>
 					<?php if ( $is_in_grid_two ) : ?>

@@ -55,6 +55,69 @@
             }
         }
     }
+
+    // Creates the more info section
+    function create_more_info() {
+        $more_info = '';
+        ob_start();
+                                
+        try {
+            $item = new \Tainacan\entities\Item(get_the_ID());
+
+            if ( $item instanceof \Tainacan\Entities\Item ) {
+                $related_items = $item->get_related_items();
+
+                if ( $related_items && count($related_items) > 0 ): ?>
+                    <div class="metadata-items-related-to-this">
+                        <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações', 'filefestival'); ?></h2>
+                        <p class="tainacan-metadatum-value">
+                        <?php 
+                            $related_links = [];
+                            foreach($related_items as $collection_id => $related_group) {
+                                if (
+                                    isset($related_group['total_items']) &&
+                                    isset($related_group['collection_slug']) &&
+                                    isset($related_group['collection_name']) &&
+                                    $related_group['total_items'] > 0
+                                ) {
+                                    ob_start();
+                                    ?>
+                                        <a href="<?php echo '/' . $related_group['collection_slug'] . '?metaquery[0][key]=' . $related_group['metadata_id'] . '&metaquery[0][value][0]=' . $item->get_ID() . '&metaquery[0][compare]=IN'; ?>">
+                                            <?php echo $related_group['collection_name'] . ' (' . $related_group['total_items'] . ')'; ?>
+                                        </a>
+                                    <?php
+                                    $related_links[] = ob_get_contents();
+                                    ob_end_clean();
+                                }
+                            }
+                            echo implode(' <span class="multivalue-separator"> | </span>', $related_links);
+                        ?>
+                        </p>
+                    </div>
+            
+                <?php endif;
+            }
+        } catch (Exception $error) {
+            echo '';
+        }
+        
+        $more_info = ob_get_contents();
+        ob_clean();
+
+        return $more_info;
+    }
+    
+    if ($is_events_collection) {
+        add_filter( 'tainacan-get-item-metadatum-as-html-before', function($before, $item_metadatum) {
+            $metadatum_slug = $item_metadatum->get_metadatum()->get_slug();
+                
+            if ($metadatum_slug == 'logos') {
+                $before = create_more_info() . $before;
+            }
+
+            return $before;
+        }, 10, 2 );
+    }
     
     $metadata = tainacan_get_the_metadata( [
         'metadata__not_in' => !empty($URL_metadata_IDs) ? $URL_metadata_IDs : null,
@@ -75,6 +138,7 @@
     $section_classes .= $is_participants_collection ? ' is-participants-collection ' : '';
     $section_classes .= $is_events_collection ? ' is-events-collection ' : '';
     $section_classes .= ( count($attachments) + count($URL_metadata_html) ) > 0 ? ' has-attachments ' : '';
+
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -121,49 +185,7 @@
   
                         <?php echo $metadata; ?>
 
-                        <?php
-                            // Then fetches related ones
-                            try {
-                                $item = new \Tainacan\entities\Item(get_the_ID());
-
-                                if ( $item instanceof \Tainacan\Entities\Item ) {
-                                    $related_items = $item->get_related_items();
-
-                                    if ( $related_items && count($related_items) > 0 ): ?>
-                                        <div class="metadata-items-related-to-this">
-                                            <h2 class="tainacan-metadatum-label"><?php echo __('Mais informações', 'filefestival'); ?></h2>
-                                            <p class="tainacan-metadatum-value">
-                                            <?php 
-                                                $related_links = [];
-                                                foreach($related_items as $collection_id => $related_group) {
-                                                    if (
-                                                        isset($related_group['total_items']) &&
-                                                        isset($related_group['collection_slug']) &&
-                                                        isset($related_group['collection_name']) &&
-                                                        $related_group['total_items'] > 0
-                                                    ) {
-                                                        ob_start();
-                                                        ?>
-                                                            <a href="<?php echo '/' . $related_group['collection_slug'] . '?metaquery[0][key]=' . $related_group['metadata_id'] . '&metaquery[0][value][0]=' . $item->get_ID() . '&metaquery[0][compare]=IN'; ?>">
-                                                                <?php echo $related_group['collection_name'] . ' (' . $related_group['total_items'] . ')'; ?>
-                                                            </a>
-                                                        <?php
-                                                        $related_links[] = ob_get_contents();
-                                                        ob_end_clean();
-                                                    }
-                                                }
-                                                echo implode(' <span class="multivalue-separator"> | </span>', $related_links);
-                                            ?>
-                                            </p>
-                                        </div>
-                                
-                                    <?php endif;
-                                }
-                            } catch (Exception $error) {
-                                echo '';
-                            }
-                            
-                        ?>
+                        <?php if (!$is_events_collection) { echo create_more_info(); } ?>
 
                     </div>
 

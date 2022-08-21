@@ -5,6 +5,13 @@
 		$has_title_enabled = true; // in_array('title', $view_mode_displayed_metadata); -- Set to true as it would only work in the repository level
 		$has_description_enabled = in_array('description', $view_mode_displayed_metadata);
 		$has_meta = isset($view_mode_displayed_metadata['meta']) && count($view_mode_displayed_metadata['meta']) > 0;
+
+		$collection_id_works = get_theme_mod('filefestival_tainacan_single_item_template_works', '');
+		$collection_id_participants = get_theme_mod('filefestival_tainacan_single_item_template_participants', '');
+		$collection_id_events = get_theme_mod('filefestival_tainacan_single_item_template_events', '');
+		$collection_id_activities = get_theme_mod('filefestival_tainacan_single_item_template_activities', '');
+		$collection_id_publications = get_theme_mod('filefestival_tainacan_single_item_template_publications', '');
+		$collection_id_places = get_theme_mod('filefestival_tainacan_single_item_template_places', '');
 	?>
 	<ul class="tainacan-filefestival-list-container">
 
@@ -31,9 +38,22 @@
 
 				<div class="tainacan-filefestival-list-item--metadata">
 					<?php if ( $has_title_enabled ): ?>
+						<?php
+							$collection_id = str_replace('_item', '', str_replace('tnc_col_', '', get_post_type()));
+							$title_class = 'metadata-type-core_title';
+
+							if (
+								$collection_id == $collection_id_works ||
+								$collection_id == $collection_id_participants ||
+								$collection_id == $collection_id_events ||
+								$collection_id == $collection_id_places
+							) {
+								$title_class .= ' notranslate';
+							}
+						?>
 						<a 
 								href="<?php the_permalink(); ?>"
-								class="metadata-type-core_title">
+								class="<?php echo $title_class; ?>">
 							<h3 class="metadata-label"><?php echo __('Título', 'filefestival'); ?></h3>
 							<p class="metadata-value"><?php echo get_the_title(); ?></p>
 						</a>

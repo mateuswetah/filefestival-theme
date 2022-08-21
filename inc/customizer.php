@@ -196,6 +196,22 @@ function filefestival_customize_register($wp_customize) {
         'priority' => 2,
         'choices' => $collections_options
     ));
+
+    // Adds option to select which collection will have the Places template
+    $wp_customize->add_setting('filefestival_tainacan_single_item_template_places', array(
+        'default' => '',
+        'type' => 'theme_mod',
+        'transport'  => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+    $wp_customize->add_control('filefestival_tainacan_single_item_template_places', array(
+        'label' => __('Coleção com o template dos Locais', 'filefestival'),
+        'type' => 'select',
+        'section' => 'filefestival_tainacan_single_items_templates',
+        'settings' => 'filefestival_tainacan_single_item_template_places',
+        'priority' => 2,
+        'choices' => $collections_options
+    ));
     
 }
 

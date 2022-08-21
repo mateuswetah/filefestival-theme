@@ -6,6 +6,7 @@
 	$collections = $Tainacan_Collections->fetch(
 		array(
 			'posts_per_page' => 10,
+			'status' => 'publish',
 			'post__not_in' => [ tainacan_get_collection_id() ] //'exclude' => [ tainacan_get_collection_id() ]
 		)
 	, 'OBJECT' );
@@ -34,7 +35,7 @@
 
 		if ( !empty($collections_links_html) ) {
 			echo '<script type="text/javascript">
-					wp.hooks.addFilter("tainacan_faceted_search_collection_' . tainacan_get_collection_id() . '_search_control_before", "tainacan-hooks", function() { return `' . $collections_links_html . '`; });
+					wp.hooks.addFilter("tainacan_faceted_search_search_control_before", "tainacan-hooks", function() { return `' . $collections_links_html . '`; });
 				</script>';
 		}
 	}

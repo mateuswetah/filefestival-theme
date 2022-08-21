@@ -33,7 +33,7 @@
 
 		if ( !empty($collections_links_html) ) {
 			echo '<script type="text/javascript">
-					wp.hooks.addFilter("tainacan_faceted_search_collection_' . tainacan_get_collection_id() . '_search_control_before", "tainacan-hooks", function() { return `' . $collections_links_html . '`; });
+					wp.hooks.addFilter("tainacan_faceted_search_search_control_before", "tainacan-hooks", function() { return `' . $collections_links_html . '`; });
 				</script>';
 		}
 	}
