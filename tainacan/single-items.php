@@ -185,7 +185,7 @@
   
                         <?php echo $metadata; ?>
 
-                        <?php if (!$is_events_collection) { echo create_more_info(); } ?>
+                        <?php if ( !$is_events_collection || !strpos($metadata, 'metadata-slug-logos') ) { echo create_more_info(); } ?>
 
                     </div>
 

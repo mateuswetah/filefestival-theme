@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.5.5';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.5.8';
 
 /**
  * Enqueue scripts and styles.
@@ -264,6 +264,21 @@ add_filter('tainacan-get-item-metadatum-as-html-before-value', function($before,
 	return $before;
 
 }, 10, 2);
+
+/* Builds navigation link for custom view modes */
+function get_item_link_for_navigation($item_url, $index) {
+		
+	if ( $_GET && isset($_GET['paged']) && isset($_GET['perpage']) ) {
+		$query = '';
+		$perpage = (int)$_GET['perpage'];
+		$paged = (int)$_GET['paged'];
+		$index = (int)$index;
+		$query .= '&pos=' . ( ($paged - 1) * $perpage + $index );
+		$query .= '&source_list=' . (is_tax() ? 'term' : 'collection');
+		return $item_url . '?' .  $_SERVER['QUERY_STRING'] . $query;
+	}
+	return $item_url;
+}
 
 // Remaining imports
 require get_stylesheet_directory() . '/inc/customizer.php';

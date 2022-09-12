@@ -15,20 +15,20 @@
 	?>
 	<ul class="tainacan-filefestival-list-container">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
 			<li class="tainacan-filefestival-list-item">
 
 				<?php if ( $has_thumbnail_enabled ) : ?>
 					<?php if ( has_post_thumbnail() ) : ?>
 						<a 
-								href="<?php the_permalink(); ?>"
+								href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
 								class="filefestival-list-item-thumbnail">
 							<?php the_post_thumbnail( 'tainacan-medium' ); ?>
 							<div class="skeleton"></div> 
 						</a>
 					<?php else : ?>
 						<a 
-								href="<?php the_permalink(); ?>"
+								href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
 								class="filefestival-list-item-thumbnail">
 							<?php echo '<img alt="', esc_attr_e('Minatura da imagem do item', 'filefestival'), '" src="', esc_url(get_stylesheet_directory_uri()), '/images/thumbnail_placeholder.png">'?>
 							<div class="skeleton"></div> 
@@ -52,7 +52,7 @@
 							}
 						?>
 						<a 
-								href="<?php the_permalink(); ?>"
+								href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"
 								class="<?php echo $title_class; ?>">
 							<h3 class="metadata-label"><?php echo __('Título', 'filefestival'); ?></h3>
 							<p class="metadata-value"><?php echo get_the_title(); ?></p>
@@ -81,7 +81,7 @@
 				</div>
 			</li>
 		
-		<?php endwhile; ?>
+		<?php $item_index++; endwhile; ?>
 	
 	</ul>
 

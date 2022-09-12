@@ -63,7 +63,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
 				
 				<tr class="tainacan-filefestival-table-item">
 					<?php if ( $has_title_enabled ): ?>
@@ -81,7 +81,7 @@
 							}
 
 						?>
-						<td class="<?php echo $title_class; ?>"><a href="<?php the_permalink(); ?>"><p class="metadata-value"><?php echo get_the_title(); ?></p></a></td>
+						<td class="<?php echo $title_class; ?>"><a href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>"><p class="metadata-value"><?php echo get_the_title(); ?></p></a></td>
 					<?php endif; if ( $is_repository_level && $has_description_enabled ): ?>
 						<td class="metadata-type-core_description"><p class="metadata-value"><?php echo get_the_excerpt(); ?></p></td>
 					<?php endif; ?>
@@ -102,7 +102,7 @@
 					?>
 				</tr>
 			
-			<?php endwhile; ?>
+			<?php $item_index++; endwhile; ?>
 			</tbody>
 		</table>
 	</div>

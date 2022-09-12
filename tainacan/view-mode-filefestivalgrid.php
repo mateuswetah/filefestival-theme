@@ -54,7 +54,7 @@
 		<?php $item_index = 0; while ( have_posts() ) : the_post(); ?>
 			
 			<li class="tainacan-filefestival-grid-item">
-				<a href="<?php the_permalink(); ?>">
+				<a href="<?php echo get_item_link_for_navigation(get_permalink(), $item_index); ?>">
 					<?php if ( has_post_thumbnail() ) : ?>
 						<div class="filefestival-grid-item-thumbnail">
 							<?php the_post_thumbnail( 'large' ); ?>
