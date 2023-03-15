@@ -31,10 +31,10 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information>*:nth-of-type(1n+5) {
+/* .tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information>*:nth-of-type(1n+5) {
     display: none;
     visibility: hidden;
-}
+} */
 .tainacan-item-single-content--information-2 {
     grid-area: info2;
     max-width: 100%;
@@ -43,10 +43,10 @@
     break-inside: avoid;
     max-width: 100%;
 }
-.tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+4) {
+/* .tainacan-item-single-content:not(.is-works-collection):not(.is-participants-collection) .tainacan-item-single-content--information-2>*:nth-of-type(-1n+4) {
     display: none;
     visibility: hidden;
-}
+} */
 
 /* Participants Information Section */
 .tainacan-item-single-content.is-participants-collection>.tainacan-item-thumbnail {
@@ -69,29 +69,29 @@
     column-count: 1 !important;
     max-width: 860px;
 }
-.tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*.metadata-type-core_description,
+/* .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*.metadata-type-core_description,
 .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information>*.metadata-type-textarea {
     display: none;
     visibility: hidden;
-}
-.tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information-2>*:not(.metadata-type-core_description):not(.metadata-type-textarea) {
+} */
+/* .tainacan-item-single-content.is-participants-collection .tainacan-item-single-content--information-2>*:not(.metadata-type-core_description):not(.metadata-type-textarea) {
     display: none;
     visibility: hidden;
-}
+} */
 
 /* Works Information Section */
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information {
     column-count: 2;
     column-gap: 32px;
 }
-.tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
+/* .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information>*:nth-of-type(1n+7) {
     display: none;
     visibility: hidden;
 }
 .tainacan-item-single-content.is-works-collection .tainacan-item-single-content--information-2>*:nth-of-type(-1n+6) {
     display: none;
     visibility: hidden;
-}
+} */
 
 /* In every templated, the first section textareas span */
 .tainacan-item-single-content.is-works-collection .metadata-type-core_title,

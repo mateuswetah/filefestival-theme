@@ -57,7 +57,7 @@
 	width: 1rem;
 }
 
-select#gtranslate_selector {
+select.gt_selector {
 	color: var(--header--color-text);
 	text-transform: lowercase;
 	border: none !important;
@@ -74,7 +74,7 @@ select#gtranslate_selector {
 	padding-right: 1rem;
 	text-align: end;
 }
-.menu-item-gtranslate:hover select#gtranslate_selector {
+.menu-item-gtranslate:hover select.gt_selector {
 	color: var(--header--color-link-hover,var(--header--color-text));
 }
 
@@ -107,7 +107,7 @@ select#gtranslate_selector {
 }
 
 @media screen and (max-width: 481px) {
-	.primary-menu-container select#gtranslate_selector {
+	.primary-menu-container select.gt_selector {
 		font-size: 1.125rem;
 		padding-left: 0;
 	}
@@ -126,7 +126,7 @@ select#gtranslate_selector {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.mobile-subheader select#gtranslate_selector {
+	.mobile-subheader select.gt_selector {
 		height: 3em;
 		margin: auto;
 	}

@@ -104,6 +104,10 @@
         $more_info = ob_get_contents();
         ob_clean();
 
+        // If no link was build, we have nothing to show here.
+        if ( !strpos( $more_info, '<a' ) )
+            $more_info = '';
+
         return $more_info;
     }
     
@@ -118,19 +122,45 @@
             return $before;
         }, 10, 2 );
     }
+
+    /* Get Metadata Sections */
+    $args = array(
+        'hide_name' 					=> true,
+        'empty_metadata_list_message' 	=> '',
+        'before' 						=> '',
+        'after' 						=> '',
+        'before_metadata_list' 			=> '',
+        'after_metadata_list' 			=> '',
+        'metadata_list_args' 			=> array(
+            'metadata__not_in' => !empty($URL_metadata_IDs) ? $URL_metadata_IDs : null,
+            'before_title' => '<h2 class="tainacan-metadatum-label">',
+            'after_title' => '</h2>',
+            'before_value' => '<p class="tainacan-metadatum-value" data-tippy-content>',
+            'after_value' => '</p>',
+            'before' => '<div class="metadata-type-$type" $id>',
+            'after' => '</div>',
+            'display_slug_as_class' => true,
+            'hide_empty' => !$is_works_collection,
+            'empty_value_message' => ' - '
+        )
+    );
+    $Tainacan_Metadata_Sections = \Tainacan\Repositories\Metadata_Sections::get_instance();
+    $metadata_sections = $Tainacan_Metadata_Sections->fetch_by_collection($collection, []);
+    $metadata = [];
     
-    $metadata = tainacan_get_the_metadata( [
-        'metadata__not_in' => !empty($URL_metadata_IDs) ? $URL_metadata_IDs : null,
-        'before_title' => '<h2 class="tainacan-metadatum-label">',
-        'after_title' => '</h2>',
-        'before_value' => '<p class="tainacan-metadatum-value" data-tippy-content>',
-        'after_value' => '</p>',
-        'before' => '<div class="metadata-type-$type" $id>',
-        'after' => '</div>',
-        'display_slug_as_class' => true,
-        'hide_empty' => !$is_works_collection,
-        'empty_value_message' => ' - '
-    ] );
+    // Loop metadata sections to add their content to metadata array
+    $section_index = 0;
+    try {
+        $item = new \Tainacan\entities\Item(get_the_ID());
+        if ( $item instanceof \Tainacan\Entities\Item ) {
+            foreach ( $metadata_sections as $metadata_section_object ) {
+                $metadata[] = $item->get_metadata_section_as_html($metadata_section_object, $args, $section_index);
+                $section_index++;
+            }
+        }
+    } catch(Exception $error) {
+        $metadata = [];
+    }
 
     /* Sets several classes to customize layout via theme */
     $section_classes = 'alignwide tainacan-item-single-content';
@@ -169,23 +199,27 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php echo $metadata; ?>
+                        <?php echo isset($metadata[0]) ? $metadata[0] : ''; ?>
 
+                        <?php if ( $is_participants_collection ) { echo create_more_info(); } ?>
+                    
                     </div>
 
                     <?php if ( !$is_participants_collection ): ?>
                         <div class="tainacan-item-single-content--gallery">
 
                             <?php get_template_part( 'template-parts/single-items-gallery', null, [ 'attachments' => $attachments, 'URL_metadata_html' => $URL_metadata_html ] ); ?>
-                        
+                            
                         </div>
                     <?php endif; ?>
 
                     <div class="tainacan-item-single-content--information-2">
   
-                        <?php echo $metadata; ?>
+                        <?php echo isset($metadata[1]) ? $metadata[1] : ''; ?>
 
-                        <?php if ( !$is_events_collection || !strpos($metadata, 'metadata-slug-logos') ) { echo create_more_info(); } ?>
+                        <?php echo isset($metadata[2]) ? $metadata[2] : ''; ?>
+
+                        <?php if ( !$is_participants_collection && (!$is_events_collection || !strpos(isset($metadata[2]) ? $metadata[2] : (isset($metadata[1]) ? $metadata[1] : (isset($metadata[0]) ? $metadata[0] : '')), 'metadata-slug-logos') ) ) { echo create_more_info(); } ?>
 
                     </div>
 

@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.5.8';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.6.0';
 
 /**
  * Enqueue scripts and styles.
@@ -248,6 +248,9 @@ function filefestival_nav_search($items, $args) {
 }
 add_filter('wp_nav_menu_items', 'filefestival_nav_search', 10, 2);
 
+/**
+ * Adds 'notranslate' class to item metadatum values of titles and relationships
+ */
 add_filter('tainacan-get-item-metadatum-as-html-before-value', function($before, $item_metadatum) {
 	
 	if ( $item_metadatum ) {
