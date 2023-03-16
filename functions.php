@@ -284,6 +284,7 @@ function get_item_link_for_navigation($item_url, $index) {
 }
 
 // Remaining imports
-require get_stylesheet_directory() . '/inc/customizer.php';
-require get_stylesheet_directory() . '/inc/icons.php';
-require get_stylesheet_directory() . '/inc/editor.php';
+require_once get_stylesheet_directory() . '/inc/customizer.php';
+require_once get_stylesheet_directory() . '/inc/icons.php';
+require_once get_stylesheet_directory() . '/inc/editor.php';
+require_once get_stylesheet_directory() . '/inc/hooks.php';
