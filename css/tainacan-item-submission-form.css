@@ -1,0 +1,243 @@
+/* Tainacan item submission block */
+.wp-block-tainacan-item-submission-form {
+	--tainacan-one-column: 0px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-checkbox-search-section .button {
+    background-color: transparent !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-secondary,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-secondary:hover,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-secondary:focus,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:hover,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:focus,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-success,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-success:hover,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-success:focus {
+    border-radius: 0px !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:hover,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:focus {
+    color: var(--tainacan-input-color) !important;
+}
+
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .section-label:empty {
+    display: none !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field.has-collapses-hidden {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control-label {
+    font-size: 0.875em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle {
+	margin-left: -13px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle + div {
+	margin-top: 0.125em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle .label {
+	font-weight: bold;
+}
+
+/* Checkobxes have special style */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-checkbox.checkbox,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .search-control .b-radio.radio {
+	display: flex;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"] + span + .control-label .checkbox-label-text {
+	font-weight: normal;
+	font-size: 0.875rem;
+	--tainacan-input-color: var(--tainacan-secondary);
+	color: var(--tainacan-secondary);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form input[type="checkbox"]:checked + span + .control-label .checkbox-label-text {
+	color: var(--global--color-secondary, #2a2a2a) !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"]:checked + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"]:checked + .check {
+	background-image: url('../images/icons/ICONES_checkbox.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: 16px 16px !important;
+	width: 16px;
+	height: 16px;
+	border: none;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"] + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + .check {
+	width: 16px !important;
+	height: 16px !important;
+	border-radius: 3px;
+	margin-top: -1px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"] + span + .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .checkbox-label-text {
+	line-height: 1.875em !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::after,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .b-checkbox.checkbox input[type="checkbox"]:checked + .check::before {
+	display: none;
+}
+
+/* Radio buttons are a bit larger */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"] + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"] + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"] + .check::before,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"] + .check::before {
+	width: 16px;
+	height: 16px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"]:checked + .check,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"]:checked + .check {
+	border-width: 2px !important;
+	border-color: #676767 !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"] + .check::before,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"] + .check::before {
+	margin-left: calc(-16px * 0.5);
+	margin-bottom: calc(-16px * 0.5);
+	--tainacan-input-color: #676767;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio .control-label,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio .control-label {
+	font-size: .875rem;
+}
+
+.wp-block-tainacan-item-submission-form .help-tooltip {
+    border: 1px solid var(--content--color--link, #676767);
+    background: var(--global--color-background);
+    border-radius: 0;
+    color: var(--content--color--link, #676767);
+    font-size: 0.8125rem;
+}
+.wp-block-tainacan-item-submission-form .help-tooltip::before {
+    display: none;
+}
+
+/* Compound metadata input */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs {
+	padding-left: 0;
+	margin-left: 0px !important;
+	border-left: none;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .add-link {
+	margin-left: 0px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .field {
+	margin-left: 0px;
+}
+
+/* Terms agreement section */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field {
+	border: 1px solid var(--tainacan-input-border-color) !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .terms-agreement-confirmation-section .field .control-label {
+	font-weight: normal;
+	font-size: 0.875rem;
+	line-height: 1.25rem !important;
+	color: var(--content--color--link);
+	padding-left: 1rem;
+}
+
+/* Tabs have a different style */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tabs li a {
+	border: 1px solid var(--tainacan-input-border-color);
+	padding: 0.875em 1.25em;
+	color: #b4b4b4 !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tabs li:not(:last-child) a {
+	border-right: 0px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tabs li.is-active a {
+	color: #676767 !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-tabs .tab-content {
+	padding-top: 0px !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-finder-columns-container {
+	border: 1px solid var(--tainacan-input-border-color);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-tags-container {
+	display: block;
+	border: 1px solid var(--tainacan-input-border-color);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-tags-container > .field {
+	padding: 1rem;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-tags-container .tags {
+	border-radius: 0px;
+	padding: 3px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-tags-container .tags a {
+	text-decoration: none;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items {
+	margin-top: 0px !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item .step-marker {
+	border-radius: 0px;
+	background-color: transparent !important;
+	color: #676767 !important;
+	width: auto !important;
+	border: none;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item .step-marker::before {
+	content: 'Parte';
+	display: block;
+	margin-right: 0.5rem;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item.is-active .step-marker {
+	color: #676767 !important;
+	background-color: transparent !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item::before {
+	height: 0 !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-details .step-title {
+	font-weight: normal;
+	font-size: 12px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-link {
+	padding: 0.5rem 2rem;
+	align-items: flex-start;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(.is-active) .step-link {
+	border-bottom: 1px solid var(--tainacan-input-border-color);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(:first-child) .step-link {
+	border-left: 1px solid var(--tainacan-input-border-color);
+}
+
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input.input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form textarea.textarea:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .textarea:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="color"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="date"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="datetime-local"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="datetime"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="email"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="number"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="month"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="password"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="search"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="tel"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="text"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="time"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="url"].input:not(.is-danger),
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form input[type="week"].input:not(.is-danger) {
+	margin-left: 0px;
+}
+
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section > div {
+	font-style: italic;
+	font-size: 12px;
+	padding-left: 2rem !important;
+	padding-right: 2rem !important;
+}
