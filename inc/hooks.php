@@ -88,8 +88,10 @@ function FILE_register_admin_hook()
 		tainacan_register_admin_hook(
 			'metadatum',
 			'FILE_tainacan_admin_hooks_metadata_contexts',
-			// 'begin-right', //'end-right', // 'begin-left' //'begin-right', 'end-left', 
-			// ['data-primitive-type' => 'string']
+			'end-left',
+			[
+				'attribute' => 'metadata_type', 'value' => 'Tainacan\Metadata_Types\Text'
+			]
 		);
 	}
 }
