@@ -21,7 +21,18 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .button.is-outlined:focus {
     color: var(--tainacan-input-color) !important;
 }
-
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .dropdown-trigger .icon .tainacan-icon-arrowdown::before {
+	content: 'showmore';
+	margin-top: -3px;
+	font-size: 0.875rem;
+	color: var(--header--color-text, #777777);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .control .select:not(.is-loading)::after {
+	content: 'showmore' !important;
+	margin-top: -6px !important;
+	font-size: 0.875em;
+	color: var(--header--color-text, #777777);
+}
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .section-label:empty {
     display: none !important;
 }
@@ -40,6 +51,13 @@
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .collapse-handle .label {
 	font-weight: bold;
+	margin-left: 13px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .metadatum-description-help-info {
+	
+	margin-bottom: 1em;
+	line-height: 1.25em;
+	color: #676767;
 }
 
 /* Checkobxes have special style */
@@ -125,6 +143,13 @@
 	padding-left: 0;
 	margin-left: 0px !important;
 	border-left: none;
+	display: flex;
+	flex-direction: column-reverse;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .child-metadata-inputs .multiple-inputs hr {
+	border-style: none;
+	margin-left: 0px;
+	width: 100%;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .add-link {
 	margin-left: 0px;
@@ -134,12 +159,15 @@
 }
 
 /* Terms agreement section */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section {
+	margin-bottom: .25rem;
+}
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .terms-agreement-confirmation-section .field {
 	border: 1px solid var(--tainacan-input-border-color) !important;
 }
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .terms-agreement-confirmation-section .field .control-label {
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .terms-agreement-confirmation-section .field .b-checkbox.checkbox input[type="checkbox"] + span + .control-label {
 	font-weight: normal;
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 	line-height: 1.25rem !important;
 	color: var(--content--color--link);
 	padding-left: 1rem;
@@ -179,33 +207,23 @@
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items {
 	margin-top: 0px !important;
+	align-items: stretch;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item .step-marker {
-	border-radius: 0px;
-	background-color: transparent !important;
-	color: #676767 !important;
-	width: auto !important;
-	border: none;
-}
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item .step-marker::before {
-	content: 'Parte';
-	display: block;
-	margin-right: 0.5rem;
-}
-.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-item.is-active .step-marker {
-	color: #676767 !important;
-	background-color: transparent !important;
+	display: none !important;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item::before {
 	height: 0 !important;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-details .step-title {
-	font-weight: normal;
-	font-size: 12px;
+	font-size: 13px;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-link {
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 1.6rem;
 	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: row;
+	height: 100%;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(.is-active) .step-link {
 	border-bottom: 1px solid var(--tainacan-input-border-color);
@@ -240,4 +258,61 @@
 	font-size: 12px;
 	padding-left: 2rem !important;
 	padding-right: 2rem !important;
+}
+
+/* Add Icons */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-icon-add::before {
+	background-image: url('../images/icons/ICONES_add.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: 16px 16px !important;
+	width: 16px;
+	height: 16px;
+	border: none;
+	color: transparent;
+	margin-top: -3px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-icon-remove::before {
+	background-image: url('../images/icons/ICONES_remove.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: 16px 16px !important;
+	width: 16px;
+	height: 16px;
+	border: none;
+	color: transparent;
+	margin-top: -3px;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .multiple-inputs .add-link {
+	margin-top: 4px;
+}
+
+/* Arrow icons in the next and previous buttons */
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--next::after {
+	content: '';
+	display: inline-block;
+	background-image: url('../images/icons/ICONES_arrow-right.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: cover;
+	height: 1.5em;
+	width: 1.5em;
+	margin-bottom: -0.35em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--next:hover::after {
+	filter: invert(1);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--previous::before {
+	content: '';
+	display: inline-block;
+	background-image: url('../images/icons/ICONES_arrow-left.svg') !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: cover;
+	height: 1.5em;
+	width: 1.5em;
+	margin-bottom: -0.35em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--previous:hover::before {
+	filter: invert(1);
 }

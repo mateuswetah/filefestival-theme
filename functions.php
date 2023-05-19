@@ -7,7 +7,7 @@
  * @package filefestival
  */
 
- CONST FILEFESTIVAL_THEME_VERSION = '0.6.0';
+ CONST FILEFESTIVAL_THEME_VERSION = '0.6.4';
 
 /**
  * Enqueue scripts and styles.
