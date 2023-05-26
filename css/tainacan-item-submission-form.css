@@ -125,6 +125,13 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio .control-label,
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio .control-label {
 	font-size: .875rem;
+	transition: font-weight 0.2s ease;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-checkbox.checkbox input[type="checkbox"]:checked + span + .control-label .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-checkbox.checkbox input[type="checkbox"]:checked + span + .control-label .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .field .b-radio.radio input[type="radio"]:checked + span + .control-label .checkbox-label-text,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .tainacan-form .control .b-radio.radio input[type="radio"]:checked + span + .control-label .checkbox-label-text {
+	font-weight: bold;
 }
 
 .wp-block-tainacan-item-submission-form .help-tooltip {
@@ -149,6 +156,7 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .child-metadata-inputs .multiple-inputs hr {
 	border-style: none;
 	margin-left: 0px;
+	margin-bottom: 4px;
 	width: 100%;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .add-link {
@@ -217,6 +225,7 @@
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-details .step-title {
 	font-size: 13px;
+	line-height: 1em;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item .step-link {
 	padding: 0.5rem 1.6rem;
@@ -225,11 +234,24 @@
 	flex-direction: row;
 	height: 100%;
 }
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(.is-active) .step-title {
+	color: var(--tainacan-secondary) !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item.is-active .step-title {
+	color: var(--tainacan-label-color) !important;
+}
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(.is-active) .step-link {
 	border-bottom: 1px solid var(--tainacan-input-border-color);
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .b-steps .steps .step-items .step-item:not(:first-child) .step-link {
 	border-left: 1px solid var(--tainacan-input-border-color);
+}
+
+@media screen and (max-width: 768px) {
+	.b-steps:not(.is-vertical) .steps.mobile-compact .step-items .step-item .step-details {
+		display: flex !important;
+		min-width: 140px;
+	}
 }
 
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form input.input:not(.is-danger),
@@ -284,9 +306,19 @@
 	margin-top: -3px;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .multiple-inputs .add-link {
-	margin-top: 4px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: block;
 }
-
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .field {
+	padding-bottom: 0px !important;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .is-inline-block.add-link {
+	padding-top: 0.75em;
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form .multiple-inputs {
+	margin-bottom: 0;
+}
 /* Arrow icons in the next and previous buttons */
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--next::after {
 	content: '';
@@ -315,4 +347,10 @@
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--previous:hover::before {
 	filter: invert(1);
+}
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--previous,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--next,
+.wp-block-tainacan-item-submission-form .tainacan-item-submission-form #tainacan-item-submission-block-button--submit {
+	border: 2px solid var(--global--color-primary);
+	min-height: 3.125em;
 }
