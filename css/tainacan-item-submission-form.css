@@ -156,7 +156,8 @@
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .child-metadata-inputs .multiple-inputs hr {
 	border-style: none;
 	margin-left: 0px;
-	margin-bottom: 4px;
+	margin-bottom: 6px;
+	margin-top: 24px;
 	width: 100%;
 }
 .wp-block-tainacan-item-submission-form .tainacan-item-submission-form .field .child-metadata-inputs .add-link {
