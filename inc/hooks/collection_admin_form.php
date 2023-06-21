@@ -48,65 +48,84 @@ function FILE_submission_notify_tainacan_admin_hooks_metadata_contexts()
 ?>
 	<div >
 		<style>
-			.file_metadata_to_notify_display_nome {
+			#filefestival-submission-notify-section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: -14px;
+				border-bottom: 1px solid var(--tainacan-secondary);
+				cursor: pointer;
+			}
+			#filefestival_metadata_to_notify_edit {
+				margin-top: 2rem;
+			}
+			#filefestival-submission-notify-section-header .collapse-all__text {
+				font-size: 0.875rem;
+			}
+			#filefestival-submission-notify-section-header.is-active .collapse-all__text {
+				font-size: 0;
+			}
+			#filefestival-submission-notify-section-header.is-active .collapse-all__text::before {
+				content: '<?php _e('Esconder opções avançadas', 'filefestival'); ?>';
+				font-size: 0.875rem;
+			}
+			#filefestival-submission-notify-section-header.is-active .icon {
+				rotate: 90deg;
+			}
+			#filefestival-submission-notify-section-header:not(.is-active)+#filefestival_metadata_to_notify_edit {
 				display: none;
 			}
-			@keyframes file_metadata_to_notifyFadeInAnimation {
-				from { opacity: 0; }
-				to { opacity: 1; }
-			}
-			.file_metadata_to_notify_animacao_fade {
-				animation: file_metadata_to_notifyFadeInAnimation 1s ease-in-out;
-			}
 		</style>
-		<div class="field tainacan-metadatum--section-header">
-				<h4><?php _e('Opções do FILE', 'filefestival'); ?>
-				<button type="button" class="button is-success" onclick="(
-						function() {
-							const selectElement = document.getElementById('file_metadata_to_notify_submission_metaid');
-							if(!selectElement || selectElement.childElementCount > 0) return;
+		<div 
+				id="filefestival-submission-notify-section-header"
+				class="field tainacan-metadatum--section-header"
+				onclick="(
+					function() {
+						const collapseElement = document.getElementById('filefestival-submission-notify-section-header');
+						if (collapseElement) collapseElement.classList.toggle('is-active');
 
-							const xhr = new XMLHttpRequest();
-							const match = location.hash.match(/\/(\d+)\//);
-							const collectionId = match ? match[1] : null;
-							const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false';
+						const selectElement = document.getElementById('file_metadata_to_notify_submission_metaid');
+						if (!selectElement || selectElement.childElementCount > 0) return;
 
-							xhr.open('GET', url, true);
-							xhr.onload = function() {
-								if (xhr.status === 200) {
-									const response = JSON.parse(xhr.responseText);
-									response.forEach(element => {
-										let optionElement = document.createElement('option');
-										optionElement.value = element.id;  // Define o valor do <option>
-										optionElement.text = element.name;  // Define o texto visível do <option>
-										// Adiciona o elemento <option> ao elemento <select>
-										selectElement.appendChild(optionElement);
-									})
-									const editPanel = document.getElementById('file_metadata_to_notify_edit');
-									// editPanel.classList.remove('file_metadata_to_notify_display_nome');
-									editPanel.style.display = 'block';
-									editPanel.classList.add('file_metadata_to_notify_animacao_fade');
-								} else {
-									console.error('Erro na requisição para recuperar lista de metadados da coleção. Código de status:', xhr.status);
-								}
-							};
+						const xhr = new XMLHttpRequest();
+						const match = location.hash.match(/\/(\d+)\//);
+						const collectionId = match ? match[1] : null;
+						const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false';
 
-							xhr.onerror = function() {
-								console.error('Erro na requisição para recuperar lista de metadados da coleção. Verifique a conexão com a internet.');
-							};
-							xhr.send();
-						}).call(this)"
-					>
-					<?php _e('exibir', 'filefestival'); ?>
-				</button> 
-				</h4>
-			<hr>
+						xhr.open('GET', url, true);
+						xhr.onload = function() {
+							if (xhr.status === 200) {
+								const response = JSON.parse(xhr.responseText);
+								response.forEach(element => {
+									let optionElement = document.createElement('option');
+									optionElement.value = element.id;  // Define o valor do <option>
+									optionElement.text = element.name;  // Define o texto visível do <option>
+									// Adiciona o elemento <option> ao elemento <select>
+									selectElement.appendChild(optionElement);
+								})
+								
+							} else {
+								console.error('Erro na requisição para recuperar lista de metadados da coleção. Código de status:', xhr.status);
+							}
+						};
+
+						xhr.onerror = function() {
+							console.error('Erro na requisição para recuperar lista de metadados da coleção. Verifique a conexão com a internet.');
+						};
+						xhr.send();
+					}).call(this)"
+			>
+			<h4><?php _e('Tema FILE', 'filefestival'); ?></h4>
+			<button type="button" class="link-style collapse-all" >
+				<span class="icon"><i class="has-text-secondary tainacan-icon tainacan-icon-1-125em tainacan-icon-arrowright"></i></span>
+				<span class="collapse-all__text"><?php _e('Exibir opções avançadas do tema', 'filefestival'); ?></span>
+			</button> 
 		</div>
-		<div class="file_metadata_to_notify_display_nome" id="file_metadata_to_notify_edit">
+		<div class="file_metadata_to_notify_display_none" id="filefestival_metadata_to_notify_edit">
 			<div class="field">
-				<label class="label"><?php _e('Notificar submissão por email?', 'filefestival'); ?></label>
+				<label class="label"><?php _e('Notificar submissão de itens por email?', 'filefestival'); ?></label>
 				<div class="control is-expanded">
-					<span class="select is-fullwidth is-empty">
+					<span class="select is-fullwidth">
 						<select name="file_metadata_to_notify_submission">
 							<option value="no"><?php _e('Não', 'filefestival'); ?></option>
 							<option value="yes"><?php _e('Sim', 'filefestival'); ?></option>
@@ -115,58 +134,64 @@ function FILE_submission_notify_tainacan_admin_hooks_metadata_contexts()
 				</div>
 			</div>
 			<div class="field" onload="alert('alert')">
-				<label class="label"><?php _e('Metadado utilizado para notificação:', 'filefestival'); ?></label>
+				<label class="label"><?php _e('Metadado que terá o email a ser notificado:', 'filefestival'); ?></label>
 				<div class="control is-expanded" >
-					<select id="file_metadata_to_notify_submission_metaid" name="file_metadata_to_notify_submission_metaid" onFocus="(
-						function() {
-							const selectElement = document.getElementById('file_metadata_to_notify_submission_metaid');
-							if(!selectElement || selectElement.childElementCount > 0) return;
+					<span class="select is-fullwidth">
+						<select
+								id="file_metadata_to_notify_submission_metaid"
+								name="file_metadata_to_notify_submission_metaid"
+								onfocus="(
+							function() {
+								const selectElement = document.getElementById('file_metadata_to_notify_submission_metaid');
+								if(!selectElement || selectElement.childElementCount > 0) return;
 
-							const xhr = new XMLHttpRequest();
-							const match = location.hash.match(/\/(\d+)\//);
-							const collectionId = match ? match[1] : null;
-							const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false';
+								const xhr = new XMLHttpRequest();
+								const match = location.hash.match(/\/(\d+)\//);
+								const collectionId = match ? match[1] : null;
+								const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false';
 
-							xhr.open('GET', url, true);
-							xhr.onload = function() {
-								if (xhr.status === 200) {
-									const response = JSON.parse(xhr.responseText);
-									response.forEach(element => {
-										let optionElement = document.createElement('option');
-										optionElement.value = element.id;  // Define o valor do <option>
-										optionElement.text = element.name;  // Define o texto visível do <option>
-										// Adiciona o elemento <option> ao elemento <select>
-										selectElement.appendChild(optionElement);
-									})
-								} else {
-									console.error('Erro na requisição para recuperar lista de metadados da coleção. Código de status:', xhr.status);
-								}
-							};
+								xhr.open('GET', url, true);
+								xhr.onload = function() {
+									if (xhr.status === 200) {
+										const response = JSON.parse(xhr.responseText);
+										response.forEach(element => {
+											let optionElement = document.createElement('option');
+											optionElement.value = element.id;  // Define o valor do <option>
+											optionElement.text = element.name;  // Define o texto visível do <option>
+											// Adiciona o elemento <option> ao elemento <select>
+											selectElement.appendChild(optionElement);
+										})
+									} else {
+										console.error('Erro na requisição para recuperar lista de metadados da coleção. Código de status:', xhr.status);
+									}
+								};
 
-							xhr.onerror = function() {
-								console.error('Erro na requisição para recuperar lista de metadados da coleção. Verifique a conexão com a internet.');
-							};
-							xhr.send();
-						}).call(this)"
-					></select>
+								xhr.onerror = function() {
+									console.error('Erro na requisição para recuperar lista de metadados da coleção. Verifique a conexão com a internet.');
+								};
+								xhr.send();
+							}).call(this)"
+					>
+					</select>
+					</span>
 				</div>
 			</div>
 
 			<div class="field">
 				<label class="label">
-					<?php _e('Título da notificação', 'filefestival'); ?>
+					<?php _e('Título do email de notificação', 'filefestival'); ?>
 				</label>
 				<div class="control is-expanded">
-					<input type="text" id="file_metadata_to_notify_submission_subject" name="file_metadata_to_notify_submission_subject" ></input>
+					<input class="input" type="text" id="file_metadata_to_notify_submission_subject" name="file_metadata_to_notify_submission_subject" ></input>
 				</div>
 			</div>
 			
 			<div class="field">
 				<label class="label">
-					<?php _e('Mensagem da notificação', 'filefestival'); ?>
+					<?php _e('Corpo do email de notificação', 'filefestival'); ?>
 				</label>
 				<div class="control is-expanded">
-					<textarea id="file_metadata_to_notify_submission_message" name="file_metadata_to_notify_submission_message" rows="3" class="textarea"></textarea>
+					<textarea class="input" id="file_metadata_to_notify_submission_message" name="file_metadata_to_notify_submission_message" rows="3" class="textarea"></textarea>
 				</div>
 			</div>
 		</div>
