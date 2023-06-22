@@ -90,9 +90,13 @@ function FILE_submission_notify_tainacan_admin_hooks_metadata_contexts()
 						const xhr = new XMLHttpRequest();
 						const match = location.hash.match(/\/(\d+)\//);
 						const collectionId = match ? match[1] : null;
-						const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false';
-
+						const url = tainacan_plugin.tainacan_api_url + '/collection/' + collectionId + '/metadata?include_disabled=false&nopaging=1&metaquery[0][key]=metadata_type&metaquery[0][value][0]=Tainacan\\Metadata_Types\\Text';
+						
 						xhr.open('GET', url, true);
+						
+						if ( tainacan_plugin.nonce )
+							xhr.setRequestHeader('X-WP-Nonce', tainacan_plugin.nonce);
+
 						xhr.onload = function() {
 							if (xhr.status === 200) {
 								const response = JSON.parse(xhr.responseText);
